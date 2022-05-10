@@ -12,20 +12,58 @@ body {
   color: white;
   background-color: rgb(223, 46, 2);
   border-radius: 30px;
-  font-size: 2rem;
   border: none;
-  padding: 1rem;
-  width: 200px;
   margin: 0.5rem;
+  min-width: 200px;
 }
 
-.container h1 p {
+.container .text p {
   color: rgb(39, 54, 119);
   padding: 0;
   margin: 0;
   margin-top: -0.5rem;
 }
+.container .text {
+  padding-left: 10vw;
+  padding-top: 2vw;
+  font-size: 3rem;
+  font-weight: 600;
+}
 
-.container h4 {
+.container .first-header {
   color: rgb(223, 46, 2);
+  padding-left: 10vw;
+  padding-top: 10vh;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.container .logo {
+  position: relative;
+  height: auto;
+  width: 25%;
+  margin-top: 5%;
+  margin-left: 8%;
+  margin-right: 5%;
+}
+
+.container .login {
+  position: absolute;
+  font-size: calc(1vh + 1.5vw);
+  padding: 1rem;
+  margin-top: 8%;
+  right: 8%;
+}
+
+.container .begin {
+  position: absolute;
+  left: 9vw;
+  margin-top: 8vh;
+  padding: 1.5vw;
+  width: 20.2%;
+  font-size: calc(2vh + 1.5vw);
+}
+
+.container button:hover {
+  cursor: pointer;
 }
