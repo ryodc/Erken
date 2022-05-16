@@ -67,3 +67,37 @@ body {
 .container button:hover {
   cursor: pointer;
 }
+
+.container .images .image1 {
+  position: absolute;
+  height: auto;
+  width: 25%;
+  left: 45vw;
+  bottom: 45vh;
+  z-index: 1;
+}
+
+.container .images .image2 {
+  position: absolute;
+  height: auto;
+  width: 20%;
+  left: 58vw;
+  bottom: 33vh;
+  z-index: 2;
+}
+
+.container .images .image3 {
+  position: absolute;
+  height: auto;
+  width: 16%;
+  left: 48vw;
+  bottom: 27vh;
+  z-index: 3;
+}
+
+.container .images img {
+  border-style: solid;
+  border-color: #ffb619;
+  border-width: 5px;
+  border-radius: 10%;
+}
