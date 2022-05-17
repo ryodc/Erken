@@ -1,7 +1,9 @@
 import React from "react";
 import "./profile.css";
 import Logo from "../Images/ErkenLogoScalable.png";
+/*
 import LockIcon from "@mui/icons-material/Lock";
+*/
 
 const Profile = () => {
   return (
@@ -16,7 +18,7 @@ const Profile = () => {
           />
 
           <div className="profileContainer">
-            <h2>Profiel</h2> <LockIcon id="Size2" />
+            <h2>Profiel</h2> 
             <div className="ProfileDataNamesContainer">
               <p className="ProfileDataNames">Naam</p>
               <p className="ProfileDataNames">Email</p>
