@@ -1,0 +1,57 @@
+.logo{
+    width: 15%;
+    padding: 1%;
+}
+
+.profile{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 5%;
+}
+
+.profileImage{
+    width: 15%;
+    border-radius: 10%;
+    position: absolute;
+    top: 20%;
+}
+
+.profileContainer{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    left: 25%;
+    position: absolute;
+    top: 20%;
+}
+
+.ProfileDataNamesContainer{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 50%;
+    top: 5%;
+    margin-bottom: 2%;
+}
+
+.ProfileDataNames{
+    display: flex;
+    flex-direction: column;
+    border-radius: 9%;
+}
+
+.profileData{
+    position: absolute;
+    left: 45%;
+    width: 50%;
+    top: 10%;
+}
+
+.dataBoxes{
+    width: 50%;
+    background-color: rgb(237, 237, 237);
+    margin: 4.75%;
+    padding: 1%;
+}
