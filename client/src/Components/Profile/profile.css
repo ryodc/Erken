@@ -3,6 +3,17 @@
     padding: 1%;
 }
 
+.Searchbar{
+    left: 25%;
+    top: 5%;
+    width: 30%;
+    padding: 1%;
+    position: absolute;
+    border-radius: 30px;
+    font-size: 110%;
+
+}
+
 .profile{
     display: flex;
     flex-direction: column;
@@ -24,22 +35,13 @@
     width: 50%;
     left: 25%;
     position: absolute;
-    top: 20%;
+    top: 17%;
 }
 
 .ProfileDataNamesContainer{
     display: flex;
     flex-direction: column;
-    width: 50%;
-    height: 50%;
     top: 5%;
-    margin-bottom: 2%;
-}
-
-.ProfileDataNames{
-    display: flex;
-    flex-direction: column;
-    border-radius: 9%;
 }
 
 .profileData{
@@ -50,8 +52,18 @@
 }
 
 .dataBoxes{
-    width: 50%;
+    width: 80%;
     background-color: rgb(237, 237, 237);
-    margin: 4.75%;
+    margin: 6.4%;
     padding: 1%;
+    border-radius: 10px;
+}
+
+
+.EditdataBoxes{
+    width: 80%;
+    background-color: rgb(237, 237, 237);
+    margin: 3.6%;
+    padding: 1%;
+    border-radius: 10px;
 }
