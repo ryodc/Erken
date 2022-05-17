@@ -13,7 +13,7 @@ const router = express.Router();
 //   res.send("hello user, you are logged in")
 // })
 
-// router.get("/checkuser/:id", verifyUser, (req,res,next)=>{
+// router.get("/checkCompany/:id", checkCompany, (req,res,next)=>{
 //   res.send("hello user, you are logged in and you can delete your account")
 // })
 
