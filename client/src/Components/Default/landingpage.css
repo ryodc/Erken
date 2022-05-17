@@ -66,6 +66,7 @@ body {
 
 .container button:hover {
   cursor: pointer;
+  background-color: rgb(255, 77, 33);
 }
 
 .container .images .image1 {
