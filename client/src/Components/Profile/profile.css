@@ -67,3 +67,13 @@
     padding: 1%;
     border-radius: 10px;
 }
+
+.EditProfile{
+    position: absolute;
+    left: 65%;
+    width: 5%;
+    top: 20%;
+    border:none;
+    background-color: transparent;
+    cursor: pointer;
+}
