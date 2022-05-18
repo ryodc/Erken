@@ -1,0 +1,10 @@
+.Searchbar{
+    left: 25%;
+    top: 5%;
+    width: 30%;
+    padding: 1%;
+    position: absolute;
+    border-radius: 30px;
+    font-size: 110%;
+
+}
