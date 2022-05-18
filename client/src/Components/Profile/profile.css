@@ -70,10 +70,11 @@
 
 .EditProfile{
     position: absolute;
+    cursor: pointer;
     left: 65%;
     width: 5%;
     top: 20%;
     border:none;
     background-color: transparent;
-    cursor: pointer;
+    z-index: 1;
 }
