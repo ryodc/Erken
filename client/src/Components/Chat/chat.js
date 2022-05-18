@@ -4,7 +4,7 @@ import "./chat.css";
 const Chat = () => {
     return (
         <div class="chatHead">
-            <h1>Chat</h1>
+            <h1></h1>
         </div>
     )
 }
