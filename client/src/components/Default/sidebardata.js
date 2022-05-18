@@ -10,7 +10,7 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: "Agenda",
+    title: "Vacatures",
     // icon: <EventIcon />,
     path: "/Agenda",
     cName: 'nav-text'
