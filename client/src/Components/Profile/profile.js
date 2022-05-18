@@ -1,9 +1,9 @@
 import React from "react";
 import "./profile.css";
 import Logo from "../Images/ErkenLogoScalable.png";
-/*
+
 import LockIcon from "@mui/icons-material/Lock";
-*/
+
 
 const Profile = () => {
   return (
@@ -18,7 +18,7 @@ const Profile = () => {
           />
 
             <input className="Searchbar" placeholder="Zoeken"></input>
-            <button className="EditProfile" onClick={localStorage.setItem("Edit", true)}> Edit </button>
+            <button className="EditProfile" onClick={localStorage.setItem("Edit", true)}><LockIcon/></button>
 
             <div className="profileContainer">
               <h2>Profiel</h2>
