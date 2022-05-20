@@ -7,7 +7,7 @@ import EditProfile from "./Components/Profile/editprofile.js";
 
 
 const App = () => {
-  return <Feed />;
+  return <Profile />;
 };
 
 export default App;

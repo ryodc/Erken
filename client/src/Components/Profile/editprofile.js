@@ -2,9 +2,18 @@ import React from "react";
 import "./profile.css";
 import Logo from "../Images/ErkenLogoScalable.png";
 import LockIcon from "@mui/icons-material/Lock";
+import SearchIcon from "@mui/icons-material/Search";
 
+import { useState } from "react";
 
-const EditProfile = () => {
+export const EditProfile = ({ showShowEvent, setShowEvent }) => {
+
+  const [showEditProfile, setEditProfile] = useState(false);
+
+  const openEditProfile = () => {
+    setEditProfile((prev) => !prev);
+  };
+
   return (
     <div className="profileHead">
       <img className="logo" src={Logo} alt="Logo"></img>
@@ -16,8 +25,9 @@ const EditProfile = () => {
             alt="profile"
           />
 
-            <input className="Searchbar" placeholder="Zoeken"></input>
-            <button className="EditProfile" onClick={localStorage.setItem("Edit", true)}> <LockIcon/> </button>
+
+          <EditProfile showEditProfile={showEditProfile} setEditProfile={setEditProfile} />
+          <button className="EditProfile" onClick={openEditProfile}><LockIcon/></button>
 
 
               <div className="profileContainer">
@@ -50,4 +60,3 @@ const EditProfile = () => {
     </div>
   );
 };
-export default EditProfile;
