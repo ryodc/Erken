@@ -3,15 +3,26 @@
     padding: 1%;
 }
 
-.Searchbar{
-    left: 25%;
+.SearchBarContainer{
+    display:flex;
+    flex-direction: row;
+    left: 24%;
     top: 5%;
-    width: 30%;
+    width: 45%;
     padding: 1%;
     position: absolute;
     border-radius: 30px;
     font-size: 110%;
+    flex: 1;
+}
 
+.SearchButton {
+    z-index: 1;
+    cursor: pointer;
+}
+.Searchbar{
+    flex-grow:2;
+    border: none;
 }
 
 .profile{
@@ -28,6 +39,18 @@
     position: absolute;
     top: 20%;
 }
+.EditImage{
+    cursor: pointer;
+    border-radius: none !important;
+    position: absolute;
+    background: transparent;
+    left: 17.5%;
+    top: 20%;
+    color: #fff;
+    border: none;
+    border-width: 0; 
+    border: 0;
+}
 
 .profileContainer{
     display: flex;
@@ -42,13 +65,14 @@
     display: flex;
     flex-direction: column;
     top: 5%;
+    margin-bottom: 4.5%;
 }
 
 .profileData{
     position: absolute;
     left: 45%;
     width: 50%;
-    top: 10%;
+    top: 9%;
 }
 
 .dataBoxes{
@@ -76,5 +100,19 @@
     top: 20%;
     border:none;
     background-color: transparent;
-    z-index: 1;
 }
+
+.closebutton {
+    width: 10%;
+    height: 60%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    border: none;
+    background-color: #4450a7;
+    color: white;
+    border-radius: 888px;
+    font-size: 150%;
+    cursor: pointer;
+    align-items: center;
+    margin-left: 35%;
+  }
