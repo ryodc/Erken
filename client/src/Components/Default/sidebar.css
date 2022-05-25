@@ -46,7 +46,7 @@
   }
   
   .SidebarList #active {
-    background-color: grey;
+    background-color: lightgrey;
   }
   
   .Logo {
@@ -82,7 +82,7 @@
   
   .nav-text :hover {
     cursor: pointer;
-    background-color: grey;
+    background-color: lightgrey;
   }
   
   span {
