@@ -1,13 +1,16 @@
 import "./App.css";
-import Landingpage from "./Components/Default/landingpage.js";
+import Landingpage from "./components/Default/landingpage.js";
+import Sidebar from "./components/Default/sidebar.js";
+import Navigation from "./components/Navbar/navbar";
 // import React from "react";
-import Feed from "./Components/Feed/feed.js";
-import Profile from "./Components/Profile/profile.js";
-import EditProfile from "./Components/Profile/editprofile.js";
+/*
+import Feed from "./Feed/feed";
+*/
+//import Profile from "./components/Profile/profile.js";
 
 
 const App = () => {
-  return <Profile />;
+  return <Navigation />;
 };
 
 export default App;

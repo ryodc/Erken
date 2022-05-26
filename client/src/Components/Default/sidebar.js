@@ -1,26 +1,44 @@
 import React from "react";
-import "./sidebar.css";
+import "../Default/sidebar.css";
+import { SidebarData } from "../Default/sidebardata";
+import { Link } from "react-router-dom";
+import logo from "../Images/ErkenLogoScalable.png";
+import { BrowserRouter } from "react-router-dom";
 
-const Sidebar = () => {
-    return (
-        <div className="sidebar">
-        <div className="sidebarHead">
-            <h1>Sidebar</h1>
+function Sidebar() {
+
+  return (
+    <BrowserRouter> 
+      <div>
+        <div className="Sidebar">
+          <div className="Header">
+            <img src={logo} alt="Logo" className="Logo" />
+          </div>
+          <ul className="SidebarList">
+            {SidebarData.map((val, key) => {
+              return (
+                <li
+                  key={key}
+                  className={val.cName}
+                  id={window.location.pathname === val.path ? "active" : ""}
+                  onClick={() => {
+                    window.location.pathname = val.path;
+                  }}
+                >
+                  <Link to={val.path}>
+                    <div id="icon">{val.icon}</div>
+                    <span>{val.title}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <button className="Button2">
+          </button>
         </div>
-        <div className="sidebarBody">
-            <div className="sidebarBodyItem">
-            <h2>Feed</h2>
-            </div>
-            <div className="sidebarBodyItem">
-            <h2>Agenda</h2>
-            </div>
-            <div className="sidebarBodyItem">
-            <h2>Chat</h2>
-            </div>
-            <div className="sidebarBodyItem">
-            <h2>Profile</h2>
-            </div>
-        </div>
-        </div>
-    );
+      </div>
+    </BrowserRouter>
+  );
 }
+
+export default Sidebar;
