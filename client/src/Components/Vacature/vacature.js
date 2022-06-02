@@ -16,19 +16,30 @@ const Vacature = () => {
       <div>
             <input className="Searchbar" placeholder="Zoeken"></input>
       </div>
+    <div className="Vacature">
       <div className="VacatureContainer">
         <div className="VacaturePost">
-          <div><h1>Bedrijf</h1></div>
-          <div><h1>Functie</h1></div>
-          <div><EuroIcon></EuroIcon>Salaris</div>
-          <div><LocationOnIcon></LocationOnIcon>Plaats</div>
-          <div><AccessTimeIcon></AccessTimeIcon>Dienstverband</div>
-          <div><CalendarMonthIcon></CalendarMonthIcon>Datum</div>
+          <div className= "Header">
+            <h1>Bedrijf</h1>
+            <h2>Functie</h2>
+          </div>
+          <div className="VacatureInfo">
+            <EuroIcon></EuroIcon>Salaris
+            <LocationOnIcon></LocationOnIcon>Plaats
+            <AccessTimeIcon></AccessTimeIcon>Dienstverband
+            <CalendarMonthIcon></CalendarMonthIcon>Datum
+          </div>
         </div>
-        <div className="VacatureFilter">
-        <Checkbox></Checkbox>
+        <div className="VacaturePost">
         </div>
       </div>
+      <div className="VacatureFilter">
+        <h2>Vacaturefilter</h2>
+        <div><Checkbox></Checkbox>In Afwachting</div>
+        <div><Checkbox></Checkbox>Bericht Ontvangen</div>
+        <div><Checkbox></Checkbox></div>
+      </div>
+    </div>
     </div>
   );
 };

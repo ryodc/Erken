@@ -16,7 +16,7 @@ function Navigation() {
       <Router>
         <Sidebar />
         <Switch>
-          <Route path="/Feed" exact component={Feed} />
+          <Route path="/" exact component={Feed} />
           <Route path="/Vacature" exact component={Vacature} />
           <Route path="/Chat" component={Chat} />
           <Route path="/Profile" component={Profile} />
