@@ -1,17 +1,51 @@
 import React from "react";
 import "./feed.css";
+import SearchIcon from "@mui/icons-material/Search";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import EuroIcon from "@mui/icons-material/Euro";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
-const Feed  = () => {
-    return (
-        <div class="feedHead">
-            <h1>Feed</h1>
-            <div class="feedBody">
-                <div class="feedBodyItem">
-                    <h2>Feed</h2>
-                </div>
+const Feed = () => {
+  return (
+    <div className="feed-container">
+      <div className="feed-header">
+        <div className="feed-header-searchdiv">
+          <SearchIcon></SearchIcon>
+          <input className="feed-searchbar" placeholder="Zoeken"></input>
+          {/* <ArrowForwardIcon></ArrowForwardIcon> */}
         </div>
+      </div>
+      <div className="feed-body">
+        <div className="feed-vacature">
+          <div className="feed-vacature-function">
+            <h2>Fulltime vulploegmedewerker</h2>
+          </div>
+          <div className="feed-vacature-workplace">
+            <h4>Lidl</h4>
+          </div>
+          <div className="feed-vacature-div-icons">
+            <div className="feed-vacature-icons">
+              <EuroIcon></EuroIcon>Salaris
+            </div>
+            <div className="feed-vacature-icons">
+              <LocationOnIcon></LocationOnIcon>Plaats
+            </div>
+            <div className="feed-vacature-icons">
+              <AccessTimeIcon></AccessTimeIcon>Dienstverband
+            </div>
+            <div className="feed-vacature-icons">
+              <CalendarMonthIcon></CalendarMonthIcon>Datum
+            </div>
+          </div>
+          <div className="feed-vacature-info">
+            <h4>Klik voor meer informatie</h4>
+          </div>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
 export default Feed;
