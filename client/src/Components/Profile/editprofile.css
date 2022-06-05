@@ -54,10 +54,10 @@
 }
 
 .Backbutton{
-    display: flex;
     position: absolute;
     cursor: pointer;
-    left: 66%;
+    left: 65%;
+    width: 5%;
     top: 20%;
     border: none;
     background-color: white;
@@ -75,4 +75,10 @@
     background-color: white;
     padding: 0.5%;
     z-index: 7;
+}
+
+.ProfileDataNamesContainer{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4.1%;
 }
