@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./feed.css";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -8,8 +8,15 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import IconButton from "@mui/material/IconButton";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
+import StarIcon from "@mui/icons-material/Star";
 
 const Feed = () => {
+  const [state, setState] = useState(false);
+
+  const handleClick = () => {
+    setState(!state);
+  };
+
   return (
     <div className="feed-container">
       <div className="feed-header">
@@ -29,8 +36,12 @@ const Feed = () => {
             <div className="feed-vacature-function">
               <h2>Fulltime vulploegmedewerker</h2>
               <div className="feed-vacature-icon">
-                <IconButton>
-                  <StarBorderIcon />
+                <IconButton onClick={handleClick}>
+                  {!state ? (
+                    <StarBorderIcon sx={{ color: "darkorange" }} />
+                  ) : (
+                    <StarIcon sx={{ color: "darkorange" }} />
+                  )}
                 </IconButton>
               </div>
             </div>
@@ -59,8 +70,12 @@ const Feed = () => {
             <div className="feed-vacature-function">
               <h2>Fulltime vulploegmedewerker</h2>
               <div className="feed-vacature-icon">
-                <IconButton>
-                  <StarBorderIcon />
+                <IconButton onClick={handleClick}>
+                  {!state ? (
+                    <StarBorderIcon sx={{ color: "darkorange" }} />
+                  ) : (
+                    <StarIcon sx={{ color: "darkorange" }} />
+                  )}
                 </IconButton>
               </div>
             </div>
@@ -89,8 +104,12 @@ const Feed = () => {
             <div className="feed-vacature-function">
               <h2>Fulltime vulploegmedewerker</h2>
               <div className="feed-vacature-icon">
-                <IconButton>
-                  <StarBorderIcon />
+                <IconButton onClick={handleClick}>
+                  {!state ? (
+                    <StarBorderIcon sx={{ color: "darkorange" }} />
+                  ) : (
+                    <StarIcon sx={{ color: "darkorange" }} />
+                  )}
                 </IconButton>
               </div>
             </div>
@@ -119,8 +138,12 @@ const Feed = () => {
             <div className="feed-vacature-function">
               <h2>Fulltime vulploegmedewerker</h2>
               <div className="feed-vacature-icon">
-                <IconButton>
-                  <StarBorderIcon />
+                <IconButton onClick={handleClick}>
+                  {!state ? (
+                    <StarBorderIcon sx={{ color: "darkorange" }} />
+                  ) : (
+                    <StarIcon sx={{ color: "darkorange" }} />
+                  )}
                 </IconButton>
               </div>
             </div>
@@ -149,8 +172,12 @@ const Feed = () => {
             <div className="feed-vacature-function">
               <h2>Fulltime vulploegmedewerker</h2>
               <div className="feed-vacature-icon">
-                <IconButton>
-                  <StarBorderIcon />
+                <IconButton onClick={handleClick}>
+                  {!state ? (
+                    <StarBorderIcon sx={{ color: "darkorange" }} />
+                  ) : (
+                    <StarIcon sx={{ color: "darkorange" }} />
+                  )}
                 </IconButton>
               </div>
             </div>
@@ -179,8 +206,12 @@ const Feed = () => {
             <div className="feed-vacature-function">
               <h2>Fulltime vulploegmedewerker</h2>
               <div className="feed-vacature-icon">
-                <IconButton>
-                  <StarBorderIcon />
+                <IconButton onClick={handleClick}>
+                  {!state ? (
+                    <StarBorderIcon sx={{ color: "darkorange" }} />
+                  ) : (
+                    <StarIcon sx={{ color: "darkorange" }} />
+                  )}
                 </IconButton>
               </div>
             </div>
@@ -209,8 +240,12 @@ const Feed = () => {
             <div className="feed-vacature-function">
               <h2>Fulltime vulploegmedewerker</h2>
               <div className="feed-vacature-icon">
-                <IconButton>
-                  <StarBorderIcon />
+                <IconButton onClick={handleClick}>
+                  {!state ? (
+                    <StarBorderIcon sx={{ color: "darkorange" }} />
+                  ) : (
+                    <StarIcon sx={{ color: "darkorange" }} />
+                  )}
                 </IconButton>
               </div>
             </div>
