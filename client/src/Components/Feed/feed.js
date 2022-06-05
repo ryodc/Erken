@@ -13,12 +13,193 @@ const Feed = () => {
       <div className="feed-header">
         <div className="feed-header-searchdiv">
           <SearchIcon></SearchIcon>
-          <input className="feed-searchbar" placeholder="Zoeken"></input>
+          <input
+            className="feed-searchbar"
+            type="search"
+            placeholder="Zoeken"
+          ></input>
           {/* <ArrowForwardIcon></ArrowForwardIcon> */}
         </div>
       </div>
       <div className="feed-body">
-        <div className="feed-vacature">
+        <div className="feed-vacature-cards">
+          <div className="card">
+            <div className="feed-vacature-function">
+              <h2>Fulltime vulploegmedewerker</h2>
+            </div>
+            <div className="feed-vacature-workplace">
+              <h4>Lidl</h4>
+            </div>
+            <div className="feed-vacature-div-icons">
+              <div className="feed-vacature-icons">
+                <EuroIcon></EuroIcon>Salaris
+              </div>
+              <div className="feed-vacature-icons">
+                <LocationOnIcon></LocationOnIcon>Plaats
+              </div>
+              <div className="feed-vacature-icons">
+                <AccessTimeIcon></AccessTimeIcon>Dienstverband
+              </div>
+              <div className="feed-vacature-icons">
+                <CalendarMonthIcon></CalendarMonthIcon>Datum
+              </div>
+            </div>
+            <div className="feed-vacature-info">
+              <h4>Klik voor meer informatie</h4>
+            </div>
+          </div>
+          <div className="card">
+            <div className="feed-vacature-function">
+              <h2>Fulltime vulploegmedewerker</h2>
+            </div>
+            <div className="feed-vacature-workplace">
+              <h4>Lidl</h4>
+            </div>
+            <div className="feed-vacature-div-icons">
+              <div className="feed-vacature-icons">
+                <EuroIcon></EuroIcon>Salaris
+              </div>
+              <div className="feed-vacature-icons">
+                <LocationOnIcon></LocationOnIcon>Plaats
+              </div>
+              <div className="feed-vacature-icons">
+                <AccessTimeIcon></AccessTimeIcon>Dienstverband
+              </div>
+              <div className="feed-vacature-icons">
+                <CalendarMonthIcon></CalendarMonthIcon>Datum
+              </div>
+            </div>
+            <div className="feed-vacature-info">
+              <h4>Klik voor meer informatie</h4>
+            </div>
+          </div>
+          <div className="card">
+            <div className="feed-vacature-function">
+              <h2>Fulltime vulploegmedewerker</h2>
+            </div>
+            <div className="feed-vacature-workplace">
+              <h4>Lidl</h4>
+            </div>
+            <div className="feed-vacature-div-icons">
+              <div className="feed-vacature-icons">
+                <EuroIcon></EuroIcon>Salaris
+              </div>
+              <div className="feed-vacature-icons">
+                <LocationOnIcon></LocationOnIcon>Plaats
+              </div>
+              <div className="feed-vacature-icons">
+                <AccessTimeIcon></AccessTimeIcon>Dienstverband
+              </div>
+              <div className="feed-vacature-icons">
+                <CalendarMonthIcon></CalendarMonthIcon>Datum
+              </div>
+            </div>
+            <div className="feed-vacature-info">
+              <h4>Klik voor meer informatie</h4>
+            </div>
+          </div>
+          <div className="card">
+            <div className="feed-vacature-function">
+              <h2>Fulltime vulploegmedewerker</h2>
+            </div>
+            <div className="feed-vacature-workplace">
+              <h4>Lidl</h4>
+            </div>
+            <div className="feed-vacature-div-icons">
+              <div className="feed-vacature-icons">
+                <EuroIcon></EuroIcon>Salaris
+              </div>
+              <div className="feed-vacature-icons">
+                <LocationOnIcon></LocationOnIcon>Plaats
+              </div>
+              <div className="feed-vacature-icons">
+                <AccessTimeIcon></AccessTimeIcon>Dienstverband
+              </div>
+              <div className="feed-vacature-icons">
+                <CalendarMonthIcon></CalendarMonthIcon>Datum
+              </div>
+            </div>
+            <div className="feed-vacature-info">
+              <h4>Klik voor meer informatie</h4>
+            </div>
+          </div>
+          <div className="card">
+            <div className="feed-vacature-function">
+              <h2>Fulltime vulploegmedewerker</h2>
+            </div>
+            <div className="feed-vacature-workplace">
+              <h4>Lidl</h4>
+            </div>
+            <div className="feed-vacature-div-icons">
+              <div className="feed-vacature-icons">
+                <EuroIcon></EuroIcon>Salaris
+              </div>
+              <div className="feed-vacature-icons">
+                <LocationOnIcon></LocationOnIcon>Plaats
+              </div>
+              <div className="feed-vacature-icons">
+                <AccessTimeIcon></AccessTimeIcon>Dienstverband
+              </div>
+              <div className="feed-vacature-icons">
+                <CalendarMonthIcon></CalendarMonthIcon>Datum
+              </div>
+            </div>
+            <div className="feed-vacature-info">
+              <h4>Klik voor meer informatie</h4>
+            </div>
+          </div>
+          <div className="card">
+            <div className="feed-vacature-function">
+              <h2>Fulltime vulploegmedewerker</h2>
+            </div>
+            <div className="feed-vacature-workplace">
+              <h4>Lidl</h4>
+            </div>
+            <div className="feed-vacature-div-icons">
+              <div className="feed-vacature-icons">
+                <EuroIcon></EuroIcon>Salaris
+              </div>
+              <div className="feed-vacature-icons">
+                <LocationOnIcon></LocationOnIcon>Plaats
+              </div>
+              <div className="feed-vacature-icons">
+                <AccessTimeIcon></AccessTimeIcon>Dienstverband
+              </div>
+              <div className="feed-vacature-icons">
+                <CalendarMonthIcon></CalendarMonthIcon>Datum
+              </div>
+            </div>
+            <div className="feed-vacature-info">
+              <h4>Klik voor meer informatie</h4>
+            </div>
+          </div>
+          <div className="card">
+            <div className="feed-vacature-function">
+              <h2>Fulltime vulploegmedewerker</h2>
+            </div>
+            <div className="feed-vacature-workplace">
+              <h4>Lidl</h4>
+            </div>
+            <div className="feed-vacature-div-icons">
+              <div className="feed-vacature-icons">
+                <EuroIcon></EuroIcon>Salaris
+              </div>
+              <div className="feed-vacature-icons">
+                <LocationOnIcon></LocationOnIcon>Plaats
+              </div>
+              <div className="feed-vacature-icons">
+                <AccessTimeIcon></AccessTimeIcon>Dienstverband
+              </div>
+              <div className="feed-vacature-icons">
+                <CalendarMonthIcon></CalendarMonthIcon>Datum
+              </div>
+            </div>
+            <div className="feed-vacature-info">
+              <h4>Klik voor meer informatie</h4>
+            </div>
+          </div>
+        </div>
+        {/* <div className="feed-vacature">
           <div className="feed-vacature-function">
             <h2>Fulltime vulploegmedewerker</h2>
           </div>
@@ -42,7 +223,7 @@ const Feed = () => {
           <div className="feed-vacature-info">
             <h4>Klik voor meer informatie</h4>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
