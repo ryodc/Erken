@@ -37,7 +37,7 @@ const Vacature = () => {
         <h2>Vacaturefilter</h2>
         <div><Checkbox></Checkbox>In Afwachting</div>
         <div><Checkbox></Checkbox>Bericht Ontvangen</div>
-        <div><Checkbox></Checkbox></div>
+        <div><Checkbox></Checkbox>hallo</div>
       </div>
     </div>
     </div>

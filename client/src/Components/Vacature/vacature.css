@@ -11,7 +11,6 @@
 .VacatureContainer{
     height: 100%;
     width: 50%;
-    background-color: rgba(183, 197, 183, 0.3) ;
     margin-left: 20% !important;
     margin-top: 7.5% !important;
     padding: 0;
@@ -24,8 +23,8 @@
 }
 
 .VacatureFilter{
-    margin-left: 75% !important;
-    margin-top: 7.5% !important;
+    margin-left: 72% !important;
+    margin-top: 10% !important;
     width: 20%;
     height: 30%;
     position: fixed;
