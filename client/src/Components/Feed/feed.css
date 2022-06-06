@@ -57,7 +57,7 @@
   overflow-x: hidden;
   max-height: 70vh;
   width: 60vw;
-  min-width: 475px;
+  min-width: 450px;
   scrollbar-width: thin;
   scrollbar-color: #d7d7fc #eeebf7;
 }
@@ -119,11 +119,12 @@
 }
 
 .feed-vacature-info > h4 {
-  text-align: right;
+  float: right;
   margin-top: 3rem;
   margin-right: 0.75rem;
   margin-bottom: 0.5rem;
   text-decoration: underline;
+  width: fit-content;
 }
 
 /* .feed-vacature-function h2 {
