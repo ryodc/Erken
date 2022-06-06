@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "./feed.css";
+import IconButton from '@mui/material/IconButton';
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EuroIcon from "@mui/icons-material/Euro";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import StarIcon from '@mui/icons-material/Star';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
 
-const Feed = () => {
+
+const Feed = () => {  
+
+  const [state, setState] = useState(false);
+  const handleClick=( ) => {
+    setState(!state);
+  }
+
   return (
     <div className="feed-container">
       <div className="feed-header">
@@ -67,6 +77,11 @@ const Feed = () => {
               </div>
               <div className="feed-vacature-icons">
                 <CalendarMonthIcon></CalendarMonthIcon>Datum
+              </div>
+              <div>
+                <IconButton onClick={handleClick}>
+                  {state ? <StarBorderIcon/> : <StarIcon/>}
+                </IconButton>
               </div>
             </div>
             <div className="feed-vacature-info">
