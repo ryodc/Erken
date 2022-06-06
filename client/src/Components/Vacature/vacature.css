@@ -1,55 +1,118 @@
-.Searchbar {
-  margin-left: 30%;
-  margin-top: 2%;
-  width: 30%;
-  padding: 1%;
-  position: fixed;
-  border-radius: 30px;
-  font-size: 110%;
-}
-
-.VacatureContainer {
-  height: 100%;
-  width: 50%;
-  background-color: rgba(183, 197, 183, 0.3);
-  margin-left: 20% !important;
-  margin-top: 7.5% !important;
-  padding: 0;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  box-sizing: border-box;
-  align-items: center;
-  border-radius: 5% 5% 5% 5%;
-}
+.vacature-container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .vacature-header-searchdiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 30%;
+    min-width: 200px;
+    max-width: 510px;
+    position: fixed;
+    left: 50%;
+    top: 10%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 30px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  .vacature-searchbar {
+    width: 100%;
+    border: none;
+    border-radius: 30px;
+    font-size: 110%;
+    padding: 0.7em;
+    outline: none;
+  }
+  
+  .vacature-body {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    min-width: 450px;
+    max-width: 900px;
+    margin-top: 6.8rem;
+  }
+  
+  .vacature-vacature-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    gap: 1rem;
+    margin-top: 3rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 70vh;
+    width: 60vw;
+    min-width: 475px;
+    scrollbar-width: thin;
+    scrollbar-color: #d7d7fc #cceaeb;
+  }
+  
+  .card {
+    border: 1px solid rgba(183, 197, 183, 0.3);
+    border-radius: 5px;
+    background-color: rgba(183, 197, 183, 0.3);
+    width: 100%;
+    max-height: 40vh;
+  }
+  
+  .vacature-vacature-function > h2 {
+    margin-top: 0.5rem;
+    margin-left: 0.75rem;
+    margin-bottom: 0;
+  }
+  
+  .vacature-vacature-workplace h4 {
+    margin-top: 0.25rem;
+    margin-left: 0.75rem;
+    opacity: 70%;
+  }
+  
+  .vacature-vacature-div-icons {    
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .vacature-vacature-icons {
+    display: flex;
+    align-items: center;
+    width: 20%;
+    margin-left: 25%;
+  }
+  
+  .vacature-vacature-info > h4 {
+    text-align: right;
+    margin-top: 3rem;
+    margin-right: 0.75rem;
+    margin-bottom: 0.5rem;
+    text-decoration: underline;
+  }
 
 .VacatureFilter {
-  margin-left: 75% !important;
-  margin-top: 7.5% !important;
-  width: 20%;
-  height: 30%;
+  margin-left: 0rem;
+  margin-top: 25rem;
+  z-index: 1;
+  width: 15vw;
+  height: 25vh;
   position: fixed;
-  background-color: rgba(215, 223, 215, 0.5);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
+  background-color: rgba(183, 197, 183, 0.3);
   list-style-type: none;
   color: black;
   border-radius: 5% 5% 5% 5%;
 }
 
-.VacaturePost {
-  margin-left: 20%;
-  margin-top: 5%;
-  width: 70%;
-  height: 40%;
-  background-color: rgba(215, 223, 215, 0.5);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
-  list-style-type: none;
-  color: black;
-  border-radius: 5% 5% 5% 5%;
+.VacatureFilter > h2{
+    text-align: center;
+}    
+    
+.VacatureFilter > div {
+    margin-left: 3.5rem;
 }
 
-.VacatureInfo {
-  margin-left: 2%;
-  display: flex;
-  flex-direction: column;
-}
