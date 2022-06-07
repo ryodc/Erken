@@ -10,7 +10,18 @@ import EditProfile from "./editprofile.js";
 export default function ProfileInfo() {
   const [Status, setStatus] = useState(0);
   const [Search, setSearch] = useState("Zoeken");
-
+  const [users, setUsers] = useState([]);
+  
+  const getUsers = async () => {
+    try {
+      const response = await fetch("http://localhost:8500/users");
+      const jsonData = await response.json();
+      setUsers(jsonData);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+  
   if (Status === 1) {
     return <EditProfile />;
   } else {
