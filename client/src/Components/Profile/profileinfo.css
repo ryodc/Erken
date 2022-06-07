@@ -1,0 +1,34 @@
+
+.profileData{
+    position: absolute;
+    left: 45%;
+    width: 50%;
+    top: 9%;
+}
+
+.dataBoxes{
+    width: 80%;
+    background-color: rgb(237, 237, 237);
+    margin: 6.4%;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+
+.EditdataBoxes{
+    width: 80%;
+    background-color: rgb(237, 237, 237);
+    margin: 3.6%;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+.EditProfile{
+    position: absolute;
+    cursor: pointer;
+    left: 85%;
+    width: 5%;
+    top: 5%;
+    border:none;
+    background-color: transparent;
+}

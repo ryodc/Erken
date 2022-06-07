@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./profile.css";
+import "./profileinfo.css";
 
 import SearchIcon from "@mui/icons-material/Search";
 import AttachmentIcon from "@mui/icons-material/Attachment";
@@ -19,43 +19,7 @@ export default function ProfileInfo() {
         <div className="profileHead">
           <div className="profile">
             <div>
-              <div>
-                <img
-                  className="profileImage"
-                  src="https://www.w3schools.com/howto/img_avatar.png"
-                  alt="profile"
-                />
-                <button className="EditImage">
-                  <AttachmentIcon />
-                </button>
-
-                <form className="SearchBarContainer">
-                  <input
-                    className="Searchbar"
-                    placeholder={Search}
-                    type="text"
-                  ></input>
-                  <button
-                    className="SearchButton"
-                    onClick={() => setSearch(Search)}
-                  >
-                    <SearchIcon />
-                  </button>
-                </form>
-              </div>
-              <div className="profileContainer">
-                <h1>Profiel</h1>
-                <div className="ProfileDataNamesContainer">
-                  <div className="ProfileDataNamesContainer">Naam</div>
-                  <div className="ProfileDataNamesContainer">Email</div>
-                  <div className="ProfileDataNamesContainer">Telefoonnummer</div>
-                  <div className="ProfileDataNamesContainer">Email verzorger</div>
-                  <div className="ProfileDataNamesContainer">Telefoonnummer verzorger</div>
-                  <div className="ProfileDataNamesContainer">Straat</div>
-                  <div className="ProfileDataNamesContainer">Huisnummer</div>
-                  <div className="ProfileDataNamesContainer">Woonplaats</div>
-                  <div className="ProfileDataNamesContainer">Postcode</div>
-                </div>
+  
                 <div className="profileData">
                   <div className="dataBoxes">Hogeschool Rotterdam</div>
                   <div className="dataBoxes">hr@outlook.com</div>
@@ -67,7 +31,7 @@ export default function ProfileInfo() {
                   <div className="dataBoxes">Rotterdam</div>
                   <div className="dataBoxes">3011 WN</div>
                 </div>
-              </div>
+             
             </div>
             <button className="EditProfile" onClick={() => setStatus(1)}>
               <LockIcon />

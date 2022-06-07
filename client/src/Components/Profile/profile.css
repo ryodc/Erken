@@ -1,40 +1,9 @@
-.SearchBarContainer{
-    display:flex;
-    flex-direction: row;
-    left: 24%;
-    top: 5%;
-    width: 45%;
-    padding: 1%;
-    position: absolute;
-    border-radius: 30px;
-    font-size: 110%;
-    flex: 1;
-}
-
-.SearchButton {
-    z-index: 1;
-    cursor: pointer;
-}
-
-.Searchbar{
-    flex-grow:2;
-    border: none;
-    background-color: #f7f7f7;
-}
-
-.profile{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    padding: 5%;
-}
-
 .profileImage{
     width: 15%;
     border-radius: 10%;
     position: absolute;
     top: 20%;
+    left: 5%;
 }
 
 .EditImage{
@@ -50,51 +19,40 @@
     border: 0;
 }
 
+.SearchBarContainer{
+    display:flex;
+    flex-direction: row;
+    left: 25%;
+    top: 5%;
+    width: 45%;
+    position: absolute;
+    border-radius: 30px;
+    font-size: 110%;
+    flex: 1;
+}
+
+.Searchbar{
+    flex-grow:2;
+    border: none;
+    background-color: #f7f7f7;
+}
+
+.SearchButton {
+    z-index: 1;
+    cursor: pointer;
+}
+
 .profileContainer{
     display: flex;
     flex-direction: column;
     width: 50%;
     left: 25%;
     position: absolute;
-    top: 17%;
+    top: 14%;
 }
 
 .ProfileDataNamesContainer{
     display: flex;
     flex-direction: column;
     margin-bottom: 4.1%;
-}
-
-.profileData{
-    position: absolute;
-    left: 45%;
-    width: 50%;
-    top: 9%;
-}
-
-.dataBoxes{
-    width: 80%;
-    background-color: rgb(237, 237, 237);
-    margin: 6.4%;
-    padding: 1%;
-    border-radius: 10px;
-}
-
-
-.EditdataBoxes{
-    width: 80%;
-    background-color: rgb(237, 237, 237);
-    margin: 3.6%;
-    padding: 1%;
-    border-radius: 10px;
-}
-
-.EditProfile{
-    position: absolute;
-    cursor: pointer;
-    left: 65%;
-    width: 5%;
-    top: 20%;
-    border:none;
-    background-color: transparent;
 }

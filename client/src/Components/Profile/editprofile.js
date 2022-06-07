@@ -37,49 +37,12 @@ export default function EditProfile() {
       <div className="profileHead">
         <div className="profile">
           <div>
-            <div>
-              <img
-                className="profileImage"
-                src="https://www.w3schools.com/howto/img_avatar.png"
-                alt="profile"
-              />
-              <button className="EditImage">
-                <AttachmentIcon />
-              </button>
-
-              <form className="SearchBarContainer">
-                <input
-                  className="Searchbar"
-                  placeholder="Zoeken"
-                  type="text"
-                ></input>
-                <button className="SearchButton">
-                  <SearchIcon />
-                </button>
-              </form>
-            </div>
-            <div className="profileContainer">
-              <h1>Profiel</h1>
-              <div className="ProfileDataNamesContainer">
-                <div className="ProfileDataNamesContainer">Naam</div>
-                <div className="ProfileDataNamesContainer">Email</div>
-                <div className="ProfileDataNamesContainer">Telefoonnummer</div>
-                <div className="ProfileDataNamesContainer">Email verzorger</div>
-                <div className="ProfileDataNamesContainer">
-                  Telefoonnummer verzorger
-                </div>
-                <div className="ProfileDataNamesContainer">Straat</div>
-                <div className="ProfileDataNamesContainer">Huisnummer</div>
-                <div className="ProfileDataNamesContainer">Woonplaats</div>
-                <div className="ProfileDataNamesContainer">Postcode</div>
-              </div>
-            </div>
             <form onSubmit={handleSubmit}>
               <div className="EditprofileData">
                 <input
                   className="EditdataBoxes"
                   id="Naam"
-                  placeholder="Hogeschool Rotterdam"
+                  placeholder={localStorage.getItem("Naam")}
                 ></input>
                 <input
                   className="EditdataBoxes"
