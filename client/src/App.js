@@ -4,7 +4,7 @@ import React from "react";
 import Landingpage from "./Components/Default/landingpage.js";
 import Sidebar from "./Components/Default/sidebar.js";
 import Navigation from "./Components/Navbar/navbar";
-import Feed from "./Feed/feed";
+import Feed from "./Components/Feed/feed";
 import Profile from "./Components/Profile/profile.js";
 
 

@@ -35,7 +35,7 @@ export default function EditProfile() {
   return (
     <div>
       <div className="profileHead">
-        <div className="profile">
+        <div>
           <div>
             <form onSubmit={handleSubmit}>
               <div className="EditprofileData">

@@ -1,3 +1,12 @@
+.profileContainer{
+    display: flex;
+    flex-direction: column;
+    left: 15%;
+    padding-top: 30%;
+    position: relative;
+    width: 85%;
+}
+
 .profileImage{
     width: 15%;
     border-radius: 10%;
@@ -21,7 +30,6 @@
 
 .SearchBarContainer{
     display:flex;
-    flex-direction: row;
     left: 25%;
     top: 5%;
     width: 45%;
@@ -31,7 +39,8 @@
     flex: 1;
 }
 
-.Searchbar{
+.SearchbarProfile{
+    font-size: 100%;
     flex-grow:2;
     border: none;
     background-color: #f7f7f7;
@@ -42,7 +51,8 @@
     cursor: pointer;
 }
 
-.profileContainer{
+.profileDataContainer{
+    font-size: 100%;
     display: flex;
     flex-direction: column;
     width: 50%;

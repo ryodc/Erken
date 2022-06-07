@@ -14,19 +14,10 @@
     border-radius: 10px;
 }
 
-
-.EditdataBoxes{
-    width: 80%;
-    background-color: rgb(237, 237, 237);
-    margin: 3.6%;
-    padding: 1%;
-    border-radius: 10px;
-}
-
 .EditProfile{
     position: absolute;
     cursor: pointer;
-    left: 85%;
+    left: 83%;
     width: 5%;
     top: 5%;
     border:none;
