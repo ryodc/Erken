@@ -20,12 +20,18 @@
     border-radius: none !important;
     position: absolute;
     background: transparent;
-    left: 17.5%;
-    top: 20%;
+    left: 17%;
+    top: 21%;
     color: #fff;
     border: none;
     border-width: 0; 
     border: 0;
+    transition: transform ease-out 0.1s, background 0.2s;
+}
+
+.EditImage:hover {
+    background: transparent;
+    transform: scale(1.2);
 }
 
 .SearchBarContainer{

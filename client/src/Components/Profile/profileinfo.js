@@ -21,19 +21,19 @@ export default function ProfileInfo() {
             <div>
   
                 <div className="profileData">
-                  <div className="dataBoxes">Hogeschool Rotterdam</div>
-                  <div className="dataBoxes">hr@outlook.com</div>
-                  <div className="dataBoxes">010 794 4000</div>
-                  <div className="dataBoxes">0000000@hr.nl</div>
-                  <div className="dataBoxes">010 794 4000</div>
-                  <div className="dataBoxes">Wijnhaven</div>
-                  <div className="dataBoxes">107</div>
-                  <div className="dataBoxes">Rotterdam</div>
-                  <div className="dataBoxes">3011 WN</div>
+                  <div className="dataBoxes" title="Naam">Hogeschool Rotterdam</div>
+                  <div className="dataBoxes" title="Email">hr@outlook.com</div>
+                  <div className="dataBoxes" title="Telefoonnummer">010 794 4000</div>
+                  <div className="dataBoxes" title="Email verzorger">0000000@hr.nl</div>
+                  <div className="dataBoxes" title="Telefoonnummer verzorger">010 794 4000</div>
+                  <div className="dataBoxes" title="Straat">Wijnhaven</div>
+                  <div className="dataBoxes" title="Huisnummer">107</div>
+                  <div className="dataBoxes" title="Woonplaats">Rotterdam</div>
+                  <div className="dataBoxes" title="Postcode">3011 WN</div>
                 </div>
              
             </div>
-            <button className="EditProfile" onClick={() => setStatus(1)}>
+            <button className="EditProfile hover effect" title="Profiel bewerken" onClick={() => setStatus(1)}>
               <LockIcon />
             </button>
           </div>
