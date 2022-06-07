@@ -33,8 +33,6 @@ function Sidebar() {
               );
             })}
           </ul>
-          <button className="Button2">
-          </button>
         </div>
       </div>
     </BrowserRouter>
