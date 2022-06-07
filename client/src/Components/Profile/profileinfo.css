@@ -22,4 +22,11 @@
     top: 5%;
     border:none;
     background-color: transparent;
+    transition: transform ease-out 0.1s, background 0.2s;
+}
+
+.EditProfile:hover {
+    background: transparent;
+    transform: scale(1.2);
+    color: rgb(255, 0, 0);
 }

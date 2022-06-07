@@ -21,7 +21,7 @@ function Profile() {
 
         <form className="SearchBarContainer">
           <input className="SearchbarProfile" placeholder={Search} type="text"></input>
-          <button className="SearchButton" onClick={() => setSearch(Search)}>
+          <button className="SearchButton" title="Zoeken" onClick={() => setSearch(Search)}>
             <SearchIcon />
           </button>
         </form>
