@@ -1,41 +1,108 @@
 import React from "react";
 import "./editprofile.css";
-import Logo from "../Images/ErkenLogoScalable.png";
-import LockOpenIcon from '@mui/icons-material/LockOpen';
-import SearchIcon from "@mui/icons-material/Search";
+
+import LockOpenIcon from "@mui/icons-material/LockOpen";
+import ProfileInfo from "./profileinfo";
+import CancelIcon from '@mui/icons-material/Cancel';
 
 import { useState } from "react";
 
-export const EditProfile = ({ showEditProfile, setEditProfile }) => {
+export default function EditProfile() {
+  const [Status, setStatus] = useState(1);
+  //const [Search, setSearch] = useState("Zoeken");
 
-  const [Edit, setEdit] = useState(false);
+  if (Status === 0) {
+    return <ProfileInfo />;
+  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const openEditProfile = () => {
-    setEditProfile((prev) => !prev);
+    localStorage.setItem("Naam", JSON.stringify("Naam"));
+    localStorage.setItem("Email", JSON.stringify("Email"));
+    localStorage.setItem("Telefoonnummer", JSON.stringify("Telefoonnummer"));
+    localStorage.setItem("Email verzorger", JSON.stringify("Email verzorger"));
+    localStorage.setItem(
+      "Telefoonnummer verzorger",
+      JSON.stringify("Telefoonnummer verzorger")
+    );
+    localStorage.setItem("Straat", JSON.stringify("Straat"));
+    localStorage.setItem("Huisnummer", JSON.stringify("Huisnummer"));
+    localStorage.setItem("Woonplaats", JSON.stringify("Woonplaats"));
+    localStorage.setItem("Postcode", JSON.stringify("Postcode"));
   };
 
   return (
-    <div> 
-      {showEditProfile ? (
-    
+    <div>
       <div className="profileHead">
-        <div className="profile">
-            <div className="EditprofileData">
-              <input className="EditdataBoxes" placeholder="Hogeschool Rotterdam"></input>
-              <input className="EditdataBoxes" placeholder="hr@outlook.com"></input>
-              <input className="EditdataBoxes" placeholder="010 794 4000"></input>
-              <input className="EditdataBoxes" placeholder="0000000@hr.nl"></input>
-              <input className="EditdataBoxes" placeholder="010 794 4000"></input>
-              <input className="EditdataBoxes" placeholder="Wijnhaven"></input>
-              <input className="EditdataBoxes" placeholder="107"></input>
-              <input className="EditdataBoxes" placeholder="Rotterdam"></input>
-              <input className="EditdataBoxes" placeholder="3011 WN"></input>
-            </div>
+        <div>
+          <div>
+            <form onSubmit={handleSubmit}>
+              <div className="EditprofileData">
+                <input
+                  className="EditdataBoxes"
+                  title="Naam"
+                  id="Naam"
+                  placeholder={localStorage.getItem("Naam")}
+                ></input>
+                <input
+                  className="EditdataBoxes"
+                  title="Email"
+                  id="Email"
+                  placeholder="hr@outlook.com"
+                ></input>
+                <input
+                  className="EditdataBoxes"
+                  title="Telefoonnummer"
+                  id="Telefoonnummer"
+                  placeholder="010 794 4000"
+                ></input>
+                <input
+                  className="EditdataBoxes"
+                  title="Email verzorger"
+                  id="Email verzorger"
+                  placeholder="0000000@hr.nl"
+                ></input>
+                <input
+                  className="EditdataBoxes"
+                  title="Telefoonnummer verzorger"
+                  id="Telefoonnummer verzorger"
+                  placeholder="010 794 4000"
+                ></input>
+                <input
+                  className="EditdataBoxes"
+                  title="Straat"
+                  id="Straat"
+                  placeholder="Wijnhaven"
+                ></input>
+                <input
+                  className="EditdataBoxes"
+                  title="Huisnummer"
+                  id="Huisnummer"
+                  placeholder="107"
+                ></input>
+                <input
+                  className="EditdataBoxes"
+                  title="Woonplaats"
+                  id="Woonplaats"
+                  placeholder="Rotterdam"
+                ></input>
+                <input
+                  className="EditdataBoxes"
+                  title="Postcode"
+                  id="Postcode"
+                  placeholder="3011 WN"
+                ></input>
+              </div>
+              <button className="Backbutton" title="Annuleren" onClick={() => setStatus(0)}>
+                <CancelIcon />
+              </button>
+              <button className="Savebutton" onClick={() => setStatus(0)}>
+                Opslaan
+              </button>
+            </form>
+          </div>
         </div>
-        <button className="Backbutton" onClick={() => setEditProfile((prev) => !prev)}><LockOpenIcon/></button>
-        <button className="Savebutton" onClick={() => setEditProfile((prev) => !prev)}>Opslaan</button>
       </div>
-      ) : null }
     </div>
   );
-};
+}
