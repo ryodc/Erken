@@ -19,19 +19,21 @@ function Sidebar() {
           <ul className="SidebarList">
             {SidebarData.map((val, key) => {
               return (
-                <li
-                  key={key}
-                  className={val.cName}
-                  id={window.location.pathname === val.path ? "active" : ""}
-                  onClick={() => {
-                    window.location.pathname = val.path;
-                  }}
-                >
-                  <Link to={val.path}>
-                    <div id="icon">{val.icon}</div>
-                    <span>{val.title}</span>
-                  </Link>
-                </li>
+                <div>
+                  <li
+                    key={key}
+                    className={val.cName}
+                    id={window.location.pathname === val.path ? "active" : ""}
+                    onClick={() => {
+                      window.location.pathname = val.path;
+                    }}
+                  >
+                    <Link to={val.path}>
+                      <div id="icon">{val.icon}</div>
+                      <span>{val.title}</span>
+                    </Link>
+                  </li>
+                </div>
               );
             })}
           </ul>

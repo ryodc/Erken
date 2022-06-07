@@ -9,6 +9,7 @@
   top: 0;
   box-sizing: border-box;
   z-index: 0;
+  min-width: 210px;
 }
 
 .SidebarList {
@@ -19,7 +20,7 @@
   border-radius: 5px;
 }
 
-.SidebarList .row {
+/* .SidebarList .row {
   width: 100%;
   height: 60px;
   list-style-type: none;
@@ -39,17 +40,22 @@
   display: flex;
   text-decoration: none;
   align-items: center;
-}
+} */
 
-.row #icon {
+/* .row #icon {
   flex: 30%;
   display: grid;
   place-items: center;
   color: white;
+} */
+#icon {
+  display: flex;
+  align-items: center;
 }
 
 .SidebarList #active {
-  background-color: lightgrey;
+  background-color: #d7d7fc;
+  border-radius: 5px;
 }
 
 .logo {
@@ -67,6 +73,8 @@
   justify-content: flex-start;
   align-items: center;
   list-style: none;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 .nav-text a {
@@ -80,10 +88,14 @@
   padding: 0 16px;
 }
 
-.nav-text :hover {
+.nav-text:hover {
   cursor: pointer;
-  background-color: lightgrey;
+  background-color: #d0e0fd;
 }
+/* .nav-text :hover {
+  cursor: pointer;
+  background-color: #b6f3ea79;
+} */
 
 span {
   margin-left: 16px;
