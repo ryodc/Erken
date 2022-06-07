@@ -2,11 +2,6 @@
     z-index: 1;
 }
 
-.profile{
-    display: flex;
-    flex-direction: column;
-    padding: 5%;
-}
 
 .EditprofileData{
     display: flex;
@@ -20,31 +15,39 @@
 .EditdataBoxes{
     width: 47%;
     background-color: rgb(237, 237, 237);
-    margin: 1.7%;
+    margin: 1.9%;
     border-radius: 10px;
     border-color: transparent;
+    padding: 1%;
 }
 
 .Backbutton{
     position: absolute;
     cursor: pointer;
-    left: 85%;
+    left: 83%;
     width: 5%;
     top: 5%;
     border: none;
-    background-color: white;
+    background-color: transparent;
     z-index: 7;
 }
 
 .Savebutton{
+    font-size: 90%;
     display: flex;
     position: absolute;
     cursor: pointer;
-    left: 80%;
-    top: 82%;
+    left: 78%;
+    top: 94%;
     border: 1%;
     border-radius: 10px;
+    border-color: transparent;
     background-color: white;
     padding: 0.5%;
     z-index: 7;
+}
+
+.Savebutton:hover{
+    background-color: #f7f7f7;
+    border-color: black;
 }
