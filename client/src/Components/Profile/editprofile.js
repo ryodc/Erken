@@ -16,7 +16,6 @@ export default function EditProfile() {
   }
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     localStorage.setItem("Naam", JSON.stringify("Naam"));
     localStorage.setItem("Email", JSON.stringify("Email"));
     localStorage.setItem("Telefoonnummer", JSON.stringify("Telefoonnummer"));
@@ -48,49 +47,49 @@ export default function EditProfile() {
                   className="EditdataBoxes"
                   title="Email"
                   id="Email"
-                  placeholder="hr@outlook.com"
+                  placeholder={localStorage.getItem("Email")}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Telefoonnummer"
                   id="Telefoonnummer"
-                  placeholder="010 794 4000"
+                  placeholder={localStorage.getItem("Telefoonnummer")}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Email verzorger"
                   id="Email verzorger"
-                  placeholder="0000000@hr.nl"
+                  placeholder={localStorage.getItem("Email verzorger")}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Telefoonnummer verzorger"
                   id="Telefoonnummer verzorger"
-                  placeholder="010 794 4000"
+                  placeholder={localStorage.getItem("Telefoonnummer verzorger")}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Straat"
                   id="Straat"
-                  placeholder="Wijnhaven"
+                  placeholder={localStorage.getItem("Straat")}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Huisnummer"
                   id="Huisnummer"
-                  placeholder="107"
+                  placeholder={localStorage.getItem("Huisnummer")}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Woonplaats"
                   id="Woonplaats"
-                  placeholder="Rotterdam"
+                  placeholder={localStorage.getItem("Woonplaats")}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Postcode"
                   id="Postcode"
-                  placeholder="3011 WN"
+                  placeholder={localStorage.getItem("Postcode")}
                 ></input>
               </div>
               <button className="Backbutton" title="Annuleren" onClick={() => setStatus(0)}>
