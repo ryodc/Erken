@@ -7,16 +7,16 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EuroIcon from "@mui/icons-material/Euro";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import StarIcon from '@mui/icons-material/Star';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
+import IconButton from "@mui/material/IconButton";
+import StarBorderIcon from "@mui/icons-material/StarBorder";
+import StarIcon from "@mui/icons-material/Star";
 
-
-const Feed = () => {  
-
+const Feed = () => {
   const [state, setState] = useState(false);
-  const handleClick=( ) => {
+
+  const handleClick = () => {
     setState(!state);
-  }
+  };
 
   return (
     <div className="feed-container">
@@ -36,6 +36,15 @@ const Feed = () => {
           <div className="card">
             <div className="feed-vacature-function">
               <h2>Fulltime vulploegmedewerker</h2>
+              <div className="feed-vacature-icon">
+                <IconButton onClick={handleClick}>
+                  {!state ? (
+                    <StarBorderIcon sx={{ color: "darkorange" }} />
+                  ) : (
+                    <StarIcon sx={{ color: "darkorange" }} />
+                  )}
+                </IconButton>
+              </div>
             </div>
             <div className="feed-vacature-workplace">
               <h4>Lidl</h4>
@@ -61,6 +70,15 @@ const Feed = () => {
           <div className="card">
             <div className="feed-vacature-function">
               <h2>Fulltime vulploegmedewerker</h2>
+              <div className="feed-vacature-icon">
+                <IconButton onClick={handleClick}>
+                  {!state ? (
+                    <StarBorderIcon sx={{ color: "darkorange" }} />
+                  ) : (
+                    <StarIcon sx={{ color: "darkorange" }} />
+                  )}
+                </IconButton>
+              </div>
             </div>
             <div className="feed-vacature-workplace">
               <h4>Lidl</h4>
@@ -91,6 +109,15 @@ const Feed = () => {
           <div className="card">
             <div className="feed-vacature-function">
               <h2>Fulltime vulploegmedewerker</h2>
+              <div className="feed-vacature-icon">
+                <IconButton onClick={handleClick}>
+                  {!state ? (
+                    <StarBorderIcon sx={{ color: "darkorange" }} />
+                  ) : (
+                    <StarIcon sx={{ color: "darkorange" }} />
+                  )}
+                </IconButton>
+              </div>
             </div>
             <div className="feed-vacature-workplace">
               <h4>Lidl</h4>
@@ -116,6 +143,15 @@ const Feed = () => {
           <div className="card">
             <div className="feed-vacature-function">
               <h2>Fulltime vulploegmedewerker</h2>
+              <div className="feed-vacature-icon">
+                <IconButton onClick={handleClick}>
+                  {!state ? (
+                    <StarBorderIcon sx={{ color: "darkorange" }} />
+                  ) : (
+                    <StarIcon sx={{ color: "darkorange" }} />
+                  )}
+                </IconButton>
+              </div>
             </div>
             <div className="feed-vacature-workplace">
               <h4>Lidl</h4>
@@ -141,6 +177,15 @@ const Feed = () => {
           <div className="card">
             <div className="feed-vacature-function">
               <h2>Fulltime vulploegmedewerker</h2>
+              <div className="feed-vacature-icon">
+                <IconButton onClick={handleClick}>
+                  {!state ? (
+                    <StarBorderIcon sx={{ color: "darkorange" }} />
+                  ) : (
+                    <StarIcon sx={{ color: "darkorange" }} />
+                  )}
+                </IconButton>
+              </div>
             </div>
             <div className="feed-vacature-workplace">
               <h4>Lidl</h4>
@@ -166,6 +211,15 @@ const Feed = () => {
           <div className="card">
             <div className="feed-vacature-function">
               <h2>Fulltime vulploegmedewerker</h2>
+              <div className="feed-vacature-icon">
+                <IconButton onClick={handleClick}>
+                  {!state ? (
+                    <StarBorderIcon sx={{ color: "darkorange" }} />
+                  ) : (
+                    <StarIcon sx={{ color: "darkorange" }} />
+                  )}
+                </IconButton>
+              </div>
             </div>
             <div className="feed-vacature-workplace">
               <h4>Lidl</h4>
@@ -191,6 +245,15 @@ const Feed = () => {
           <div className="card">
             <div className="feed-vacature-function">
               <h2>Fulltime vulploegmedewerker</h2>
+              <div className="feed-vacature-icon">
+                <IconButton onClick={handleClick}>
+                  {!state ? (
+                    <StarBorderIcon sx={{ color: "darkorange" }} />
+                  ) : (
+                    <StarIcon sx={{ color: "darkorange" }} />
+                  )}
+                </IconButton>
+              </div>
             </div>
             <div className="feed-vacature-workplace">
               <h4>Lidl</h4>
@@ -214,31 +277,6 @@ const Feed = () => {
             </div>
           </div>
         </div>
-        {/* <div className="feed-vacature">
-          <div className="feed-vacature-function">
-            <h2>Fulltime vulploegmedewerker</h2>
-          </div>
-          <div className="feed-vacature-workplace">
-            <h4>Lidl</h4>
-          </div>
-          <div className="feed-vacature-div-icons">
-            <div className="feed-vacature-icons">
-              <EuroIcon></EuroIcon>Salaris
-            </div>
-            <div className="feed-vacature-icons">
-              <LocationOnIcon></LocationOnIcon>Plaats
-            </div>
-            <div className="feed-vacature-icons">
-              <AccessTimeIcon></AccessTimeIcon>Dienstverband
-            </div>
-            <div className="feed-vacature-icons">
-              <CalendarMonthIcon></CalendarMonthIcon>Datum
-            </div>
-          </div>
-          <div className="feed-vacature-info">
-            <h4>Klik voor meer informatie</h4>
-          </div>
-        </div> */}
       </div>
     </div>
   );
