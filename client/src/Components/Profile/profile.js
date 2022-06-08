@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ProfileInfo from "./profileinfo";
 //import EditProfile from "./editprofile";
-import SearchIcon from "@mui/icons-material/Search";
 import AttachmentIcon from "@mui/icons-material/Attachment";
 import "./profile.css";
 
@@ -18,13 +17,6 @@ function Profile() {
         <button className="EditImage">
           <AttachmentIcon />
         </button>
-
-        <form className="SearchBarContainer">
-          <input className="SearchbarProfile" placeholder={Search} type="text"></input>
-          <button className="SearchButton" title="Zoeken" onClick={() => setSearch(Search)}>
-            <SearchIcon />
-          </button>
-        </form>
       </div>
       <div className="profileDataContainer">
         <h1 className="profileTitle">Profiel</h1>
