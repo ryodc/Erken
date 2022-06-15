@@ -1,5 +1,6 @@
 import React from "react";
 import "./vacature.css";
+import SearchIcon from "@mui/icons-material/Search";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import EuroIcon from '@mui/icons-material/Euro';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
@@ -12,21 +13,201 @@ import LockIcon from "@mui/icons-material/Lock";
 
 const Vacature = () => {
   return (
-    <div className="profileHead">
-      <div>
-            <input className="Searchbar" placeholder="Zoeken"></input>
+    <div className="vacature-container">
+      <div className="VacatureFilter">
+        <h2>Vacaturefilter</h2>
+        <div><Checkbox></Checkbox>In Afwachting</div>
+        <div><Checkbox></Checkbox>Bericht Ontvangen</div>
+        <div><Checkbox></Checkbox>Favorieten</div>
       </div>
-      <div className="VacatureContainer">
-        <div className="VacaturePost">
-          <div><h1>Bedrijf</h1></div>
-          <div><h1>Functie</h1></div>
-          <div><EuroIcon></EuroIcon>Salaris</div>
-          <div><LocationOnIcon></LocationOnIcon>Plaats</div>
-          <div><AccessTimeIcon></AccessTimeIcon>Dienstverband</div>
-          <div><CalendarMonthIcon></CalendarMonthIcon>Datum</div>
+      <div className="vacature-header">
+        <div className="vacature-header-searchdiv">
+          <SearchIcon></SearchIcon>
+          <input
+            className="vacature-searchbar"
+            type="search"
+            placeholder="Zoeken"
+          ></input>
+          {/* <ArrowForwardIcon></ArrowForwardIcon> */}
         </div>
-        <div className="VacatureFilter">
-        <Checkbox></Checkbox>
+      </div>
+      <div className="vacature-body">
+        <div className="vacature-vacature-cards">
+          <div className="card">
+            <div className="vacature-vacature-function">
+              <h2>Fulltime vulploegmedewerker</h2>
+            </div>
+            <div className="vacature-vacature-workplace">
+              <h4>Lidl</h4>
+            </div>
+            <div className="vacature-vacature-div-icons">
+              <div className="vacature-vacature-icons">
+                <EuroIcon></EuroIcon>Salaris
+              </div>
+              <div className="vacature-vacature-icons">
+                <LocationOnIcon></LocationOnIcon>Plaats
+              </div>
+              <div className="vacature-vacature-icons">
+                <AccessTimeIcon></AccessTimeIcon>Dienstverband
+              </div>
+              <div className="vacature-vacature-icons">
+                <CalendarMonthIcon></CalendarMonthIcon>Datum
+              </div>
+            </div>
+            <div className="vacature-vacature-info">
+              <h4>Klik voor meer informatie</h4>
+            </div>
+          </div>
+          <div className="card">
+            <div className="vacature-vacature-function">
+              <h2>Fulltime vulploegmedewerker</h2>
+            </div>
+            <div className="vacature-vacature-workplace">
+              <h4>Lidl</h4>
+            </div>
+            <div className="vacature-vacature-div-icons">
+              <div className="vacature-vacature-icons">
+                <EuroIcon></EuroIcon>Salaris
+              </div>
+              <div className="vacature-vacature-icons">
+                <LocationOnIcon></LocationOnIcon>Plaats
+              </div>
+              <div className="vacature-vacature-icons">
+                <AccessTimeIcon></AccessTimeIcon>Dienstverband
+              </div>
+              <div className="vacature-vacature-icons">
+                <CalendarMonthIcon></CalendarMonthIcon>Datum
+              </div>
+            </div>
+            <div className="vacature-vacature-info">
+              <h4>Klik voor meer informatie</h4>
+            </div>
+          </div>
+          <div className="card">
+            <div className="vacature-vacature-function">
+              <h2>Fulltime vulploegmedewerker</h2>
+            </div>
+            <div className="vacature-vacature-workplace">
+              <h4>Lidl</h4>
+            </div>
+            <div className="vacature-vacature-div-icons">
+              <div className="vacature-vacature-icons">
+                <EuroIcon></EuroIcon>Salaris
+              </div>
+              <div className="vacature-vacature-icons">
+                <LocationOnIcon></LocationOnIcon>Plaats
+              </div>
+              <div className="vacature-vacature-icons">
+                <AccessTimeIcon></AccessTimeIcon>Dienstverband
+              </div>
+              <div className="vacature-vacature-icons">
+                <CalendarMonthIcon></CalendarMonthIcon>Datum
+              </div>
+            </div>
+            <div className="vacature-vacature-info">
+              <h4>Klik voor meer informatie</h4>
+            </div>
+          </div>
+          <div className="card">
+            <div className="vacature-vacature-function">
+              <h2>Fulltime vulploegmedewerker</h2>
+            </div>
+            <div className="vacature-vacature-workplace">
+              <h4>Lidl</h4>
+            </div>
+            <div className="vacature-vacature-div-icons">
+              <div className="vacature-vacature-icons">
+                <EuroIcon></EuroIcon>Salaris
+              </div>
+              <div className="vacature-vacature-icons">
+                <LocationOnIcon></LocationOnIcon>Plaats
+              </div>
+              <div className="vacature-vacature-icons">
+                <AccessTimeIcon></AccessTimeIcon>Dienstverband
+              </div>
+              <div className="vacature-vacature-icons">
+                <CalendarMonthIcon></CalendarMonthIcon>Datum
+              </div>
+            </div>
+            <div className="vacature-vacature-info">
+              <h4>Klik voor meer informatie</h4>
+            </div>
+          </div>
+          <div className="card">
+            <div className="vacature-vacature-function">
+              <h2>Fulltime vulploegmedewerker</h2>
+            </div>
+            <div className="vacature-vacature-workplace">
+              <h4>Lidl</h4>
+            </div>
+            <div className="vacature-vacature-div-icons">
+              <div className="vacature-vacature-icons">
+                <EuroIcon></EuroIcon>Salaris
+              </div>
+              <div className="vacature-vacature-icons">
+                <LocationOnIcon></LocationOnIcon>Plaats
+              </div>
+              <div className="vacature-vacature-icons">
+                <AccessTimeIcon></AccessTimeIcon>Dienstverband
+              </div>
+              <div className="vacature-vacature-icons">
+                <CalendarMonthIcon></CalendarMonthIcon>Datum
+              </div>
+            </div>
+            <div className="vacature-vacature-info">
+              <h4>Klik voor meer informatie</h4>
+            </div>
+          </div>
+          <div className="card">
+            <div className="vacature-vacature-function">
+              <h2>Fulltime vulploegmedewerker</h2>
+            </div>
+            <div className="vacature-vacature-workplace">
+              <h4>Lidl</h4>
+            </div>
+            <div className="vacature-vacature-div-icons">
+              <div className="vacature-vacature-icons">
+                <EuroIcon></EuroIcon>Salaris
+              </div>
+              <div className="vacature-vacature-icons">
+                <LocationOnIcon></LocationOnIcon>Plaats
+              </div>
+              <div className="vacature-vacature-icons">
+                <AccessTimeIcon></AccessTimeIcon>Dienstverband
+              </div>
+              <div className="vacature-vacature-icons">
+                <CalendarMonthIcon></CalendarMonthIcon>Datum
+              </div>
+            </div>
+            <div className="vacature-vacature-info">
+              <h4>Klik voor meer informatie</h4>
+            </div>
+          </div>
+          <div className="card">
+            <div className="vacature-vacature-function">
+              <h2>Fulltime vulploegmedewerker</h2>
+            </div>
+            <div className="vacature-vacature-workplace">
+              <h4>Lidl</h4>
+            </div>
+            <div className="vacature-vacature-div-icons">
+              <div className="vacature-vacature-icons">
+                <EuroIcon></EuroIcon>Salaris
+              </div>
+              <div className="vacature-vacature-icons">
+                <LocationOnIcon></LocationOnIcon>Plaats
+              </div>
+              <div className="vacature-vacature-icons">
+                <AccessTimeIcon></AccessTimeIcon>Dienstverband
+              </div>
+              <div className="vacature-vacature-icons">
+                <CalendarMonthIcon></CalendarMonthIcon>Datum
+              </div>
+            </div>
+            <div className="vacature-vacature-info">
+              <h4>Klik voor meer informatie</h4>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,26 @@
+.chat-container {
+  overflow-y: hidden;
+  width: 70vw;
+  height: 80vh;
+  margin-top: 5rem;
+  margin-left: 15rem;
+  margin-right: 15rem;
+  border: 1px solid black;
+}
+
+.chat-header {
+  width: 100%;
+  display: flex;
+  float: left;
+  border-bottom: 1px solid black;
+}
+
+.chat-header > .chat-chats {
+  border-right: 1px solid black;
+  padding-right: 10rem;
+}
+.chat-header > .chat-name {
+  width: 50%;
+  margin-left: 3rem;
+  text-align: center;
+}

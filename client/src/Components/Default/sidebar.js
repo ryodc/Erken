@@ -6,13 +6,15 @@ import logo from "../Images/ErkenLogoScalable.png";
 import { BrowserRouter } from "react-router-dom";
 
 function Sidebar() {
-
   return (
-    <BrowserRouter> 
+    <BrowserRouter>
       <div>
         <div className="Sidebar">
           <div className="Header">
-            <img src={logo} alt="Logo" className="Logo" />
+            <h1 class="logo">
+              <font color="DF482E">Er</font>
+              <font color="273677">ken</font>
+            </h1>
           </div>
           <ul className="SidebarList">
             {SidebarData.map((val, key) => {
@@ -33,6 +35,7 @@ function Sidebar() {
               );
             })}
           </ul>
+          {/* <button className="Button2"></button> */}
         </div>
       </div>
     </BrowserRouter>
