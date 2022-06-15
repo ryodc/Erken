@@ -151,6 +151,7 @@
   text-decoration: underline;
   width: fit-content;
   z-index: 0;
+  cursor: pointer;
 }
 
 /* .feed-vacature-function h2 {

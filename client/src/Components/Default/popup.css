@@ -2,11 +2,11 @@
   position: fixed;
   display: flex;
   align-items: center;
-  top: 33.2rem;
+  top: 50%;
   left: 50%;
-  bottom: 10rem;
+  bottom: 1rem;
   width: 80%;
-  height: 75vh;
+  height: 90vh;
   background: url(../Images/pastel_image.jpg);
   border-radius: 5px;
   border: 0.5px solid black;
