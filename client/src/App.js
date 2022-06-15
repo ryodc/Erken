@@ -7,7 +7,6 @@ import Navigation from "./Components/Navbar/navbar";
 import Feed from "./Components/Feed/feed";
 import Profile from "./Components/Profile/profile.js";
 
-
 const App = () => {
   return <Navigation />;
 };

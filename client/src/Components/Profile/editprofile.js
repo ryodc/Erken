@@ -1,7 +1,6 @@
 import React from "react";
 import "./editprofile.css";
 
-import LockOpenIcon from "@mui/icons-material/LockOpen";
 import ProfileInfo from "./profileinfo";
 import CancelIcon from '@mui/icons-material/Cancel';
 
@@ -9,7 +8,13 @@ import { useState } from "react";
 
 export default function EditProfile() {
   const [Status, setStatus] = useState(1);
-  //const [Search, setSearch] = useState("Zoeken");
+  const [Bedrijf, setBedrijf] = useState();
+  const [Naam, setNaam] = useState();
+  const [Functie, setFunctie] = useState();
+  const [Email, setEmail] = useState();
+  const [Website, setWebsite] = useState();
+  const [ContactNum, setContactNum] = useState();
+  const [Gender, setGender] = useState();
 
   if (Status === 0) {
     return <ProfileInfo />;
@@ -19,10 +24,10 @@ export default function EditProfile() {
     localStorage.setItem("Naam", JSON.stringify("Naam"));
     localStorage.setItem("Email", JSON.stringify("Email"));
     localStorage.setItem("Telefoonnummer", JSON.stringify("Telefoonnummer"));
-    localStorage.setItem("Email verzorger", JSON.stringify("Email verzorger"));
+    localStorage.setItem("Emailverzorger", JSON.stringify("Emailverzorger"));
     localStorage.setItem(
-      "Telefoonnummer verzorger",
-      JSON.stringify("Telefoonnummer verzorger")
+      "Telefoonnummerverzorger",
+      JSON.stringify("Telefoonnummerverzorger")
     );
     localStorage.setItem("Straat", JSON.stringify("Straat"));
     localStorage.setItem("Huisnummer", JSON.stringify("Huisnummer"));
@@ -42,12 +47,14 @@ export default function EditProfile() {
                   title="Naam"
                   id="Naam"
                   placeholder={localStorage.getItem("Naam")}
+                  onChange={(e) => setNaam(e.target.value)}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Email"
                   id="Email"
                   placeholder={localStorage.getItem("Email")}
+                  onChange={(e) => setNaam(e.target.value)}
                 ></input>
                 <input
                   className="EditdataBoxes"
@@ -58,13 +65,13 @@ export default function EditProfile() {
                 <input
                   className="EditdataBoxes"
                   title="Email verzorger"
-                  id="Email verzorger"
+                  id="Emailverzorger"
                   placeholder={localStorage.getItem("Email verzorger")}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Telefoonnummer verzorger"
-                  id="Telefoonnummer verzorger"
+                  id="Telefoonnummerverzorger"
                   placeholder={localStorage.getItem("Telefoonnummer verzorger")}
                 ></input>
                 <input
