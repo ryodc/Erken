@@ -2,77 +2,60 @@
     z-index: 1;
 }
 
-.logo{
-    width: 15%;
-    padding: 1%;
-}
-
-.SearchBarContainer{
-    display:flex;
-    flex-direction: row;
-    left: 24%;
-    top: 5%;
-    width: 45%;
-    padding: 1%;
-    position: absolute;
-    border-radius: 30px;
-    font-size: 110%;
-    flex: 1;
-}
-
-.SearchButton {
-    z-index: 1;
-    cursor: pointer;
-}
-.Searchbar{
-    flex-grow:2;
-    border: none;
-}
-
-.profile{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    padding: 5%;
-}
-
 .EditprofileData{
     display: flex;
     flex-direction: column;
     position: absolute;
     left: 48.5%;
-    width: 50%;
-    top: 26%;
+    width: 80%;
+    top: 10%;
 }
 
 .EditdataBoxes{
-    width: 45%;
+    width: 47%;
     background-color: rgb(237, 237, 237);
-    margin: 1.2%;
+    margin: 1.9%;
     border-radius: 10px;
+    border-color: transparent;
+    padding: 1%;
 }
 
 .Backbutton{
-    display: flex;
     position: absolute;
     cursor: pointer;
-    left: 66%;
-    top: 20%;
+    left: 83%;
+    width: 5%;
+    top: 5%;
     border: none;
-    background-color: white;
+    background-color: transparent;
+    transition: transform ease-out 0.1s, background 0.2s;
     z-index: 7;
 }
 
+.Backbutton:hover{
+    background: rgba(255, 255, 255, 0.05);
+    transform: scale(1.2);
+    color: rgb(255, 0, 0);
+}
+
 .Savebutton{
+    font-size: 90%;
     display: flex;
     position: absolute;
     cursor: pointer;
-    left: 67%;
+    left: 78%;
     top: 94%;
     border: 1%;
     border-radius: 10px;
+    border-color: transparent;
     background-color: white;
     padding: 0.5%;
+    transition: transform ease-out 0.1s, background 0.2s;
     z-index: 7;
+}
+
+.Savebutton:hover{
+    background-color: #f7f7f7;
+    border: none;
+    transform: scale(1.2);
 }

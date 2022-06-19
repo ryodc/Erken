@@ -1,0 +1,32 @@
+
+.profileData{
+    position: absolute;
+    left: 45%;
+    width: 50%;
+    top: 9%;
+}
+
+.dataBoxes{
+    width: 80%;
+    background-color: rgb(237, 237, 237);
+    margin: 6.4%;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+.EditProfile{
+    position: absolute;
+    cursor: pointer;
+    left: 83%;
+    width: 5%;
+    top: 5%;
+    border:none;
+    background-color: transparent;
+    transition: transform ease-out 0.1s, background 0.2s;
+}
+
+.EditProfile:hover {
+    background: transparent;
+    transform: scale(1.2);
+    color: rgb(255, 0, 0);
+}
