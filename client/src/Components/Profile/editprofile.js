@@ -8,15 +8,15 @@ import { useState } from "react";
 
 export default function EditProfile() {
   const [Status, setStatus] = useState(1);
-  const [Naam, setNaam] = useState(localStorage.getItem("Naam"));
-  const [Email, setEmail] = useState(localStorage.getItem("Email"));
-  const [Telefoonnummer, setTelefoonnummer] = useState(localStorage.getItem("Telefoonnummer"));
-  const [Emailverzorger, setEmailverzorger] = useState(localStorage.getItem("Emailverzorger"));
-  const [Telefoonnummerverzorger, setTelefoonnummerverzorger] = useState(localStorage.getItem("Telefoonnummerverzorger"));
-  const [Straat, setStraat] = useState(localStorage.getItem("Straat"));
-  const [Huisnummer, setHuisnummer] = useState(localStorage.getItem("Huisnummer"));
-  const [Woonplaats, setWoonplaats] = useState(localStorage.getItem("Woonplaats"));
-  const [Postcode, setPostcode] = useState(localStorage.getItem("Postcode"));
+  const [Naam, setNaam] = useState();
+  const [Email, setEmail] = useState();
+  const [Telefoonnummer, setTelefoonnummer] = useState();
+  const [Emailverzorger, setEmailverzorger] = useState();
+  const [Telefoonnummerverzorger, setTelefoonnummerverzorger] = useState();
+  const [Straat, setStraat] = useState();
+  const [Huisnummer, setHuisnummer] = useState();
+  const [Woonplaats, setWoonplaats] = useState();
+  const [Postcode, setPostcode] = useState();
 
   if (Status === 0) {
     return <ProfileInfo />;
@@ -111,7 +111,7 @@ export default function EditProfile() {
               <button className="Backbutton" title="Annuleren" onClick={() => setStatus(0)}>
                 <CancelIcon />
               </button>
-              <button className="Savebutton" onClick={() => setStatus(0)}>
+              <button className="Savebutton" type="submit" onClick={() => setStatus(0)}>
                 Opslaan
               </button>
             </form>
