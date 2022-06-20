@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { PromptProps } from "react-router-dom";
 import "./popup.css";
 import { FeedData } from "../Feed/feedData";
@@ -7,8 +8,17 @@ import EuroIcon from "@mui/icons-material/Euro";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import CloseIcon from "@mui/icons-material/Close";
+import Chat from "../Chat/chat";
+import { useHistory } from "react-router-dom";
+
 
 function Popup(props) {
+  const history = useHistory();
+  
+  const handleClick = () => {
+    history.push(`/Chat`);
+  };
+
   return props.trigger ? (
     <div className="popup">
       <div className="popup-inner">
@@ -51,7 +61,9 @@ function Popup(props) {
           </div>
         </div>
         <div className="popup-footer">
-          <button>Ik wil solliciteren</button>
+          <button className="openChat" title="Open chat" onClick={handleClick}>
+              Ik wil solliciteren
+          </button>
         </div>
         {props.children}
       </div>
@@ -60,5 +72,6 @@ function Popup(props) {
     ""
   );
 }
+
 
 export default Popup;

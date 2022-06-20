@@ -46,7 +46,8 @@ const Sidebar = () => {
     // }, []);
 
     // const listItems = usersChat.map((chatData) => <button className="ButtonCheckChat" onClick={() => toggleChat(chatData.username_1, chatData.username_2, chatData.chat_id)}>{ShowCorrectUser(chatData.username_1, chatData.username_2)}</button>);
-
+    // const listItems = 
+    
     return (
         <div>
             {/* <OpenNewChat OpenChatTest={OpenChatTest} ExitChat={() => toggleChat("", "", 0)} /> */}
@@ -56,7 +57,7 @@ const Sidebar = () => {
                     Your chats 
                 </div>
                 <div className="ListItems">
-                    {/* {listItems} */}
+                    {/* {listItems}  */}
                 </div>
             </div>
 
