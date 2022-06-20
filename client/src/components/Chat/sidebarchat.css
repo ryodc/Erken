@@ -92,6 +92,10 @@
     border-radius: 5px;
     list-style: none;
   }
+
+  .ButtonCheckChat:hover{
+    background-color: #d0e0fd;
+  }
   
   .ButtonCheckChat {
     width: 100%;
