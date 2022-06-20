@@ -5,7 +5,6 @@ import AttachmentIcon from "@mui/icons-material/Attachment";
 import "./profile.css";
 
 function Profile() {
-  const [Search, setSearch] = useState("Zoeken");
   return (
     <div className="profileContainer">
       <div>

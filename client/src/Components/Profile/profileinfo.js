@@ -7,15 +7,15 @@ import EditProfile from "./editprofile.js";
 export default function ProfileInfo() {
   const [Status, setStatus] = useState(0);
 
-  const [naam, setNaam] = useState(localStorage.getItem("Naam"));
-  const [email, setEmail] = useState(localStorage.getItem("Email"));
-  const [telefoonnummer, setTelefoonnummer] = useState(localStorage.getItem("Telefoonnummer"));
-  const [emailverzorger, setEmailverzorger] = useState(localStorage.getItem("Emailverzorger"));
-  const [telefoonnummerverzorger, setTelefoonnummerverzorger] = useState(localStorage.getItem("Telefoonnummerverzorger"));
-  const [straat, setStraat] = useState(localStorage.getItem("Straat"));
-  const [huisnummer, setHuisnummer] = useState(localStorage.getItem("Huisnummer"));
-  const [woonplaats, setWoonplaats] = useState(localStorage.getItem("Woonplaats"));
-  const [postcode, setPostcode] = useState(localStorage.getItem("Postcode"));
+  const [Naam, setNaam] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Telefoonnummer, setTelefoonnummer] = useState("");
+  const [Emailverzorger, setEmailverzorger] = useState("");
+  const [Telefoonnummerverzorger, setTelefoonnummerverzorger] = useState("");
+  const [Straat, setStraat] = useState("");
+  const [Huisnummer, setHuisnummer] = useState("");
+  const [Woonplaats, setWoonplaats] = useState("");
+  const [Postcode, setPostcode] = useState("");
 
   const loadValues = async () => {
     setNaam(localStorage.getItem("Naam"));
@@ -30,6 +30,7 @@ export default function ProfileInfo() {
   }
 
   const setValues = async () => {
+    localStorage.setItem("Username", "Testuser");
     localStorage.setItem("Naam", "Naam");
     localStorage.setItem("Email", "Email");
     localStorage.setItem("Telefoonnummer", "Telefoonnummer");
@@ -56,15 +57,15 @@ export default function ProfileInfo() {
             <div>
   
                 <div className="profileData">
-                  <div className="dataBoxes" title="Naam">{naam}</div>
-                  <div className="dataBoxes" title="Email">{email}</div>
-                  <div className="dataBoxes" title="Telefoonnummer">{telefoonnummer}</div>
-                  <div className="dataBoxes" title="Email verzorger">{emailverzorger}</div>
-                  <div className="dataBoxes" title="Telefoonnummer verzorger">{telefoonnummerverzorger}</div>
-                  <div className="dataBoxes" title="Straat">{straat}</div>
-                  <div className="dataBoxes" title="Huisnummer">{huisnummer}</div>
-                  <div className="dataBoxes" title="Woonplaats">{woonplaats}</div>
-                  <div className="dataBoxes" title="Postcode">{postcode}</div>
+                  <div className="dataBoxes" title="Naam">{Naam}</div>
+                  <div className="dataBoxes" title="Email">{Email}</div>
+                  <div className="dataBoxes" title="Telefoonnummer">{Telefoonnummer}</div>
+                  <div className="dataBoxes" title="Email verzorger">{Emailverzorger}</div>
+                  <div className="dataBoxes" title="Telefoonnummer verzorger">{Telefoonnummerverzorger}</div>
+                  <div className="dataBoxes" title="Straat">{Straat}</div>
+                  <div className="dataBoxes" title="Huisnummer">{Huisnummer}</div>
+                  <div className="dataBoxes" title="Woonplaats">{Woonplaats}</div>
+                  <div className="dataBoxes" title="Postcode">{Postcode}</div>
                 </div>
             
             </div>

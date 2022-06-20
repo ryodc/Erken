@@ -21,36 +21,43 @@ export default function EditProfile() {
 
   const CheckForData = async () => {
     try {
-      const Username = localStorage.getItem("username")
-      const request = await fetch(`http://localhost:8500/profile/${Username}`);
+      const Username = "piet";
+      //const Username = localStorage.getItem("username")
+      const request = await fetch(`http://localhost:8500/Server/users/${Username}`);
       const data = await request.json();
-      if (data[0].full_name !== "") {
-        setStatus(1);
-        localStorage.setItem("Bedrijf", data[0].company);
-        localStorage.setItem("Naam", data[0].full_name);
-        localStorage.setItem("Functie", data[0].function);
-        localStorage.setItem("Email", data[0].email);
-        localStorage.setItem("Website", data[0].website);
-        localStorage.setItem("ContactNum", data[0].phone_number);
-        localStorage.setItem("Gender", data[0].gender);
+      if (data[0].Naam !== "") {
+        localStorage.setItem("Naam", data[0].Naam);
+        localStorage.setItem("Email", data[0].Email);
+        localStorage.setItem("Telefoonnummer", data[0].Telefoonnummer);
+        localStorage.setItem("Emailverzorger", data[0].Emailverzorger);
+        localStorage.setItem("Telefoonnummerverzorger", data[0].Telefoonnummerverzorger);
+        localStorage.setItem("Straat", data[0].Straat);
+        localStorage.setItem("Huisnummer", data[0].Huisnummer);
+        localStorage.setItem("Woonplaats", data[0].Woonplaats);
+        localStorage.setItem("Postcode", data[0].Postcode);
       } else {
-        return(
-          <div>
-            <h1>Error! Profile not found!</h1>
-          </div>
-        );
+        setStatus(2);
+        
       }
     } catch (error) {
       console.log(error.message);
     }
   }
 
-  useEffect(() => {
-    CheckForData()
-  }, [])
+  // useEffect(() => {
+  //   CheckForData()
+  // }, [])
 
   if (Status === 0) {
     return <ProfileInfo />;
+  }
+  else if(Status === 2) {
+    return(
+      <div>
+        <h1>Error! Profile not found!</h1>
+        <ProfileInfo />
+      </div>
+    );
   }
   
   const handleSubmit = async (e) => {
@@ -61,7 +68,7 @@ export default function EditProfile() {
     localStorage.setItem("Emailverzorger", JSON.stringify(Emailverzorger));
     localStorage.setItem(
       "Telefoonnummerverzorger",
-      JSON.stringify("Telefoonnummerverzorger")
+      JSON.stringify(Telefoonnummerverzorger)
     );
     localStorage.setItem("Straat", JSON.stringify(Straat));
     localStorage.setItem("Huisnummer", JSON.stringify(Huisnummer));
