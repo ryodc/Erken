@@ -95,11 +95,6 @@ const Feed = () => {
               <div className="feed-vacature-icons">
                 <CalendarMonthIcon></CalendarMonthIcon>Datum
               </div>
-              <div>
-                <IconButton onClick={handleClick}>
-                  {state ? <StarBorderIcon/> : <StarIcon/>}
-                </IconButton>
-              </div>
             </div>
             <div className="feed-vacature-info">
               <h4>Klik voor meer informatie</h4>
