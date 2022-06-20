@@ -14,12 +14,6 @@ import LockIcon from "@mui/icons-material/Lock";
 const Vacature = () => {
   return (
     <div className="vacature-container">
-      <div className="VacatureFilter">
-        <h2>Vacaturefilter</h2>
-        <div><Checkbox></Checkbox>In Afwachting</div>
-        <div><Checkbox></Checkbox>Bericht Ontvangen</div>
-        <div><Checkbox></Checkbox>Favorieten</div>
-      </div>
       <div className="vacature-header">
         <div className="vacature-header-searchdiv">
           <SearchIcon></SearchIcon>
