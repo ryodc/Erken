@@ -4,7 +4,7 @@ import "./editprofile.css";
 import ProfileInfo from "./profileinfo";
 import CancelIcon from '@mui/icons-material/Cancel';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function EditProfile() {
   const [Status, setStatus] = useState(1);
@@ -18,6 +18,36 @@ export default function EditProfile() {
   const [Huisnummer, setHuisnummer] = useState("");
   const [Woonplaats, setWoonplaats] = useState("");
   const [Postcode, setPostcode] = useState("");
+
+  const CheckForData = async () => {
+    try {
+      const Username = localStorage.getItem("username")
+      const request = await fetch(`http://localhost:8500/profile/${Username}`);
+      const data = await request.json();
+      if (data[0].full_name !== "") {
+        setStatus(1);
+        localStorage.setItem("Bedrijf", data[0].company);
+        localStorage.setItem("Naam", data[0].full_name);
+        localStorage.setItem("Functie", data[0].function);
+        localStorage.setItem("Email", data[0].email);
+        localStorage.setItem("Website", data[0].website);
+        localStorage.setItem("ContactNum", data[0].phone_number);
+        localStorage.setItem("Gender", data[0].gender);
+      } else {
+        return(
+          <div>
+            <h1>Error! Profile not found!</h1>
+          </div>
+        );
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  useEffect(() => {
+    CheckForData()
+  }, [])
 
   if (Status === 0) {
     return <ProfileInfo />;

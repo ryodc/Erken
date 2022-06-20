@@ -6,7 +6,6 @@ import EditProfile from "./editprofile.js";
 
 export default function ProfileInfo() {
   const [Status, setStatus] = useState(0);
-  const [users, setUsers] = useState([]);
 
   const [naam, setNaam] = useState(localStorage.getItem("Naam"));
   const [email, setEmail] = useState(localStorage.getItem("Email"));
