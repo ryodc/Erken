@@ -8,33 +8,35 @@ import { useState } from "react";
 
 export default function EditProfile() {
   const [Status, setStatus] = useState(1);
-  const [Naam, setNaam] = useState();
-  const [Email, setEmail] = useState();
-  const [Telefoonnummer, setTelefoonnummer] = useState();
-  const [Emailverzorger, setEmailverzorger] = useState();
-  const [Telefoonnummerverzorger, setTelefoonnummerverzorger] = useState();
-  const [Straat, setStraat] = useState();
-  const [Huisnummer, setHuisnummer] = useState();
-  const [Woonplaats, setWoonplaats] = useState();
-  const [Postcode, setPostcode] = useState();
+
+  const [Naam, setNaam] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Telefoonnummer, setTelefoonnummer] = useState("");
+  const [Emailverzorger, setEmailverzorger] = useState("");
+  const [Telefoonnummerverzorger, setTelefoonnummerverzorger] = useState("");
+  const [Straat, setStraat] = useState("");
+  const [Huisnummer, setHuisnummer] = useState("");
+  const [Woonplaats, setWoonplaats] = useState("");
+  const [Postcode, setPostcode] = useState("");
 
   if (Status === 0) {
     return <ProfileInfo />;
   }
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    localStorage.setItem("Naam", Naam);
-    localStorage.setItem("Email", Email);
-    localStorage.setItem("Telefoonnummer", Telefoonnummer);
-    localStorage.setItem("Emailverzorger", Emailverzorger);
+    localStorage.setItem("Naam", JSON.stringify(Naam));
+    localStorage.setItem("Email", JSON.stringify(Email));
+    localStorage.setItem("Telefoonnummer", JSON.stringify(Telefoonnummer));
+    localStorage.setItem("Emailverzorger", JSON.stringify(Emailverzorger));
     localStorage.setItem(
       "Telefoonnummerverzorger",
-      Telefoonnummerverzorger
+      JSON.stringify("Telefoonnummerverzorger")
     );
-    localStorage.setItem("Straat", Straat);
-    localStorage.setItem("Huisnummer", Huisnummer);
-    localStorage.setItem("Woonplaats", Woonplaats);
-    localStorage.setItem("Postcode", Postcode);
+    localStorage.setItem("Straat", JSON.stringify(Straat));
+    localStorage.setItem("Huisnummer", JSON.stringify(Huisnummer));
+    localStorage.setItem("Woonplaats", JSON.stringify(Woonplaats));
+    localStorage.setItem("Postcode", JSON.stringify(Postcode));
   };
 
   return (
@@ -47,28 +49,28 @@ export default function EditProfile() {
                 <input
                   className="EditdataBoxes"
                   title="Naam"
-                  id="Naam"
+                  value={Naam}
                   placeholder={localStorage.getItem("Naam")}
                   onChange={(e) => setNaam(e.target.value)}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Email"
-                  id="Email"
+                  value={Email}
                   placeholder={localStorage.getItem("Email")}
                   onChange={(e) => setEmail(e.target.value)}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Telefoonnummer"
-                  id="Telefoonnummer"
+                  value={Telefoonnummer}
                   placeholder={localStorage.getItem("Telefoonnummer")}
                   onChange={(e) => setTelefoonnummer(e.target.value)}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Email verzorger"
-                  id="Emailverzorger"
+                  value={Emailverzorger}
                   placeholder={localStorage.getItem("Email verzorger")}
                   onChange={(e) => setEmailverzorger(e.target.value)}
                 ></input>
@@ -76,6 +78,7 @@ export default function EditProfile() {
                   className="EditdataBoxes"
                   title="Telefoonnummer verzorger"
                   id="Telefoonnummerverzorger"
+                  value={Telefoonnummerverzorger}
                   placeholder={localStorage.getItem("Telefoonnummer verzorger")}
                   onChange={(e) => setTelefoonnummerverzorger(e.target.value)}
                 ></input>
@@ -83,6 +86,7 @@ export default function EditProfile() {
                   className="EditdataBoxes"
                   title="Straat"
                   id="Straat"
+                  value={Straat}
                   placeholder={localStorage.getItem("Straat")}
                   onChange={(e) => setStraat(e.target.value)}
                 ></input>
@@ -90,6 +94,7 @@ export default function EditProfile() {
                   className="EditdataBoxes"
                   title="Huisnummer"
                   id="Huisnummer"
+                  value={Huisnummer}
                   placeholder={localStorage.getItem("Huisnummer")}
                   onChange={(e) => setHuisnummer(e.target.value)}
                 ></input>
@@ -97,6 +102,7 @@ export default function EditProfile() {
                   className="EditdataBoxes"
                   title="Woonplaats"
                   id="Woonplaats"
+                  value={Woonplaats}
                   placeholder={localStorage.getItem("Woonplaats")}
                   onChange={(e) => setWoonplaats(e.target.value)}
                 ></input>
@@ -104,6 +110,7 @@ export default function EditProfile() {
                   className="EditdataBoxes"
                   title="Postcode"
                   id="Postcode"
+                  value={Postcode}
                   placeholder={localStorage.getItem("Postcode")}
                   onChange={(e) => setPostcode(e.target.value)}
                 ></input>
@@ -111,7 +118,7 @@ export default function EditProfile() {
               <button className="Backbutton" title="Annuleren" onClick={() => setStatus(0)}>
                 <CancelIcon />
               </button>
-              <button className="Savebutton" type="submit" onClick={() => setStatus(0)}>
+              <button className="Savebutton" onClick={() => setStatus(0)}>
                 Opslaan
               </button>
             </form>
