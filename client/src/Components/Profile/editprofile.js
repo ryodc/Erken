@@ -1,7 +1,6 @@
 import React from "react";
 import "./editprofile.css";
 
-import LockOpenIcon from "@mui/icons-material/LockOpen";
 import ProfileInfo from "./profileinfo";
 import CancelIcon from '@mui/icons-material/Cancel';
 
@@ -9,21 +8,26 @@ import { useState } from "react";
 
 export default function EditProfile() {
   const [Status, setStatus] = useState(1);
-  //const [Search, setSearch] = useState("Zoeken");
+  const [Bedrijf, setBedrijf] = useState();
+  const [Naam, setNaam] = useState();
+  const [Functie, setFunctie] = useState();
+  const [Email, setEmail] = useState();
+  const [Website, setWebsite] = useState();
+  const [ContactNum, setContactNum] = useState();
+  const [Gender, setGender] = useState();
 
   if (Status === 0) {
     return <ProfileInfo />;
   }
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     localStorage.setItem("Naam", JSON.stringify("Naam"));
     localStorage.setItem("Email", JSON.stringify("Email"));
     localStorage.setItem("Telefoonnummer", JSON.stringify("Telefoonnummer"));
-    localStorage.setItem("Email verzorger", JSON.stringify("Email verzorger"));
+    localStorage.setItem("Emailverzorger", JSON.stringify("Emailverzorger"));
     localStorage.setItem(
-      "Telefoonnummer verzorger",
-      JSON.stringify("Telefoonnummer verzorger")
+      "Telefoonnummerverzorger",
+      JSON.stringify("Telefoonnummerverzorger")
     );
     localStorage.setItem("Straat", JSON.stringify("Straat"));
     localStorage.setItem("Huisnummer", JSON.stringify("Huisnummer"));
@@ -43,54 +47,56 @@ export default function EditProfile() {
                   title="Naam"
                   id="Naam"
                   placeholder={localStorage.getItem("Naam")}
+                  onChange={(e) => setNaam(e.target.value)}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Email"
                   id="Email"
-                  placeholder="hr@outlook.com"
+                  placeholder={localStorage.getItem("Email")}
+                  onChange={(e) => setNaam(e.target.value)}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Telefoonnummer"
                   id="Telefoonnummer"
-                  placeholder="010 794 4000"
+                  placeholder={localStorage.getItem("Telefoonnummer")}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Email verzorger"
-                  id="Email verzorger"
-                  placeholder="0000000@hr.nl"
+                  id="Emailverzorger"
+                  placeholder={localStorage.getItem("Email verzorger")}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Telefoonnummer verzorger"
-                  id="Telefoonnummer verzorger"
-                  placeholder="010 794 4000"
+                  id="Telefoonnummerverzorger"
+                  placeholder={localStorage.getItem("Telefoonnummer verzorger")}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Straat"
                   id="Straat"
-                  placeholder="Wijnhaven"
+                  placeholder={localStorage.getItem("Straat")}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Huisnummer"
                   id="Huisnummer"
-                  placeholder="107"
+                  placeholder={localStorage.getItem("Huisnummer")}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Woonplaats"
                   id="Woonplaats"
-                  placeholder="Rotterdam"
+                  placeholder={localStorage.getItem("Woonplaats")}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Postcode"
                   id="Postcode"
-                  placeholder="3011 WN"
+                  placeholder={localStorage.getItem("Postcode")}
                 ></input>
               </div>
               <button className="Backbutton" title="Annuleren" onClick={() => setStatus(0)}>

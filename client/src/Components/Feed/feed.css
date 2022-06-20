@@ -7,7 +7,7 @@
 .feed-header-searchdiv {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-around; */
   width: 30%;
   min-width: 200px;
   max-width: 510px;
@@ -17,10 +17,18 @@
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   background-color: white;
-  border-radius: 30px;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  border-radius: 5px;
+  /* padding-left: 0.5rem; */
+  /* padding-right: 0.5rem; */
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.feed-header-searchdiv > select {
+  /* width: fit-content; */
+  border-radius: 0;
+  border: 0.5px solid black;
+  /* margin-right: 0.1rem; */
+  padding: 0.75rem;
 }
 
 .feed-searchbar {
@@ -40,15 +48,18 @@
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   width: 45%; */
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   display: table;
   min-width: 450px;
   max-width: 900px;
   margin-top: 6.8rem;
+  z-index: 0;
 }
 
 .feed-vacature-cards {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
   gap: 1rem;
@@ -60,9 +71,11 @@
   min-width: 450px;
   scrollbar-width: thin;
   scrollbar-color: #d7d7fc #eeebf7;
+  z-index: 0;
 }
 
 .card {
+  position: relative;
   border: 1px solid rgba(183, 197, 183, 0.3);
   border-radius: 5px;
   background-color: rgba(183, 197, 183, 0.3);
@@ -70,6 +83,7 @@
   /* margin-left: 1rem; */
   max-height: 40vh;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  z-index: 0;
 }
 
 /* .feed-vacature {
@@ -81,50 +95,63 @@
   margin-bottom: 4%;
 } */
 .feed-vacature-function {
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
+  z-index: 0;
 }
 
 .feed-vacature-function > h2 {
+  position: relative;
   width: 100%;
   margin: 0;
   margin-left: 0.75rem;
   margin-top: -0.25rem;
   width: fit-content;
   align-items: center;
+  z-index: 0;
 }
 
 .feed-vacature-workplace h4 {
+  position: relative;
   margin-top: 0.25rem;
   margin-left: 0.75rem;
   opacity: 70%;
+  z-index: 0;
 }
 
 .feed-vacature-div-icons {
   /* width: 100%; */
   /* display: flex;
   flex-wrap: wrap; */
+  position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
+  z-index: 0;
 }
 
 .feed-vacature-icons {
+  position: relative;
   display: flex;
   align-items: center;
   width: 20%;
   margin-left: 25%;
+  z-index: 0;
 }
 
 .feed-vacature-info > h4 {
+  position: relative;
   float: right;
   margin-top: 3rem;
   margin-right: 0.75rem;
   margin-bottom: 0.5rem;
   text-decoration: underline;
   width: fit-content;
+  z-index: 0;
+  cursor: pointer;
 }
 
 /* .feed-vacature-function h2 {

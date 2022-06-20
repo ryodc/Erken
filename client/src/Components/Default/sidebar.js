@@ -28,7 +28,9 @@ function Sidebar() {
                   }}
                 >
                   <Link to={val.path}>
-                    <div id="icon">{val.icon}</div>
+                    <div id="icon" title={val.title}>
+                      {val.icon}
+                    </div>
                     <span>{val.title}</span>
                   </Link>
                 </li>
