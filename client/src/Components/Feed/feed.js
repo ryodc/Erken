@@ -1,3 +1,4 @@
+// import React, { useState, useEffect } from "react";
 import React, { useState } from "react";
 import "./feed.css";
 import IconButton from '@mui/material/IconButton';
@@ -10,16 +11,29 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
 
-const Feed = () => {
+const Feed = ({ setAuth }) => {
   const [state, setState] = useState(false);
 
   const handleClick = () => {
     setState(!state);
   };
 
+  const logout = async e => {
+    e.preventDefault();
+    try {
+      localStorage.removeItem("token");
+      setAuth(false);;
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
   return (
     <div className="feed-container">
       <div className="feed-header">
+      <button onClick={e => logout(e)} className="btn btn-primary">
+        Logout
+      </button>
         <div className="feed-header-searchdiv">
           <SearchIcon></SearchIcon>
           <input

@@ -3,16 +3,28 @@ const pool = require("../db");
 const authorization = require("../middleware/authorization");
 
 //GET ALL JOBOFFER
-router.get("/", authorization, async (req, res) => {
-  try {
+// router.get("/", authorization, async (req, res) => {
+//   try {
     
-    const joboffers = await pool.query("SELECT * FROM  joboffers");
-    res.json(joboffers.rows);
-  } catch (error) {
-    console.error(error.message);
+//     const joboffers = await pool.query("SELECT * FROM  joboffers");
+//     res.json(joboffers.rows);
+//   } catch (error) {
+//     console.error(error.message);
+//     res.status(500).send("Server error");
+//   }
+// })
+router.post("/", authorization, async (req, res) => {
+  try {
+    const user = await pool.query(
+      "SELECT user_name FROM users WHERE user_id = $1",
+      [req.user] 
+    ); 
+    res.json(user.rows[0]);
+  } catch (err) {
+    console.error(err.message);
     res.status(500).send("Server error");
   }
-})
+});
 
 // POST JOBOFFER
 router.post("/addjoboffer", authorization ,async (req, res) => {

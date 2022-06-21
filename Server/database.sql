@@ -9,35 +9,6 @@ CREATE TABLE users(
   user_password VARCHAR(255) NOT NULL
 );
 
-/* 
-  is_company bool NOT NULL,
-  user_firstname varchar(255) NOT NULL,
-  user_lastname varchar(255) NOT NULL,
-  user_phonenumber varchar(255) NOT NULL,
-  user_city varchar(255) NOT NULL,
-  user_street varchar(255) NOT NULL,
-  user_postalcode varchar(255) NOT NULL,
-  verzorger_firstname varchar(255),
-  verzorger_lastname varchar(255),
-  verzorger_email varchar(255),
-  verzorger_password varchar(255),
-  verzorger_phonenumber varchar(255)
-*/
-
-ALTER TABLE users 
-  ADD is_company bool NOT NULL,
-  ADD user_firstname varchar(255) NOT NULL,
-  ADD user_lastname varchar(255) NOT NULL,
-  ADD user_phonenumber varchar(255) NOT NULL,
-  ADD user_city varchar(255) NOT NULL,
-  ADD user_street varchar(255) NOT NULL,
-  ADD user_postalcode varchar(255) NOT NULL,
-  ADD verzorger_firstname varchar(255),
-  ADD verzorger_lastname varchar(255),
-  ADD verzorger_email varchar(255),
-  ADD verzorger_password varchar(255),
-  ADD verzorger_phonenumber varchar(255);
-
 INSERT INTO users (user_name, user_email, user_password) VALUES ('Test', 'test@gmail.com', 'test123');
 
 /* job_employment == fulltime/parttime */

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./login.css";
-
-import { toast } from "react-toastify";
 
 const Login = ({ setAuth }) => {
 
@@ -20,7 +19,7 @@ const Login = ({ setAuth }) => {
     try {
       const body = { email, password };
       const response = await fetch(
-        "http://localhost:5000/authentication/login",
+        "http://localhost:5000/auth/login",
         {
           method: "POST",
           headers: {
@@ -32,13 +31,11 @@ const Login = ({ setAuth }) => {
 
       const parseRes = await response.json();
 
-      if (parseRes.jwtToken) {
-        localStorage.setItem("token", parseRes.jwtToken);
+      if (parseRes.token) {
+        localStorage.setItem("token", parseRes.token);
         setAuth(true);
-        toast.success("Logged in Successfully");
       } else {
         setAuth(false);
-        toast.error(parseRes);
       }
     } catch (err) {
       console.error(err.message);
@@ -48,7 +45,7 @@ const Login = ({ setAuth }) => {
     return (
       <div>
         <div className="container">
-        <h1 class="logo">
+        <h1 className="logo">
           <font color="DF482E">Er</font>
           <font color="273677">ken</font>
           </h1>          
@@ -74,8 +71,10 @@ const Login = ({ setAuth }) => {
               className="Input"    
               placeholder="Password"   
             />
-            <button classname="Button" type="submit">Submit</button>
+          {/* <button classname="Button">Submit</button> */}
+          <input className="Button" type="submit"/>
           </form>
+          <Link to="/register">Register</Link>
         </div>
       </div>
     
