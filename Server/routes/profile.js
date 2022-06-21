@@ -3,13 +3,13 @@ const pool = require("../db");
 const authorization = require("../middleware/authorization");
 
 // GET PROFILE met WHERE STATEMENT
-router.get("/", authorization, async (req, res) => {
+router.put("/", authorization ,async (req, res) => {
   try {
-    const profile = await pool.query("SELECT user_name, user_email, user_firstname, user_lastname, user_phonenumber, user_city, user_street, user_postalcode FROM users WHERE user_id = $1", [
+    const profile = await pool.query("SELECT * FROM users WHERE user_id = $1", [
       req.user
     ]);
 
-    res.json(profile.rows);
+    res.json(profile.rows[0]);
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Server error");

@@ -8,7 +8,7 @@ const Register = ({ setAuth }) => {
     email: "",
     password: "",
     name: "",
-    iscompany: false,
+    iscompany: true,
     firstname: "",
     lastname: "",
     phonenumber: "",
@@ -56,7 +56,7 @@ const Register = ({ setAuth }) => {
 
   return (
     <div>
-      <div className="container">
+      <div className="container1">
         <h1 className="logo">
           <font color="DF482E">Er</font>
           <font color="273677">ken</font>

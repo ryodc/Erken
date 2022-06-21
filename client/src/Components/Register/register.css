@@ -8,7 +8,7 @@ body {
     background: url(../Images/pastel_image.jpg);
   }
 
-.container .logo {
+.container1 .logo {
     font-size: calc(4.5vw + 1.5vw);
     position: relative;
     height: auto;
@@ -57,5 +57,6 @@ body {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  ;
+  background-color: #DF482E;
+  color: white;
 }

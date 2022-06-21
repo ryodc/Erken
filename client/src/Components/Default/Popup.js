@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PromptProps } from "react-router-dom";
 import "./popup.css";
 import { FeedData } from "../Feed/feedData";
@@ -15,29 +14,43 @@ import { useHistory } from "react-router-dom";
 function Popup(props) {
   const history = useHistory();
   
-  const handleClick = () => {
-    history.push(`/Chat`);
-  };
+  console.log(props.id);
+
+  const id = props.id;
+
+
+  const [jobinfo, setJobinfo] = useState([]);
+
+  async function getSpecificJobInfo(id) {
+    const res = await fetch(`http://localhost:5000/joboffers/${id}`, {
+      method: "PUT",
+      header : { token: localStorage.token }
+    });
+
+    const jobInfo = await res.json();
+    setJobinfo(jobInfo);
+  }
+
+  useEffect(() => {
+    getSpecificJobInfo(id);
+  })
 
   return props.trigger ? (
+
     <div className="popup">
       <div className="popup-inner">
         <div className="popup-header">
-          <h1>Vulploegmedewerker</h1>
+          <h1>{jobinfo.job_title}</h1>
         </div>
         <button className="close-btn" onClick={() => props.setTrigger(false)}>
-          <CloseIcon></CloseIcon>
+          <CloseIcon />
         </button>
-        <div className="popup-subheader">
-          <h2>Lidl</h2>
-        </div>
+        {/* <div className="popup-subheader">
+          <h2>{jobinfo.job_description}</h2>
+        </div> */}
         <div className="popup-body">
           <p>
-            Als vulploegmedewerker bij Albert Heijn help je bij het lossen van
-            de vrachtwagens en vul je de schappen. Je zorgt ervoor dat de winkel
-            er verzorgd uitziet en je helpt klanten als zij een product niet
-            kunnen vinden. Dit doe je samen met jouw team. Zo help je elkaar en
-            is het iedere dag weer gezellig.
+            {jobinfo.job_description}
             <br></br>
             <br></br>
             Voor deze functie moet je een aanpakker zijn. Je vindt het leuk om
@@ -48,20 +61,20 @@ function Popup(props) {
         </div>
         <div className="popup-div-icons">
           <div className="popup-icons">
-            <EuroIcon></EuroIcon>Salaris
+            <EuroIcon/>{jobinfo.job_salary}
           </div>
           <div className="popup-icons">
-            <LocationOnIcon></LocationOnIcon>Plaats
+            <LocationOnIcon/>{jobinfo.job_city}
           </div>
           <div className="popup-icons">
-            <AccessTimeIcon></AccessTimeIcon>Dienstverband
+            <AccessTimeIcon/>{jobinfo.job_employment}
           </div>
           <div className="popup-icons">
-            <CalendarMonthIcon></CalendarMonthIcon>Datum
+            <CalendarMonthIcon/>{jobinfo.job_created_at}
           </div>
         </div>
         <div className="popup-footer">
-          <button className="openChat" title="Open chat" onClick={handleClick}>
+          <button className="openChat" title="Open chat">
               Ik wil solliciteren
           </button>
         </div>
