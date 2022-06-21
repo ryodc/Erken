@@ -2,8 +2,7 @@ import React from "react";
 import "./editprofile.css";
 
 import ProfileInfo from "./profileinfo";
-import CancelIcon from '@mui/icons-material/Cancel';
-
+import DeleteIcon from '@mui/icons-material/Delete';
 import { useState, useEffect } from "react";
 
 export default function EditProfile() {
@@ -115,8 +114,8 @@ export default function EditProfile() {
                   onChange={(e) => localStorage.setItem("Postcode", e.target.value)}
                 ></input>
               </div>
-              <button className="Backbutton" title="Annuleren" onClick={() => setChange(false)}>
-                <CancelIcon />
+              <button className="Backbutton" type="reset" title="Leeg invoervelden" onClick={() => setChange(false)}>
+                <DeleteIcon />
               </button>
               <button className="Savebutton" onClick={() => setChange(true)}>
                 Opslaan

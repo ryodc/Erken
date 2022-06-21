@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./profileinfo.css";
 
-import LockIcon from "@mui/icons-material/Lock";
+import EditIcon from '@mui/icons-material/Edit';
 import EditProfile from "./editprofile.js";
 
 export default function ProfileInfo() {
@@ -72,7 +72,7 @@ export default function ProfileInfo() {
             
             </div>
             <button className="EditProfile hover effect" title="Profiel bewerken" onClick={() => setStatus(1)}>
-              <LockIcon />
+              <EditIcon />
             </button>
           </div>
         </div>
