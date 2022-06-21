@@ -66,40 +66,33 @@ export default function ProfileInfo() {
   } else {
     if(profileinfo.length > 0) {
       return (
-        <div className="profileInfo">
-          <div className="profileInfoHeader">
-            <div className="profileInfoHeaderText">
-              <h1>Profiel</h1>
+        <div className="profileHead">
+          <div className="profile">
+          
+            <div className="profileData">
+              <div className="dataBoxes">
+                {profileinfo[0].Naam}
+              </div>
+              <div className="dataBoxes">
+                {profileinfo[0].Email}
+              </div>
+              <div className="dataBoxes">
+                {profileinfo[0].Telefoonnummer}
+              </div>
+              <div className="dataBoxes">
+                {profileinfo[0].Straat}
+              </div>
+              <div className="dataBoxes">
+                {profileinfo[0].Woonplaats}
+              </div>
+              <div className="dataBoxes">
+                {profileinfo[0].Postcode}
+              </div>
             </div>
-            <div className="profileInfoHeaderEdit">
-              <EditIcon onClick={() => setStatus(1)} />
-            </div>
-          </div>
-          <div className="profileInfoContent">
-            <div className="profileInfoContentText">
-              <h2>Naam</h2>
-              <p>{profileinfo[0].Naam}</p>
-            </div>
-            <div className="profileInfoContentText">
-              <h2>Email</h2>
-              <p>{profileinfo[0].Email}</p>
-            </div>
-            <div className="profileInfoContentText">
-              <h2>Telefoonnummer</h2>
-              <p>{profileinfo[0].Telefoonnummer}</p>
-            </div>
-            <div className="profileInfoContentText">
-              <h2>Straat</h2>
-              <p>{profileinfo[0].Straat}</p>
-            </div>
-            <div className="profileInfoContentText">
-              <h2>Woonplaats</h2>
-              <p>{profileinfo[0].Woonplaats}</p>
-            </div>
-            <div className="profileInfoContentText">
-              <h2>Postcode</h2>
-              <p>{profileinfo[0].Postcode}</p>
-            </div>
+            
+            <button className="EditProfile hover effect" title="Profiel bewerken" onClick={() => setStatus(1)}>
+              <EditIcon />
+            </button>
           </div>
         </div>
       );
