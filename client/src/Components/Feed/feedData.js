@@ -15,6 +15,7 @@ export const FeedData = [
     { label: "Zuid-Holland", value: "Zuid-Holland" },
   ],
   [
+    { label: "Alle", value: "Alle" },
     { label: "Onbetaald", value: "Onbetaald" },
     { label: "€0 - €5", value: "€0 - €5" },
     { label: "€5 - €10", value: "€5 - €10" },
