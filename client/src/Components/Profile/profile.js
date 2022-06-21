@@ -33,9 +33,6 @@ function Profile({ setAuth }) {
           src="https://www.w3schools.com/howto/img_avatar.png"
           alt="profile"
         />
-        <button className="EditImage">
-          <AttachmentIcon />
-        </button>
       </div>
       <div className="profileDataContainer">
         <h1 className="profileTitle">Profiel</h1>
