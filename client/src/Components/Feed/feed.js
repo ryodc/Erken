@@ -116,7 +116,6 @@ const Feed = ({ setAuth }) => {
 // function liked jobs
 // request staat in server/routes/likedjobs
 // Star button likedjob toevoegd
-
 async function likePost(id){
   try {
     const body = { id };

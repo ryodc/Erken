@@ -7,6 +7,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import Checkbox from '@mui/material/Checkbox';
 import Logo from "../Images/ErkenLogoScalable.png";
+import DeleteIcon from '@mui/icons-material/Delete';
 /*
 import LockIcon from "@mui/icons-material/Lock";
 */
@@ -16,57 +17,81 @@ const Vacature = ({ setAuth }) => {
 
   const [likedjobs, setLikedJobs] = useState([]);
 
-  async function getlikedJobs() {
-    try {
-      const res = await fetch("http://localhost:5000/joboffers/getlikedjobs", {
-        method: "PUT"
-      });
-  
-      const likedJobsArray = await res.json();
-      setLikedJobs(likedJobsArray);
 
+  async function likedJobs() {
+    try {
+      const response = await fetch("http://localhost:5000/likedjobs/getlikedjobs", {
+        method: "GET",
+        headers: {
+          token : localStorage.token,
+        }
+      });
+      const likedJobsArray = await response.json();
+      console.log(likedJobsArray);
+      setLikedJobs(likedJobsArray);
     } catch (e){
-      console.log(e);
+      console.error(e.message);
     }
   }
 
   useEffect(() => {
-    getlikedJobs();
+    likedJobs();
   })
+
+  // Delete
+  async function deletelikedjob(id) {
+    try{
+      const res = await fetch(`http://localhost:5000/likedjobs/${id}`, {
+        method: "DELETE",
+        headers: { token : localStorage.token}
+      });
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+  
 
   return (
     <div>
       <Sidebar/>
-    <div className="vacature-container">
-      <div className="vacature-header">
+    <div className="feed-container">
+      <div className="feed-header">
       </div>
-      <div className="vacature-body">
-        <div className="vacature-vacature-cards">
-          <div className="card">
-            <div className="vacature-vacature-function">
-              <h2>Fulltime vulploegmedewerker</h2>
-            </div>
-            <div className="vacature-vacature-workplace">
-              <h4>Lidl</h4>
-            </div>
-            <div className="vacature-vacature-div-icons">
-              <div className="vacature-vacature-icons">
-                <EuroIcon></EuroIcon>Salaris
+      <div className="feed-body">
+        <div className="feed-vacature-cards">
+          {likedjobs.map(likedjob => {
+            return (
+              <div className="card">
+                <div className="vacature-vacature-function">
+                  <h2>{likedjob.job_title}</h2>
+                  <span class="delete-vacature-icon">
+                    {/* onClick={() => deletepost(joboffers.job_id)} */}
+                    <button className="delete-vacature-button" onClick={() => deletelikedjob(likedjob.job_id)}>
+                      <DeleteIcon />
+                    </button>
+                  </span>
+                </div>
+                <div className="feed-vacature-div-icons">
+                  <div className="feed-vacature-icons">
+                    <EuroIcon></EuroIcon>{likedjob.job_salary}
+                  </div>
+                  <div className="feed-vacature-icons">
+                    <LocationOnIcon></LocationOnIcon>{likedjob.job_city}
+                  </div>
+                  <div className="feed-vacature-icons">
+                    <AccessTimeIcon></AccessTimeIcon>{likedjob.job_employment}
+                  </div>
+                  <div className="feed-vacature-icons">
+                    <CalendarMonthIcon></CalendarMonthIcon>{likedjob.job_created_at.substr(0, 10)}
+                  </div>
+                </div>
+                <div className="feed-vacature-info">
+                  <h4>Klik voor meer informatie</h4>
+                </div>
               </div>
-              <div className="vacature-vacature-icons">
-                <LocationOnIcon></LocationOnIcon>Plaats
-              </div>
-              <div className="vacature-vacature-icons">
-                <AccessTimeIcon></AccessTimeIcon>Dienstverband
-              </div>
-              <div className="vacature-vacature-icons">
-                <CalendarMonthIcon></CalendarMonthIcon>Datum
-              </div>
-            </div>
-            <div className="vacature-vacature-info">
-              <h4>Klik voor meer informatie</h4>
-            </div>
-          </div>
+            )
+          })}
+          
         </div>
       </div>
     </div>
