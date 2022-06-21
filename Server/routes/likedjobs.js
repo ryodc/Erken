@@ -4,7 +4,7 @@ const authorization = require("../middleware/authorization");
 
 
 
-router.post("/", authorization, async (req, res) => {
+router.get("/", authorization, async (req, res) => {
   try {
     const user = await pool.query(
       "SELECT user_name FROM users WHERE user_id = $1",
@@ -18,13 +18,14 @@ router.post("/", authorization, async (req, res) => {
 });
 
 // GET all likedjobs
-router.get("/getlikedjobs", authorization, async (req, res) => {
+router.put("/getlikedjobs" ,async (req, res) => {
   try {
-    const likedjobs = await pool.query("SELECT likedjob_id, likedjobs.job_id, job_title, job_description, job_salary, job_city, job_employment, likedjobs.user_id from likedjobs INNER JOIN joboffers on likedjobs.job_id = joboffers.job_id WHERE likedjobs.user_id = $1",[
+    const likedjobs = await pool.query(
+      "SELECT likedjob_id, likedjobs.job_id, job_title, job_description, job_salary, job_city, job_employment, likedjobs.user_id from likedjobs INNER JOIN joboffers on likedjobs.job_id = joboffers.job_id WHERE likedjobs.user_id = $1",[
       req.user
     ]);
 
-    res.json(likedjobs.rows);
+    res.json(likedjobs.rows[0]);
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Server error");
@@ -43,8 +44,8 @@ router.post("/likejoboffer", authorization, async (req, res) => {
     }
 
 
-    const newLikedJob = await pool.query("INSERT INTO likedjobs (user_id, job_id) VALUES ($1, $2)", 
-    [ req.user, id ]);
+    const newLikedJob = await pool.query("INSERT INTO likedjobs (job_id, uers_id) VALUES ($1, $2)", 
+    [ id, req.user ]);
 
     res.json(newLikedJob.rows[0]);
   } catch (error) {

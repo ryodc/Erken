@@ -5,7 +5,14 @@ import { Link } from "react-router-dom";
 import logo from "../Images/ErkenLogoScalable.png";
 import { BrowserRouter } from "react-router-dom";
 
-function Sidebar() {
+import LogoutIcon from '@mui/icons-material/Logout';
+
+
+function Sidebar({ setAuth }) {
+
+
+
+
   return (
     <BrowserRouter>
       <div>

@@ -8,7 +8,7 @@ body {
   background: url(../Images/pastel_image.jpg);
 }
 
-.container button {
+/* .container button {
   color: white;
   background-color: rgb(223, 46, 2);
   border-radius: 30px;
@@ -17,7 +17,7 @@ body {
   min-width: 200px;
   padding: 3%;
   text-decoration: none;
-}
+} */
 
 .container .text p {
   color: rgb(39, 54, 119);
@@ -116,6 +116,12 @@ body {
   border-color: #ffb619;
   border-width: 5px;
   border-radius: 10%;
+}
+
+.login-btn {
+  background-color: #DF482E;
+  color: white;
+  border: solid #273677 1px;
 }
 
 @media screen and (min-width: 300px) and (max-width: 500px) {

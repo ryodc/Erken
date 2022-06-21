@@ -21,7 +21,9 @@ const Landingpage = () => {
         <font color="273677">ken</font>
       </h1>
       {/* <button className="login">Login</button> */}
-      <Link className="login" to="/login">Login</Link>
+      <button className="login-btn">
+        <Link className="login" to="/login">Login</Link>
+      </button>
       <div className="first-header">Zoekt u naar een baan?</div>
       <div className="text">
         <p>Vind je</p>

@@ -11,8 +11,6 @@ export default function ProfileInfo() {
   const [naam, setNaam] = useState(localStorage.getItem("Naam"));
   const [email, setEmail] = useState(localStorage.getItem("Email"));
   const [telefoonnummer, setTelefoonnummer] = useState(localStorage.getItem("Telefoonnummer"));
-  const [emailverzorger, setEmailverzorger] = useState(localStorage.getItem("Emailverzorger"));
-  const [telefoonnummerverzorger, setTelefoonnummerverzorger] = useState(localStorage.getItem("Telefoonnummerverzorger"));
   const [straat, setStraat] = useState(localStorage.getItem("Straat"));
   const [huisnummer, setHuisnummer] = useState(localStorage.getItem("Huisnummer"));
   const [woonplaats, setWoonplaats] = useState(localStorage.getItem("Woonplaats"));
@@ -22,8 +20,6 @@ export default function ProfileInfo() {
     setNaam(localStorage.getItem("Naam"));
     setEmail(localStorage.getItem("Email"));
     setTelefoonnummer(localStorage.getItem("Telefoonnummer"));
-    setEmailverzorger(localStorage.getItem("Emailverzorger"));
-    setTelefoonnummerverzorger(localStorage.getItem("Telefoonnummerverzorger"));
     setStraat(localStorage.getItem("Straat"));
     setHuisnummer(localStorage.getItem("Huisnummer"));
     setWoonplaats(localStorage.getItem("Woonplaats"));
@@ -34,8 +30,6 @@ export default function ProfileInfo() {
     localStorage.setItem("Naam", "Naam");
     localStorage.setItem("Email", "Email");
     localStorage.setItem("Telefoonnummer", "Telefoonnummer");
-    localStorage.setItem("Emailverzorger", "Email verzorger");
-    localStorage.setItem("Telefoonnummerverzorger", "Telefoonnummer verzorger");
     localStorage.setItem("Straat", "Straat");
     localStorage.setItem("Huisnummer", "Huisnummer");
     localStorage.setItem("Woonplaats", "Woonplaats");
@@ -47,6 +41,26 @@ export default function ProfileInfo() {
     loadValues()
   }, [])
 
+
+
+  const [profileinfo, setProfileinfo] = useState([]);
+
+  async function getProfileinfo() {
+    const res = await fetch("http://localhost:5000/profile/", {
+      method: "PUT",
+      headers: { token: localStorage.token }      
+    });
+
+    const profileArray = await res.json();
+    console.log(profileArray);
+    setProfileinfo(profileArray);
+  }
+
+  useEffect(() => {
+    getProfileinfo();
+  })
+
+
   if (Status === 1) {
     return <EditProfile />;
   } else {
@@ -57,15 +71,12 @@ export default function ProfileInfo() {
             <div>
   
                 <div className="profileData">
-                  <div className="dataBoxes" title="Naam">{naam}</div>
-                  <div className="dataBoxes" title="Email">{email}</div>
-                  <div className="dataBoxes" title="Telefoonnummer">{telefoonnummer}</div>
-                  <div className="dataBoxes" title="Email verzorger">{emailverzorger}</div>
-                  <div className="dataBoxes" title="Telefoonnummer verzorger">{telefoonnummerverzorger}</div>
-                  <div className="dataBoxes" title="Straat">{straat}</div>
-                  <div className="dataBoxes" title="Huisnummer">{huisnummer}</div>
-                  <div className="dataBoxes" title="Woonplaats">{woonplaats}</div>
-                  <div className="dataBoxes" title="Postcode">{postcode}</div>
+                  <div className="dataBoxes" title="Naam">{profileinfo.user_firstname + " "+ profileinfo.user_lastname}</div>
+                  <div className="dataBoxes" title="Email">{profileinfo.user_email}</div>
+                  <div className="dataBoxes" title="Telefoonnummer">{profileinfo.user_phonenumber}</div>
+                  <div className="dataBoxes" title="Straat">{profileinfo.user_street}</div>
+                  <div className="dataBoxes" title="Woonplaats">{profileinfo.user_city}</div>
+                  <div className="dataBoxes" title="Postcode">{profileinfo.user_postalcode}</div>
                 </div>
             
             </div>

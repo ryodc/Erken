@@ -3,11 +3,31 @@ import ProfileInfo from "./profileinfo";
 //import EditProfile from "./editprofile";
 import AttachmentIcon from "@mui/icons-material/Attachment";
 import "./profile.css";
+import Sidebar from "../Default/sidebar";
 
 function Profile({ setAuth }) {
   const [Search, setSearch] = useState("Zoeken");
   
+  // const [profileinfo, setProfileinfo] = useState([]);
+
+  // async function getProfileinfo() {
+  //   const res = await fetch("http://localhost:5000/profile/", {
+  //     method: "GET",
+  //     headers: { token: localStorage.token }      
+  //   });
+
+  //   const profileArray = await res.json();
+  //   console.log(profileArray);
+  //   setProfileinfo(profileArray);
+  // }
+
+  // useEffect(() => {
+  //   getProfileinfo();
+  // })
+
   return (
+    <div>
+    <Sidebar/>
     <div className="profileContainer">
       <div>
         <img
@@ -25,17 +45,13 @@ function Profile({ setAuth }) {
           <div className="ProfileDataNamesContainer">Naam</div>
           <div className="ProfileDataNamesContainer">Email</div>
           <div className="ProfileDataNamesContainer">Telefoonnummer</div>
-          <div className="ProfileDataNamesContainer">Email verzorger</div>
-          <div className="ProfileDataNamesContainer">
-            Telefoonnummer verzorger
-          </div>
           <div className="ProfileDataNamesContainer">Straat</div>
-          <div className="ProfileDataNamesContainer">Huisnummer</div>
           <div className="ProfileDataNamesContainer">Woonplaats</div>
           <div className="ProfileDataNamesContainer">Postcode</div>
         </div>
         <ProfileInfo />
       </div>
+    </div>
     </div>
   );
 }
