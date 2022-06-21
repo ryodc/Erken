@@ -31,6 +31,7 @@ export default function ProfileInfo() {
     localStorage.setItem('Straat', 'Teststraat');
     localStorage.setItem('Woonplaats', 'Rotterdam');
     localStorage.setItem('Postcode', '3035');
+
   }
 
   useEffect(() => {
@@ -126,6 +127,7 @@ export default function ProfileInfo() {
               <button className="EditProfile hover effect" title="Profiel bewerken" onClick={() => setStatus(1)}>
                 <EditIcon />
               </button>
+
             </div>
           </div>
         </div>
