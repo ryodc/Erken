@@ -1,36 +1,119 @@
-import express from "express";
-import {
-  updateJoboffer,
-  deleteJoboffer,
-  getJoboffer,
-  getJoboffers,
-} from "../controllers/user.js";
-import { verifyAdmin, verifyToken, verifyCompany } from "../utils/verifyToken.js";
+const router = require("express").Router();
+const pool = require("../db");
+const authorization = require("../middleware/authorization");
 
-const router = express.Router();
+//GET ALL JOBOFFER
 
-// router.get("/checkauthentication", verifyToken, (req,res,next)=>{
-//   res.send("hello user, you are logged in")
+// router.get("/getalljoboffers", authorization , async (req, res) => {
+//   try {
+    
+//     const joboffers = await pool.query("SELECT * FROM  joboffers");
+//     res.json(joboffers.rows);
+//   } catch (error) {
+//     console.error(error.message);
+//     res.status(500).send("Server error");
+//   }
 // })
 
-// router.get("/checkCompany/:id", checkCompany, (req,res,next)=>{
-//   res.send("hello user, you are logged in and you can delete your account")
+router.put("/iscompany", authorization, async (req, res) => {
+  try {
+    const iscompany = await pool.query("SELECT is_company FROM users WHERE user_id = $1", [
+      req.user
+    ]);
+
+    res.json(iscompany.rows[0]);
+
+  } catch (error) {
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+})
+
+router.put("/userid", authorization, async (req, res) => {
+  try {
+    const userid = await pool.query("SELECT user_id FROM users WHERE user_id = $1", [
+      req.user
+    ])
+
+    res.json(userid.rows[0]);
+  } catch (error) {
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+})
+
+router.put("/", authorization, async (req, res) => {
+  try {
+    const joboffers = await pool.query(
+      "SELECT * FROM joboffers WHERE user_id = $1",
+      [req.user] 
+    ); 
+    res.json(joboffers.rows);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
+// POST JOBOFFER
+router.post("/addjoboffer", authorization ,async (req, res) => {
+  try {
+    const { jobtitle, jobdescription, jobsalary, jobcity, jobemployment } = req.body;
+
+    const newJobOffer = await pool.query("INSERT INTO joboffers (job_title, job_description, job_salary, job_city, job_employment, user_id) VALUES ($1, $2, $3, $4, $5, $6)",
+    [ jobtitle, jobdescription, jobsalary, jobcity, jobemployment, req.user]);
+    res.json(newJobOffer.rows[0]);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server error");
+  }
+})
+
+router.put("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const getspecificjoboffer = await pool.query("SELECT * FROM joboffers WHERE job_id = $1", [
+      id
+    ]);
+
+    res.json(getspecificjoboffer.rows[0]);
+
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server error");   
+  }
+})
+
+// router.put("/:id", authorization, async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const { jobtitle, jobdescription, jobsalary, jobcity, jobemployment } = req.body;
+
+//     const updateJobOffer = await pool.query("UPDATE joboffers SET job_title = $1, job_description = $2, job_salary = $3, job_city = $4, job_employment = $5 WHERE job_id = $6 AND user_id = $7", 
+//     [jobtitle, jobdescription, jobsalary, jobcity, jobemployment, id, req.user]);
+
+//     res.json("Joboffer was updated");
+//   } catch (error) {
+//     console.error(error.message);
+//     res.status(500).send("Server error");    
+//   }
 // })
 
-// router.get("/checkadmin/:id", verifyAdmin, (req,res,next)=>{
-//   res.send("hello admin, you are logged in and you can delete all accounts")
-// })
+router.delete("/:id", authorization,async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updateJobOffer = await pool.query("DELETE FROM joboffers WHERE job_id = $1",
+    [id]);
 
-//UPDATE
-router.put("/:id", verifyCompany, updateJoboffer);
+    if (updateJobOffer.rows.length === 0) {
+      return res.json("this joboffers is not yours");
+    }
 
-//DELETE
-router.delete("/:id", verifyCompany, deleteJoboffer);
+    res.json("Joboffer is deleted");
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server error");  
+  }
+})
 
-//GET
-router.get("/:id", verifyCompany, getJoboffer);
-
-//GET ALL
-router.get("/", verifyAdmin, getJoboffers);
-
-export default router;
+module.exports = router

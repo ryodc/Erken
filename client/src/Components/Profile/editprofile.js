@@ -2,107 +2,96 @@ import React from "react";
 import "./editprofile.css";
 
 import ProfileInfo from "./profileinfo";
-import CancelIcon from '@mui/icons-material/Cancel';
-
-import { useState } from "react";
+import DeleteIcon from '@mui/icons-material/Delete';
+import { useState, useEffect } from "react";
 
 export default function EditProfile() {
   const [Status, setStatus] = useState(1);
-  const [Bedrijf, setBedrijf] = useState();
-  const [Naam, setNaam] = useState();
-  const [Functie, setFunctie] = useState();
-  const [Email, setEmail] = useState();
-  const [Website, setWebsite] = useState();
-  const [ContactNum, setContactNum] = useState();
-  const [Gender, setGender] = useState();
+  const [change, setChange] = useState();
+
+  const [Naam, setNaam] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Telefoonnummer, setTelefoonnummer] = useState("");
+  const [Straat, setStraat] = useState("");
+  const [Woonplaats, setWoonplaats] = useState("");
+  const [Postcode, setPostcode] = useState("");
+
+  const loadValues = async () => {
+    setNaam(localStorage.getItem('Naam'));
+    setEmail(localStorage.getItem('Email'));
+    setTelefoonnummer(localStorage.getItem('Telefoonnummer'));
+    setStraat(localStorage.getItem('Straat'));
+    setWoonplaats(localStorage.getItem('Woonplaats'));
+    setPostcode(localStorage.getItem('Postcode'));
+  }
+
+  const PreventSubmit = (event) => {
+    if(change){
+      event.preventDefault();
+      console.log("submission prevented");
+    }
+    setStatus(0);
+  };
+
+  useEffect(() => {
+    loadValues()
+  }, [])
 
   if (Status === 0) {
     return <ProfileInfo />;
   }
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    localStorage.setItem("Naam", JSON.stringify("Naam"));
-    localStorage.setItem("Email", JSON.stringify("Email"));
-    localStorage.setItem("Telefoonnummer", JSON.stringify("Telefoonnummer"));
-    localStorage.setItem("Emailverzorger", JSON.stringify("Emailverzorger"));
-    localStorage.setItem(
-      "Telefoonnummerverzorger",
-      JSON.stringify("Telefoonnummerverzorger")
-    );
-    localStorage.setItem("Straat", JSON.stringify("Straat"));
-    localStorage.setItem("Huisnummer", JSON.stringify("Huisnummer"));
-    localStorage.setItem("Woonplaats", JSON.stringify("Woonplaats"));
-    localStorage.setItem("Postcode", JSON.stringify("Postcode"));
-  };
 
   return (
     <div>
       <div className="profileHead">
         <div>
           <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={PreventSubmit}>
               <div className="EditprofileData">
                 <input
                   className="EditdataBoxes"
                   title="Naam"
-                  id="Naam"
-                  placeholder={localStorage.getItem("Naam")}
-                  onChange={(e) => setNaam(e.target.value)}
+                  placeholder={Naam}
+                  onChange={(e) =>  localStorage.setItem('Naam', e.target.value)}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Email"
-                  id="Email"
-                  placeholder={localStorage.getItem("Email")}
-                  onChange={(e) => setNaam(e.target.value)}
+                  placeholder={Email}
+                  onChange={(e) => localStorage.setItem('Email', e.target.value)}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Telefoonnummer"
-                  id="Telefoonnummer"
-                  placeholder={localStorage.getItem("Telefoonnummer")}
-                ></input>
-                <input
-                  className="EditdataBoxes"
-                  title="Email verzorger"
-                  id="Emailverzorger"
-                  placeholder={localStorage.getItem("Email verzorger")}
-                ></input>
-                <input
-                  className="EditdataBoxes"
-                  title="Telefoonnummer verzorger"
-                  id="Telefoonnummerverzorger"
-                  placeholder={localStorage.getItem("Telefoonnummer verzorger")}
+                  placeholder={Telefoonnummer}
+                  onChange={(e) => localStorage.setItem('Telefoonnummer', e.target.value)}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Straat"
                   id="Straat"
-                  placeholder={localStorage.getItem("Straat")}
-                ></input>
-                <input
-                  className="EditdataBoxes"
-                  title="Huisnummer"
-                  id="Huisnummer"
-                  placeholder={localStorage.getItem("Huisnummer")}
+                  placeholder={Straat}
+                  onChange={(e) => localStorage.setItem('Straat', e.target.value)}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Woonplaats"
                   id="Woonplaats"
-                  placeholder={localStorage.getItem("Woonplaats")}
+                  placeholder={Woonplaats}
+                  onChange={(e) => localStorage.setItem('Woonplaats', e.target.value)}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Postcode"
                   id="Postcode"
-                  placeholder={localStorage.getItem("Postcode")}
+                  placeholder={Postcode}
+                  onChange={(e) => localStorage.setItem("Postcode", e.target.value)}
                 ></input>
               </div>
-              <button className="Backbutton" title="Annuleren" onClick={() => setStatus(0)}>
-                <CancelIcon />
+              <button className="Backbutton" type="reset" title="Leeg invoervelden" onClick={() => setChange(false)}>
+                <DeleteIcon />
               </button>
-              <button className="Savebutton" onClick={() => setStatus(0)}>
+              <button className="Savebutton" onClick={() => setChange(true)}>
                 Opslaan
               </button>
             </form>

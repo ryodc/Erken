@@ -1,8 +1,8 @@
 .profileContainer{
     display: flex;
     flex-direction: column;
-    left: 15%;
-    padding-top: 30%;
+    left: 20%;
+    padding-top: 60%;
     position: relative;
     width: 85%;
 }
@@ -11,28 +11,10 @@
     width: 15%;
     border-radius: 10%;
     position: absolute;
-    top: 20%;
-    left: 5%;
+    top: 15%;
+    left: 4%;
 }
 
-.EditImage{
-    cursor: pointer;
-    border-radius: none !important;
-    position: absolute;
-    background: transparent;
-    left: 17%;
-    top: 21%;
-    color: #fff;
-    border: none;
-    border-width: 0; 
-    border: 0;
-    transition: transform ease-out 0.1s, background 0.2s;
-}
-
-.EditImage:hover {
-    background: transparent;
-    transform: scale(1.2);
-}
 
 .SearchBarContainer{
     display:flex;
@@ -71,4 +53,5 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 4.1%;
+    font-size: 100%;
 }

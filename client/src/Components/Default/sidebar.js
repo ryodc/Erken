@@ -5,13 +5,20 @@ import { Link } from "react-router-dom";
 import logo from "../Images/ErkenLogoScalable.png";
 import { BrowserRouter } from "react-router-dom";
 
-function Sidebar() {
+import LogoutIcon from '@mui/icons-material/Logout';
+
+
+function Sidebar({ setAuth }) {
+
+
+
+
   return (
     <BrowserRouter>
       <div>
         <div className="Sidebar">
           <div className="Header">
-            <h1 class="logo">
+            <h1 className="logo">
               <font color="DF482E">Er</font>
               <font color="273677">ken</font>
             </h1>
