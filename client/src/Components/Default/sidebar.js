@@ -11,7 +11,7 @@ function Sidebar() {
       <div>
         <div className="Sidebar">
           <div className="Header">
-            <h1 class="logo">
+            <h1 className="logo">
               <font color="DF482E">Er</font>
               <font color="273677">ken</font>
             </h1>

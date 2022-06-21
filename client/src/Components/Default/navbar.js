@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Sidebar from "./Sidebar";
 
+
 import Feed from "../Feed/feed";
 import Vacature from "../Vacature/vacature";
 import Chat from "../Chat/chat";
@@ -16,7 +17,7 @@ function Navbar() {
       <Router>
         <Sidebar />
         <Switch>
-          <Route path="/" exact component={Feed} />
+          <Route path="/Feed" exact component={Feed} />
           <Route path="/Vacature" component={Vacature} />
           <Route path="/Chat" component={Chat} />
           <Route path="/Profile" component={Profile} />

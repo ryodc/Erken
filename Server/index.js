@@ -1,52 +1,18 @@
-import express from "express"
-import dotenv from "dotenv"
-import mongoose from "mongoose"
-import cookieParser from "cookie-parser";
-import cors from "cors";
+const express = require("express");
+const app = express();
+const cors = require("cors");
 
-import authRoute from "./routes/auth.js";
-import usersRoute from "./routes/users.js";
-import hotelsRoute from "./routes/hotels.js";
-import roomsRoute from "./routes/rooms.js";
-
-const app = express()
-dotenv.config()
-
-const connect = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO);
-    console.log("Connect to mongoDB")
-  } catch (error) {
-    throw error;
-  }
-};
-
-mongoose.connection.on("disconnected", () => {
-  console.log("mongoDB disconnected!");
-});
-
-app.use(cors())
-app.use(cookieParser())
+//middleware
 app.use(express.json());
+app.use(cors());
 
-app.use("/Server/auth", authRoute);
-app.use("/Server/users", usersRoute);
-app.use("/Server/Companys", hotelsRoute);
-app.use("/Server/Joboffers", roomsRoute);
+//ROUTES
+app.use("/auth", require("./routes/jwtauth"));
+app.use("/joboffers", require("./routes/joboffers"));
+app.use("/likedjobs", require("./routes/likedjobs"));
+app.use("/profile", require("./routes/profile"));
+app.use("/chat", require("./routes/chat"));
 
-app.use((err, req, res, next) => {
-  const errorStatus = err.status || 500;
-  const errorMessage = err.message || "Something went wrong!";
-  return res.status(errorStatus).json({
-    success: false,
-    status: errorStatus,
-    message: errorMessage,
-    stack: err.stack,
-  });
-});
-
-app.listen(8800, ()=>{
-  connect();
-  console.log("Connected to backend.")
+app.listen(5000, () => {
+  console.log("server is running on port 5000")
 })
-
