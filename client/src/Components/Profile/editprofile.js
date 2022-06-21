@@ -51,40 +51,40 @@ export default function EditProfile() {
                 <input
                   className="EditdataBoxes"
                   title="Naam"
-                  placeholder={Naam}
+                  placeholder="Naam"
                   onChange={(e) =>  localStorage.setItem('Naam', e.target.value)}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Email"
-                  placeholder={Email}
+                  placeholder="Email"
                   onChange={(e) => localStorage.setItem('Email', e.target.value)}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Telefoonnummer"
-                  placeholder={Telefoonnummer}
+                  placeholder="Telefoonnummer"
                   onChange={(e) => localStorage.setItem('Telefoonnummer', e.target.value)}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Straat"
                   id="Straat"
-                  placeholder={Straat}
+                  placeholder="Straat"
                   onChange={(e) => localStorage.setItem('Straat', e.target.value)}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Woonplaats"
                   id="Woonplaats"
-                  placeholder={Woonplaats}
+                  placeholder="Woonplaats"
                   onChange={(e) => localStorage.setItem('Woonplaats', e.target.value)}
                 ></input>
                 <input
                   className="EditdataBoxes"
                   title="Postcode"
                   id="Postcode"
-                  placeholder={Postcode}
+                  placeholder="Postcode"
                   onChange={(e) => localStorage.setItem("Postcode", e.target.value)}
                 ></input>
               </div>
