@@ -20,6 +20,7 @@ CREATE TABLE joboffers(
   job_salary VARCHAR(255) NOT NULL,
   job_city VARCHAR(255) NOT NULL,
   job_employment VARCHAR(255) NOT NULL,
+  job_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   CONSTRAINT fk_user_id FOREIGN KEY(user_id) REFERENCES users(user_id)
 );
 
