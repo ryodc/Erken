@@ -49,6 +49,26 @@ export default function ProfileInfo() {
     loadValues()
   }, [])
 
+
+
+  const [profileinfo, setProfileinfo] = useState([]);
+
+  async function getProfileinfo() {
+    const res = await fetch("http://localhost:5000/profile/", {
+      method: "PUT",
+      headers: { token: localStorage.token }      
+    });
+
+    const profileArray = await res.json();
+    console.log(profileArray);
+    setProfileinfo(profileArray);
+  }
+
+  useEffect(() => {
+    getProfileinfo();
+  })
+
+
   if (Status === 1) {
     return <EditProfile />;
   } else {
@@ -59,15 +79,12 @@ export default function ProfileInfo() {
             <div>
   
                 <div className="profileData">
-                  <div className="dataBoxes" title="Naam">{Naam}</div>
-                  <div className="dataBoxes" title="Email">{Email}</div>
-                  <div className="dataBoxes" title="Telefoonnummer">{Telefoonnummer}</div>
-                  <div className="dataBoxes" title="Email verzorger">{Emailverzorger}</div>
-                  <div className="dataBoxes" title="Telefoonnummer verzorger">{Telefoonnummerverzorger}</div>
-                  <div className="dataBoxes" title="Straat">{Straat}</div>
-                  <div className="dataBoxes" title="Huisnummer">{Huisnummer}</div>
-                  <div className="dataBoxes" title="Woonplaats">{Woonplaats}</div>
-                  <div className="dataBoxes" title="Postcode">{Postcode}</div>
+                  <div className="dataBoxes" title="Naam">{profileinfo.user_firstname + " "+ profileinfo.user_lastname}</div>
+                  <div className="dataBoxes" title="Email">{profileinfo.user_email}</div>
+                  <div className="dataBoxes" title="Telefoonnummer">{profileinfo.user_phonenumber}</div>
+                  <div className="dataBoxes" title="Straat">{profileinfo.user_street}</div>
+                  <div className="dataBoxes" title="Woonplaats">{profileinfo.user_city}</div>
+                  <div className="dataBoxes" title="Postcode">{profileinfo.user_postalcode}</div>
                 </div>
             
             </div>

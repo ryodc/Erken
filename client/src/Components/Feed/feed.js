@@ -1,9 +1,7 @@
 // import React, { useState, useEffect } from "react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./feed.css";
 import IconButton from "@mui/material/IconButton";
-import SearchIcon from "@mui/icons-material/Search";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EuroIcon from "@mui/icons-material/Euro";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
@@ -11,8 +9,13 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
 import { FeedData } from "../Feed/feedData";
-import { CardsFeedData } from "./feedCardsData";
 import Popup from "../Default/Popup";
+import Sidebar from "../Default/sidebar";
+import LogoutIcon from '@mui/icons-material/Logout';
+import AddIcon from '@mui/icons-material/Add';
+import DeleteIcon from '@mui/icons-material/Delete';
+
+import { Link } from 'react-router-dom'
 
 const Feed = ({ setAuth }) => {
   const [state, setState] = useState(false);
@@ -39,6 +42,39 @@ const Feed = ({ setAuth }) => {
 
   const [buttonPopup, setButtonPopup] = useState(false);
 
+  const [addPopup, setAddPopup] = useState(false);
+
+  const [iscompany, setIscompany] = useState(false);
+
+  const [isowner, setIsowner] = useState("");
+// Get iscompany
+
+
+  async function getcompanyinfo() {
+    const res = await fetch("http://localhost:5000/joboffer/iscompany", {
+      method: "PUT",
+      headers: { token: localStorage.token }
+    });
+    
+    const info = await res.json();
+    setIscompany(info);
+  }
+
+  async function getuserinfo() {
+    const res = await fetch("http://localhost:5000/joboffer/userid", {
+      method: "PUT",
+      headers: { token: localStorage.token }
+    });
+    
+    const info = await res.json();
+    setIsowner(info);
+  }
+
+  getcompanyinfo();
+
+
+  const [jobid, setJobid] = useState("");
+// LOGOUT BUTTON
   const logout = async (e) => {
     e.preventDefault();
     try {
@@ -48,13 +84,58 @@ const Feed = ({ setAuth }) => {
       console.error(err.message);
     }
   };
+// Load all joboffers
+  const [joboffers, setJoboffers] = useState([]);
+
+  async function getJoboffers() {
+    const res = await fetch("http://localhost:5000/joboffers/", {
+      method: "PUT",
+      headers: { token: localStorage.token }
+    });
+
+    const JoboffersArray = await res.json();
+    setJoboffers(JoboffersArray);
+  }
+  useEffect(() => {
+    getJoboffers();
+  })
+
+// delete function button
+  async function deletepost(id) {
+    try {
+      const res = await fetch(`http://localhost:5000/joboffers/${id}`, {
+        method: "DELETE",
+        headers: { token: localStorage.token }
+      });
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+// make likedjob
+// function liked jobs
+// request staat in server/routes/likedjobs
+// Star button likedjob toevoegd
+
+async function likePost(id){
+  try {
+    const body = { id };
+    const res = await fetch("http://localhost:5000/likedjobs/likedjoboffer/", {
+      method: "POST",
+      body : JSON.stringify(body)
+    });
+
+    const response = await res.json();
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
 
   return (
     <div className="feed-container">
+      <Sidebar/>
       <div className="feed-header">
-        <button onClick={(e) => logout(e)} className="btn btn-primary">
-          Logout
-        </button>
         <div className="feed-header-searchdiv">
           {/* <SearchIcon></SearchIcon> */}
           <select
@@ -87,264 +168,63 @@ const Feed = ({ setAuth }) => {
             ))}
           </select>
         </div>
+        <button onClick={(e) => logout(e)} className="logoutbutton">
+          <LogoutIcon /> 
+          <span>Uitloggen</span>
+        </button>
       </div>
       <div className="feed-body">
         <div className="feed-vacature-cards">
-          <div className="card">
-            <div className="feed-vacature-function">
-              <h2>Fulltime vulploegmedewerker</h2>
-              <div className="feed-vacature-icon">
-                <IconButton onClick={handleClick}>
-                  {!state ? (
-                    <StarBorderIcon sx={{ color: "darkorange" }} />
-                  ) : (
-                    <StarIcon sx={{ color: "darkorange" }} />
-                  )}
-                </IconButton>
+          {joboffers.map(joboffers => {
+            return (
+              <div className="card">
+              <div className="feed-vacature-function">
+                <h2>{joboffers.job_title}</h2>
+                <div className="feed-vacature-icon">
+                  <IconButton onClick={() => likePost(joboffers.job_id)}>
+                    <StarBorderIcon/>
+                  </IconButton>
+                </div>
+                <div></div>
+                  <span class="delete-vacature-icon">
+                  <button className="delete-vacature-button" onClick={() => deletepost(joboffers.job_id)}>
+                    <DeleteIcon />
+                  </button>
+                </span>
+              </div>
+              {/* <div className="feed-vacature-workplace">
+                <h4>{joboffers.job_description}</h4>
+              </div> */}
+              <div className="feed-vacature-div-icons">
+                <div className="feed-vacature-icons">
+                  <EuroIcon></EuroIcon>{joboffers.job_salary}
+                </div>
+                <div className="feed-vacature-icons">
+                  <LocationOnIcon></LocationOnIcon>{joboffers.job_city}
+                </div>
+                <div className="feed-vacature-icons">
+                  <AccessTimeIcon></AccessTimeIcon>{joboffers.job_employment}
+                </div>
+                <div className="feed-vacature-icons">
+                  <CalendarMonthIcon></CalendarMonthIcon>{joboffers.job_created_at.substr(0, 10)}
+                </div>
+              </div>
+              <div className="feed-vacature-info">
+                <h4 onClick={() => {setButtonPopup(true); setJobid(joboffers.job_id); }}>
+                  Klik voor meer informatie
+                </h4>
               </div>
             </div>
-            <div className="feed-vacature-workplace">
-              <h4>Lidl</h4>
-            </div>
-            <div className="feed-vacature-div-icons">
-              <div className="feed-vacature-icons">
-                <EuroIcon></EuroIcon>5,50
-              </div>
-              <div className="feed-vacature-icons">
-                <LocationOnIcon></LocationOnIcon>Drenthe
-              </div>
-              <div className="feed-vacature-icons">
-                <AccessTimeIcon></AccessTimeIcon>Fulltime
-              </div>
-              <div className="feed-vacature-icons">
-                <CalendarMonthIcon></CalendarMonthIcon>18-05-2022
-              </div>
-            </div>
-            <div className="feed-vacature-info">
-              <h4 onClick={() => setButtonPopup(true)}>
-                Klik voor meer informatie
-              </h4>
-            </div>
-          </div>
-          <div className="card">
-            <div className="feed-vacature-function">
-              <h2>Assistent Boerderij</h2>
-              <div className="feed-vacature-icon">
-                <IconButton onClick={handleClick}>
-                  {!state ? (
-                    <StarBorderIcon sx={{ color: "darkorange" }} />
-                  ) : (
-                    <StarIcon sx={{ color: "darkorange" }} />
-                  )}
-                </IconButton>
-              </div>
-            </div>
-            <div className="feed-vacature-workplace">
-              <h4>de Buytenhof</h4>
-            </div>
-            <div className="feed-vacature-div-icons">
-              <div className="feed-vacature-icons">
-                <EuroIcon></EuroIcon>6,00
-              </div>
-              <div className="feed-vacature-icons">
-                <LocationOnIcon></LocationOnIcon>Amsterdam
-              </div>
-              <div className="feed-vacature-icons">
-                <AccessTimeIcon></AccessTimeIcon>Parttime
-              </div>
-              <div className="feed-vacature-icons">
-                <CalendarMonthIcon></CalendarMonthIcon>12-05-2022
-              </div>
-            </div>
-            <div className="feed-vacature-info">
-              <h4 onClick={() => setButtonPopup(true)}>
-                Klik voor meer informatie
-              </h4>
-            </div>
-          </div>
-          <div className="card">
-            <div className="feed-vacature-function">
-              <h2>Vakkenvuller</h2>
-              <div className="feed-vacature-icon">
-                <IconButton onClick={handleClick}>
-                  {!state ? (
-                    <StarBorderIcon sx={{ color: "darkorange" }} />
-                  ) : (
-                    <StarIcon sx={{ color: "darkorange" }} />
-                  )}
-                </IconButton>
-              </div>
-            </div>
-            <div className="feed-vacature-workplace">
-              <h4>Albert Heijn</h4>
-            </div>
-            <div className="feed-vacature-div-icons">
-              <div className="feed-vacature-icons">
-                <EuroIcon></EuroIcon>6,50
-              </div>
-              <div className="feed-vacature-icons">
-                <LocationOnIcon></LocationOnIcon>Utrecht
-              </div>
-              <div className="feed-vacature-icons">
-                <AccessTimeIcon></AccessTimeIcon>Fulltime
-              </div>
-              <div className="feed-vacature-icons">
-                <CalendarMonthIcon></CalendarMonthIcon>18-05-2022
-              </div>
-            </div>
-            <div className="feed-vacature-info">
-              <h4 onClick={() => setButtonPopup(true)}>
-                Klik voor meer informatie
-              </h4>
-            </div>
-          </div>
-          <div className="card">
-            <div className="feed-vacature-function">
-              <h2>Vulploegmedewerker</h2>
-              <div className="feed-vacature-icon">
-                <IconButton onClick={handleClick}>
-                  {!state ? (
-                    <StarBorderIcon sx={{ color: "darkorange" }} />
-                  ) : (
-                    <StarIcon sx={{ color: "darkorange" }} />
-                  )}
-                </IconButton>
-              </div>
-            </div>
-            <div className="feed-vacature-workplace">
-              <h4>Jumbo</h4>
-            </div>
-            <div className="feed-vacature-div-icons">
-              <div className="feed-vacature-icons">
-                <EuroIcon></EuroIcon>4,50
-              </div>
-              <div className="feed-vacature-icons">
-                <LocationOnIcon></LocationOnIcon>Rotterdam
-              </div>
-              <div className="feed-vacature-icons">
-                <AccessTimeIcon></AccessTimeIcon>Parttime
-              </div>
-              <div className="feed-vacature-icons">
-                <CalendarMonthIcon></CalendarMonthIcon>13-05-2022
-              </div>
-            </div>
-            <div className="feed-vacature-info">
-              <h4 onClick={() => setButtonPopup(true)}>
-                Klik voor meer informatie
-              </h4>
-            </div>
-          </div>
-          <div className="card">
-            <div className="feed-vacature-function">
-              <h2>Afwasser</h2>
-              <div className="feed-vacature-icon">
-                <IconButton onClick={handleClick}>
-                  {!state ? (
-                    <StarBorderIcon sx={{ color: "darkorange" }} />
-                  ) : (
-                    <StarIcon sx={{ color: "darkorange" }} />
-                  )}
-                </IconButton>
-              </div>
-            </div>
-            <div className="feed-vacature-workplace">
-              <h4>SHABU SHABU</h4>
-            </div>
-            <div className="feed-vacature-div-icons">
-              <div className="feed-vacature-icons">
-                <EuroIcon></EuroIcon>5,50
-              </div>
-              <div className="feed-vacature-icons">
-                <LocationOnIcon></LocationOnIcon>Limburg
-              </div>
-              <div className="feed-vacature-icons">
-                <AccessTimeIcon></AccessTimeIcon>Fulltime
-              </div>
-              <div className="feed-vacature-icons">
-                <CalendarMonthIcon></CalendarMonthIcon>12-05-2022
-              </div>
-            </div>
-            <div className="feed-vacature-info">
-              <h4 onClick={() => setButtonPopup(true)}>
-                Klik voor meer informatie
-              </h4>
-            </div>
-          </div>
-          <div className="card">
-            <div className="feed-vacature-function">
-              <h2>Krantenwijk</h2>
-              <div className="feed-vacature-icon">
-                <IconButton onClick={handleClick}>
-                  {!state ? (
-                    <StarBorderIcon sx={{ color: "darkorange" }} />
-                  ) : (
-                    <StarIcon sx={{ color: "darkorange" }} />
-                  )}
-                </IconButton>
-              </div>
-            </div>
-            <div className="feed-vacature-workplace">
-              <h4>Spotta</h4>
-            </div>
-            <div className="feed-vacature-div-icons">
-              <div className="feed-vacature-icons">
-                <EuroIcon></EuroIcon>3,50
-              </div>
-              <div className="feed-vacature-icons">
-                <LocationOnIcon></LocationOnIcon>Rotterdam
-              </div>
-              <div className="feed-vacature-icons">
-                <AccessTimeIcon></AccessTimeIcon>Parttime
-              </div>
-              <div className="feed-vacature-icons">
-                <CalendarMonthIcon></CalendarMonthIcon>05-05-2022
-              </div>
-            </div>
-            <div className="feed-vacature-info">
-              <h4 onClick={() => setButtonPopup(true)}>
-                Klik voor meer informatie
-              </h4>
-            </div>
-          </div>
-          <div className="card">
-            <div className="feed-vacature-function">
-              <h2>Fulltime vulploegmedewerker</h2>
-              <div className="feed-vacature-icon">
-                <IconButton onClick={handleClick}>
-                  {!state ? (
-                    <StarBorderIcon sx={{ color: "darkorange" }} />
-                  ) : (
-                    <StarIcon sx={{ color: "darkorange" }} />
-                  )}
-                </IconButton>
-              </div>
-            </div>
-            <div className="feed-vacature-workplace">
-              <h4>Lidl</h4>
-            </div>
-            <div className="feed-vacature-div-icons">
-              <div className="feed-vacature-icons">
-                <EuroIcon></EuroIcon>Salaris
-              </div>
-              <div className="feed-vacature-icons">
-                <LocationOnIcon></LocationOnIcon>Plaats
-              </div>
-              <div className="feed-vacature-icons">
-                <AccessTimeIcon></AccessTimeIcon>Dienstverband
-              </div>
-              <div className="feed-vacature-icons">
-                <CalendarMonthIcon></CalendarMonthIcon>Datum
-              </div>
-            </div>
-            <div className="feed-vacature-info">
-              <h4 onClick={() => setButtonPopup(true)}>
-                Klik voor meer informatie
-              </h4>
-            </div>
-          </div>
-          <Popup trigger={buttonPopup} setTrigger={setButtonPopup}></Popup>
+            )
+          })}
         </div>
       </div>
+      <Link to="/addvacature">
+       <button className="add-vacature-button" path="/Feedvacature">
+         <AddIcon className="icon"/>
+       </button>
+      </Link>
+      <Popup id={jobid} trigger={buttonPopup} setTrigger={setButtonPopup}></Popup>
     </div>
   );
 };

@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
 .feed-container {
   width: 100vw;
   height: 100vh;
@@ -26,7 +30,7 @@
 .feed-header-searchdiv > select {
   /* width: fit-content; */
   border-radius: 0;
-  border: 0.5px solid black;
+  /* border: 0.5px solid black; */
   /* margin-right: 0.1rem; */
   padding: 0.75rem;
 }
@@ -38,6 +42,11 @@
   font-size: 110%;
   padding: 0.7em;
   outline: none;
+  -webkit-box-shadow: 0px 0px 52px -10px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 52px -10px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 52px -10px rgba(0,0,0,0.75);
+  background-color: #273677;
+  color: white;
 }
 
 .feed-body {
@@ -54,7 +63,7 @@
   display: table;
   min-width: 450px;
   max-width: 900px;
-  margin-top: 6.8rem;
+  margin-top: 10%;
   z-index: 0;
 }
 
@@ -103,6 +112,24 @@
   z-index: 0;
 }
 
+.delete-vacature-button {
+  background: none;
+  border: none;
+  display: flex;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  float: left;
+  /* color: rgb(243, 120, 120); */
+}
+
+.delete-vacature-button:hover{
+  color: rgb(247, 48, 48);
+}
+
+
 .feed-vacature-function > h2 {
   position: relative;
   width: 100%;
@@ -114,6 +141,12 @@
   z-index: 0;
 }
 
+
+.delete-vacature {
+  position: absolute;
+  float: left;
+  margin: 0;
+}
 .feed-vacature-workplace h4 {
   position: relative;
   margin-top: 0.25rem;
@@ -193,3 +226,36 @@
   padding: 0.5rem;
   text-decoration: underline;
 } */
+
+.logoutbutton {
+  position: sticky;
+  float: right;
+  margin-top: 2%;
+  margin-right: 8%;
+  padding: 1rem;
+  border-radius: 5px;
+  border: none;
+  align-content: center;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #DF482E;
+  color: white;
+}
+
+
+.add-vacature-button {
+  position: sticky;
+  float: right;
+  width: 75px;
+  height: 75px;
+  margin-top: 2%;
+  margin-right: 18%;
+  border-radius: 50%;
+  border: none;
+  font-size: 2rem;
+  background-color: #DF482E;
+  color: white;
+  font-size: 24px;
+}
+
