@@ -6,8 +6,6 @@ import "./profile.css";
 import Sidebar from "../Default/sidebar";
 
 function Profile({ setAuth }) {
-  const [Search, setSearch] = useState("Zoeken");
-  
   // const [profileinfo, setProfileinfo] = useState([]);
 
   // async function getProfileinfo() {
@@ -35,9 +33,6 @@ function Profile({ setAuth }) {
           src="https://www.w3schools.com/howto/img_avatar.png"
           alt="profile"
         />
-        <button className="EditImage">
-          <AttachmentIcon />
-        </button>
       </div>
       <div className="profileDataContainer">
         <h1 className="profileTitle">Profiel</h1>
