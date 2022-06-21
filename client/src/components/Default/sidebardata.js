@@ -5,12 +5,13 @@ import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import PersonIcon from "@mui/icons-material/Person";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import StarIcon from "@mui/icons-material/Star";
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export const SidebarData = [
   {
     title: "Feed",
     icon: <HomeIcon />,
-    path: "/",
+    path: "/Feed",
     cName: "nav-text",
   },
   {
@@ -32,3 +33,5 @@ export const SidebarData = [
     cName: "nav-text",
   },
 ];
+
+

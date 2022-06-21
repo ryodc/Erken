@@ -11,7 +11,7 @@ function Sidebar() {
       <div>
         <div className="Sidebar">
           <div className="Header">
-            <h1 class="logo">
+            <h1 className="logo">
               <font color="DF482E">Er</font>
               <font color="273677">ken</font>
             </h1>
@@ -28,7 +28,9 @@ function Sidebar() {
                   }}
                 >
                   <Link to={val.path}>
-                    <div id="icon" title={val.title}>{val.icon}</div>
+                    <div id="icon" title={val.title}>
+                      {val.icon}
+                    </div>
                     <span>{val.title}</span>
                   </Link>
                 </li>

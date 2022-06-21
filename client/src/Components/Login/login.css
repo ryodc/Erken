@@ -1,10 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 * {
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   }
   
-  body {
-    margin: 0;
-    padding: 0;
+body {
     background: url(../Images/pastel_image.jpg);
   }
 
@@ -18,44 +18,43 @@
     margin-right: 5%;
   }
 
-.container .textL {
-    font-size: calc(4.5vw + 1.5vw);
-    position: absolute;
-    height: auto;
-    width: auto;
-    margin-top: 0.01%;
-    margin-left: 38%;
-    margin-right: 32%;
+.Box {
+  font-family: 'Montserrat', sans-serif;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 
-.container .textL2 {
-    font-size: calc(4.5vw + 1.5vw);
-    position: absolute;
-    height: auto;
-    width: 50%;
-    margin-top: 5.5%;
-    margin-left: 28%;
-    margin-right: 32%;
-}
-/* 5 30 */
-.formField {
-    margin-bottom: 40px;
-}
-  
-.formFieldLabel {
-    display: block;
-    text-transform: uppercase;
-    font-size: 0.9em;
-    color: white;
+.Header{
+  padding: 1%;
 }
 
-.formFieldButton {
-    background-color: #6b5b95;
-    color: white;
-    border: none;
-    outline: none;
-    border-radius: 25px;
-    padding: 15px 70px;
-    font-size: 0.8em;
-    font-weight: 500;
+.Input{
+  border: none;
+  width: 100%;
+  padding: 5%;
+  margin: 3%;
+  font-size: 14px;
+  width: 400px;
+  border-radius: 30px;
+}
+
+.column {
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  display: flex;
+}
+
+.Button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./vacature.css";
 import SearchIcon from "@mui/icons-material/Search";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -11,15 +11,10 @@ import Logo from "../Images/ErkenLogoScalable.png";
 import LockIcon from "@mui/icons-material/Lock";
 */
 
-const Vacature = () => {
+const Vacature = ({ setAuth }) => {
+
   return (
     <div className="vacature-container">
-      <div className="VacatureFilter">
-        <h2>Vacaturefilter</h2>
-        <div><Checkbox></Checkbox>In Afwachting</div>
-        <div><Checkbox></Checkbox>Bericht Ontvangen</div>
-        <div><Checkbox></Checkbox>Favorieten</div>
-      </div>
       <div className="vacature-header">
         <div className="vacature-header-searchdiv">
           <SearchIcon></SearchIcon>
