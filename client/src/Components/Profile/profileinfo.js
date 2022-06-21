@@ -10,10 +10,7 @@ export default function ProfileInfo() {
   const [Naam, setNaam] = useState();
   const [Email, setEmail] = useState();
   const [Telefoonnummer, setTelefoonnummer] = useState();
-  const [Emailverzorger, setEmailverzorger] = useState();
-  const [Telefoonnummerverzorger, setTelefoonnummerverzorger] = useState();
   const [Straat, setStraat] = useState();
-  const [Huisnummer, setHuisnummer] = useState();
   const [Woonplaats, setWoonplaats] = useState();
   const [Postcode, setPostcode] = useState();
 
@@ -21,10 +18,7 @@ export default function ProfileInfo() {
     setNaam(localStorage.getItem('Naam'));
     setEmail(localStorage.getItem('Email'));
     setTelefoonnummer(localStorage.getItem('Telefoonnummer'));
-    setEmailverzorger(localStorage.getItem('Emailverzorger'));
-    setTelefoonnummerverzorger(localStorage.getItem('Telefoonnummerverzorger'));
     setStraat(localStorage.getItem('Straat'));
-    setHuisnummer(localStorage.getItem('Huisnummer'));
     setWoonplaats(localStorage.getItem('Woonplaats'));
     setPostcode(localStorage.getItem('Postcode'));
   }
@@ -34,10 +28,7 @@ export default function ProfileInfo() {
     localStorage.setItem('Naam', 'Hogeschool Rotterdam');
     localStorage.setItem('Email', '10000000@hr.nl');
     localStorage.setItem('Telefoonnummer', '010-12345678');
-    localStorage.setItem('Emailverzorger', 'asdf@gmail.com');
-    localStorage.setItem('Telefoonnummerverzorger', '010-12345678');
     localStorage.setItem('Straat', 'Teststraat');
-    localStorage.setItem('Huisnummer', '1');
     localStorage.setItem('Woonplaats', 'Rotterdam');
     localStorage.setItem('Postcode', '3035');
   }
@@ -72,28 +63,73 @@ export default function ProfileInfo() {
   if (Status === 1) {
     return <EditProfile />;
   } else {
-    return (
-      <div>
-        <div className="profileHead">
-          <div className="profile">
-            <div>
-  
-                <div className="profileData">
-                  <div className="dataBoxes" title="Naam">{profileinfo.user_firstname + " "+ profileinfo.user_lastname}</div>
-                  <div className="dataBoxes" title="Email">{profileinfo.user_email}</div>
-                  <div className="dataBoxes" title="Telefoonnummer">{profileinfo.user_phonenumber}</div>
-                  <div className="dataBoxes" title="Straat">{profileinfo.user_street}</div>
-                  <div className="dataBoxes" title="Woonplaats">{profileinfo.user_city}</div>
-                  <div className="dataBoxes" title="Postcode">{profileinfo.user_postalcode}</div>
-                </div>
-            
+    if(profileinfo.length > 0) {
+      return (
+        <div className="profileInfo">
+          <div className="profileInfoHeader">
+            <div className="profileInfoHeaderText">
+              <h1>Profiel</h1>
             </div>
-            <button className="EditProfile hover effect" title="Profiel bewerken" onClick={() => setStatus(1)}>
-              <EditIcon />
-            </button>
+            <div className="profileInfoHeaderEdit">
+              <EditIcon onClick={() => setStatus(1)} />
+            </div>
+          </div>
+          <div className="profileInfoContent">
+            <div className="profileInfoContentText">
+              <h2>Naam</h2>
+              <p>{profileinfo[0].Naam}</p>
+            </div>
+            <div className="profileInfoContentText">
+              <h2>Email</h2>
+              <p>{profileinfo[0].Email}</p>
+            </div>
+            <div className="profileInfoContentText">
+              <h2>Telefoonnummer</h2>
+              <p>{profileinfo[0].Telefoonnummer}</p>
+            </div>
+            <div className="profileInfoContentText">
+              <h2>Straat</h2>
+              <p>{profileinfo[0].Straat}</p>
+            </div>
+            <div className="profileInfoContentText">
+              <h2>Woonplaats</h2>
+              <p>{profileinfo[0].Woonplaats}</p>
+            </div>
+            <div className="profileInfoContentText">
+              <h2>Postcode</h2>
+              <p>{profileinfo[0].Postcode}</p>
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
+    else {
+      return (
+        <div>
+          <div className="profileHead">
+            <div className="profile">
+              <div>
+
+
+
+                  <div className="profileData">
+                    <div className="dataBoxes" title="Naam">{Naam}</div>
+                    <div className="dataBoxes" title="Email">{Email}</div>
+                    <div className="dataBoxes" title="Telefoonnummer">{Telefoonnummer}</div>
+                    <div className="dataBoxes" title="Straat">{Straat}</div>
+                    <div className="dataBoxes" title="Woonplaats">{Woonplaats}</div>
+                    <div className="dataBoxes" title="Postcode">{Postcode}</div>
+                  </div>
+                
+              
+              </div>
+              <button className="EditProfile hover effect" title="Profiel bewerken" onClick={() => setStatus(1)}>
+                <EditIcon />
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
   }
 }
