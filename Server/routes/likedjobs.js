@@ -6,8 +6,8 @@ router.get("/", authorization, async (req, res) => {
   try {
     const user = await pool.query(
       "SELECT user_id FROM users WHERE user_id = $1",
-      [req.user] 
-    ); 
+      [req.user]
+    );
     res.json(user.rows[0]);
   } catch (err) {
     console.error(err.message);
@@ -31,36 +31,41 @@ router.get("/getlikedjobs", authorization, async (req, res) => {
 
 router.post("/:id", authorization, async (req, res) => {
   try {
-    const { id } = req.params;
-    const exist = await pool.query("SELECT * FROM likedjobs WHERE job_id = $1 and user_id = $2", 
-    [ id , req.user]);
+    const { id } = req.body;
 
-    if (exist.rows.length !== 0) {
+    const likedjob = await pool.query(
+      "SELECT * FROM likedjobs where job_id = $1",
+      [id]
+    );
+    if (likedjob.rows.length !== 0) {
       return res.status(401).send("Liked job already exists");
     }
 
-    const newLiked = await pool.query("INSERT INTO likedjobs ( job_id, user_id ) VALUES ($1, $2)", [ id , req.user]);
+    const newLikedJob = await pool.query(
+      "INSERT INTO likedjobs (job_id, user_id) VALUES ($1, $2)",
+      [id, req.user]
+    );
 
-    res.json(newLiked.rows[0]);
-  } catch (err) {
-    console.error(err.message);
+    res.json(newLikedJob.rows[0]);
+  } catch (error) {
+    console.error(error.message);
     res.status(500).send("Server error");
   }
-})
+});
 
 router.delete("/:id", authorization, async (req, res) => {
   try {
     const { id } = req.params;
-    const deletelikedjob = await pool.query("DELETE FROM likedjobs WHERE job_id = $1 AND user_id = $2",
-    [id, req.user]);
+    const deletelikedjob = await pool.query(
+      "DELETE FROM likedjobs WHERE job_id = $1 AND user_id = $2",
+      [id, req.user]
+    );
 
     res.json("Joboffer is deleted");
   } catch (error) {
     console.error(error.message);
-    res.status(500).send("Server error");  
+    res.status(500).send("Server error");
   }
-})
+});
 
-
-
-module.exports = router
+module.exports = router;

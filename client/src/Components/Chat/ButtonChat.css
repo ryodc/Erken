@@ -1,0 +1,32 @@
+.ButtonNewChat {
+  background-color: #df482e;
+  color: white;
+  width: 100%;
+  height: auto;
+  border: none;
+}
+
+.ButtonNewChat:hover {
+  cursor: pointer;
+}
+
+#Size2 {
+  height: 40px;
+  width: 40px;
+  align-items: center;
+  justify-content: center;
+  display: "flex";
+  padding: 0;
+}
+
+.add-chat {
+  width: 100%;
+}
+
+.sidebar-chat-header {
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 1rem;
+  background-color: #273677;
+  color: white;
+}

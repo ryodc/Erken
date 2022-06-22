@@ -1,109 +1,120 @@
 .Sidebarchat {
-    height: 100%;
-    width: 20%;
-    background-color: rgba(139, 197, 238, 0.3);
-    margin-left: 15% !important;
-    margin: 0;
-    padding: 0;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    box-sizing: border-box;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    align-items: center;
-  }
-  
-  .SidebarList {
-    height: auto;
-    padding: 0;
-    width: 100%;
-  }
-  
-  .SidebarList .row {
-    width: 100%;
-    height: 60px;
-    list-style-type: none;
-    margin: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-      "Lucida Sans", Arial, sans-serif;
-    text-decoration: none;
-  }
-  
-  .row {
-    background-color: rgba(183, 197, 183, 0.3);
-    display: flex;
-    text-decoration: none;
-    align-items: center;
-  }
-  
-  .row #icon {
-    flex: 30%;
-    display: grid;
-    place-items: center;
-    color: white;
-  }
-  
-  .Logo {
-    width: 232px;
-    max-width: 90%;
-    max-height: 90%;
-    margin: 5px;
-    background-color: rgba(183, 197, 183, 0.3);
-    margin: 0;
-    padding: 0;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .nav-text {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    margin: 8px 0px 0px 0px;
-    list-style: none;
-    height: 60px;
-  }
-  
- 
+  height: 100%;
+  width: 20%;
+  /* background-color: rgba(0, 123, 211, 0); */
+  margin-left: 16% !important;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  box-sizing: border-box;
+  /* border-left: 1px solid #273677;
+  border-right: 1px solid #273677; */
+  align-items: center;
+  background: url(../Images/pastel_image.jpg);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 
-  
-  span {
-    margin-left: 16px;
-  }
-  
-  .HeaderChat {
-    font-size: 200%;
-    color: black;
-    margin-left: 5%;
-  } 
-  
-  .ListItems {
-    width: 100%;
-    height: 80%;
-    margin-top: 10%;
-    background-color: rgba(183, 197, 183, 0.3);
-    overflow: auto;
-  }
-  
-  .ButtonCheckChat {
-    width: 80%;
-    height: 30px;
-    margin-left: 10%;
-    margin-top: 5%;
-    border: none;
-    background-color: rgba(183, 197, 183, 0.3);
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    font-size: 125%;
-    align-items: center;
-  }
-  
+.SidebarList {
+  height: auto;
+  padding: 0;
+  width: 100%;
+}
+
+.SidebarList .row {
+  width: 100%;
+  height: 60px;
+  list-style-type: none;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+}
+
+.row {
+  background-color: rgba(183, 197, 183, 0.3);
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+}
+
+.row #icon {
+  flex: 30%;
+  display: grid;
+  place-items: center;
+  color: white;
+}
+
+.Logo {
+  width: 232px;
+  max-width: 90%;
+  max-height: 90%;
+  margin: 5px;
+  background-color: rgba(183, 197, 183, 0.3);
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-text {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin: 8px 0px 0px 0px;
+  list-style: none;
+  height: 60px;
+}
+
+.box {
+  background-color: white;
+  color: black;
+}
+
+.HeaderChat {
+  font-size: 200%;
+  color: black;
+  margin-left: 5%;
+}
+
+.ListItems {
+  height: auto;
+  padding: 0;
+  width: 100%;
+  background-color: rgba(183, 197, 183, 0.3);
+  border-radius: 5px;
+  list-style: none;
+  text-align: center;
+  margin-top: 0.15rem;
+}
+
+.ButtonCheckChat:hover {
+  background-color: #d0e0fd;
+}
+
+.ButtonCheckChat {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 0.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border: none;
+  background-color: rgba(183, 197, 183, 0.1);
+  text-align: center;
+  color: black;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  /* align-items: center; */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+.ButtonCheckChat > span {
+  margin: 0;
+}

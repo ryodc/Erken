@@ -1,25 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 * {
   margin: 0;
   padding: 0;
-  }
-  
+}
+
 body {
-    background: url(../Images/pastel_image.jpg);
-  }
+  background: url(../Images/pastel_image.jpg);
+}
 
 .container1 .logo {
-    font-size: calc(4.5vw + 1.5vw);
-    position: relative;
-    height: auto;
-    width: 25%;
-    margin-top: 1%;
-    margin-left: 2%;
-    margin-right: 5%;
-  }
+  font-size: calc(4.5vw + 1.5vw);
+  position: relative;
+  height: auto;
+  width: 25%;
+  margin-top: 1%;
+  margin-left: 2%;
+  margin-right: 5%;
+}
 
 .Box {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   align-items: center;
   text-align: center;
   justify-content: center;
@@ -28,11 +28,11 @@ body {
   flex-direction: column;
 }
 
-.Header{
+.Header {
   padding: 1%;
 }
 
-.Input{
+.Input {
   border: none;
   width: 100%;
   padding: 5%;
@@ -49,14 +49,6 @@ body {
   display: flex;
 }
 
-.Button {
-  border: none;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  background-color: #DF482E;
-  color: white;
+.column input[type="submit"] {
+  background-color: red;
 }

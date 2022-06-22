@@ -5,13 +5,11 @@ const authorization = require("../middleware/authorization");
 
 router.get("/users", authorization, async (req, res) => {
   try {
-    
-    const users = await pool.query("SELECT user_name FROM users");
+    const users = await pool.query("SELECT user_name, user_id FROM users");
     res.json(users.rows);
-    
   } catch (error) {
     console.error(error.message);
-    res.status(500).send("Server error");    
+    res.status(500).send("Server error");
   }
 })
 
@@ -19,38 +17,41 @@ router.post("/addchat", authorization, async ( req, res ) => {
   try {
     const { id } = req.body;
 
-    const newChat = await pool.query("INSERT INTO chat (username_1, username_2) VALUES ($1, $2)",
-    [req.user, id])
+    const newChat = await pool.query(
+      "INSERT INTO chat (username_1, username_2) VALUES ($1, $2)",
+      [req.user, id]
+    );
 
     res.json(newChat.rows[0]);
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Server error");
   }
-})
-
-router.delete("/deletechat", authorization, async (req, res ) => {
+});
+router.delete("/deletechat", authorization, async (req, res) => {
   try {
     const { id } = req.body;
 
-    const deletechat = await pool.query("DELETE FROM chat WHERE username_1 = $1 AND username_2 = $2 OR username_1 = $2 AND username_2 = $1", [
-      id, req.user
-    ]);
-  
-    res.json("Chat is deleted")
+    const deletechat = await pool.query(
+      "DELETE FROM chat WHERE username_1 = $1 AND username_2 = $2 OR username_1 = $2 AND username_2 = $1",
+      [id, req.user]
+    );
+
+    res.json("Chat is deleted");
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Server error");
   }
-})
+});
 
 router.get("/messages", authorization, async(req, res) => {
   try {
     const { chatid } = req.body;
 
-    const chatmessages = await pool.query("SELECT * FROM message WHERE chat_id = $1", [
-      chatid
-    ])
+    const chatmessages = await pool.query(
+      "SELECT * FROM message WHERE chat_id = $1",
+      [chatid]
+    );
 
     res.json(chatmessages.rows);
   } catch (error) {
@@ -61,34 +62,34 @@ router.get("/messages", authorization, async(req, res) => {
 
 router.post("/addmessage", authorization, async (req, res) => {
   try {
-    const { messagetext, receiver, chat_id} = req.body;
+    const { messagetext, receiver, chat_id } = req.body;
 
-    const addMessage = await pool.query("INSERT INTO message ( message_text, username_receiver, chat_id, username_sender) VALUES ($1, $2, $3, $4)", [
-      messagetext, receiver, chat_id, req.user
-    ]);
+    const addMessage = await pool.query(
+      "INSERT INTO message ( message_text, username_receiver, chat_id, username_sender) VALUES ($1, $2, $3, $4)",
+      [messagetext, receiver, chat_id, req.user]
+    );
 
     res.json(addMessage.rows[0]);
-
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Server error");
   }
-})
+});
 
 router.delete("/deletemessage", authorization, async (req, res) => {
   try {
     const { messageid } = req.body;
 
-    const deleteMessage = await pool.query("DELETE FROM message WHERE message_id = $1", [
-      messageid
-    ])
+    const deleteMessage = await pool.query(
+      "DELETE FROM message WHERE message_id = $1",
+      [messageid]
+    );
 
     res.json("Message is deleted");
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Server error");
   }
-})
-
+});
 
 module.exports = router;

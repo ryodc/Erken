@@ -45,7 +45,8 @@ router.put("/userid", authorization, async (req, res) => {
 router.put("/", authorization, async (req, res) => {
   try {
     const joboffers = await pool.query(
-      "SELECT * FROM joboffers",
+      "SELECT * FROM joboffers WHERE user_id = $1",
+      [req.user] 
     ); 
     res.json(joboffers.rows);
   } catch (err) {
