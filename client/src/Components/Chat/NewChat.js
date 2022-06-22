@@ -4,16 +4,32 @@ import React, { useEffect, useState } from "react";
 export const AddNewChat = ({ showNewChat, setNewChat }) => {
   const [users, setUsers] = useState([]);
 
-  const getUsers = async () => {
+  // const getUsers = async () => {
+  //   try {
+  //     const response = await fetch("http://localhost:8500/chat/users");
+  //     const jsonData = await response.json();
+  //     const username = localStorage.getItem("username");
+  //     setUsers(jsonData.filter((user) => user.username !== username));
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // };
+
+  const [contact, setContacts] = useState([]);
+
+  async function getContacts() {
     try {
-      const response = await fetch("http://localhost:8500/chat/users");
-      const jsonData = await response.json();
-      const username = localStorage.getItem("username");
-      setUsers(jsonData.filter((user) => user.username !== username));
-    } catch (error) {
-      console.log(error.message);
+      const res = await fetch("http://localhost:5000/chat/users", {
+        method: "GET",
+        headers: { token: localStorage.token },
+      });
+
+      const contacts = await res.json();
+      setContacts(contacts);
+    } catch (e) {
+      console.error(e.message);
     }
-  };
+  }
 
   const createChat = async (username_2) => {
     try {
@@ -31,21 +47,21 @@ export const AddNewChat = ({ showNewChat, setNewChat }) => {
   };
 
   useEffect(() => {
-    getUsers();
-  }, []);
+    getContacts();
+  });
 
   return (
     <div>
       {showNewChat ? (
         <div className="ContainerNew">
-          {users.map((user) => (
-            <tr key={user.username}>
+          {contact.map((user) => (
+            <tr>
               <td>
                 <button
                   className="ButtonNewChats"
-                  onClick={() => createChat(user.username)}
+                  onClick={() => createChat(user.user_id)}
                 >
-                  {user.username}
+                  {user.user_name}
                 </button>
               </td>
             </tr>

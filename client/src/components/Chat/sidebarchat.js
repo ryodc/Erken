@@ -3,6 +3,7 @@ import "./sidebarchat.css";
 import { OpenNewChat } from "./openchat";
 import { SidebarData } from "../Chat/sidebarchatData";
 import ButtonChat from "./ButtonChat.js";
+import { popoverClasses } from "@mui/material";
 
 const Sidebar = () => {
   const [OpenChatTest, setOpenChatTest] = useState(true);
@@ -11,14 +12,16 @@ const Sidebar = () => {
   // const [OpenChatTest, setOpenChatTest] = useState(false);
 
   // const getUserChat = async (e) => {
-  //     try {
-  //         const username = localStorage.getItem('username')
-  //         const gettingChats = await fetch(`http://localhost:8500/chat/showchats/${username}`);
-  //         const jsonDataChats = await gettingChats.json();
-  //         setUsersChat(jsonDataChats);
-  //     } catch (error) {
-  //         console.log(error.message);
-  //     }
+  //   try {
+  //     const username = localStorage.getItem("username");
+  //     const gettingChats = await fetch(
+  //       `http://localhost:8500/chat/showchats/${username}`
+  //     );
+  //     const jsonDataChats = await gettingChats.json();
+  //     setUsersChat(jsonDataChats);
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
   // };
 
   // const toggleChat = async (username_1, username_2, chat_id) => {
@@ -43,6 +46,9 @@ const Sidebar = () => {
   // }
 
   // useEffect(() => {
+  //   getContacts();
+  // });
+  // useEffect(() => {
   // getUserChat();
   // }, []);
 
@@ -60,15 +66,11 @@ const Sidebar = () => {
         </div>
         <ButtonChat class="add-chat"></ButtonChat>
         <div className="ListItems">
-          {SidebarData.map((val, key) => {
-            return (
-              <li key={key} className={val.cName}>
-                <button className="ButtonCheckChat">
-                  <span>{val.Bedrijf}</span>
-                </button>
-              </li>
-            );
-          })}
+          <li>
+            <button className="ButtonCheckChat">
+              <span></span>
+            </button>
+          </li>
           {/* {listItems}  */}
         </div>
       </div>
