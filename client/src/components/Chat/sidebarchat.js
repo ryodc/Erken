@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./sidebarchat.css";
-// import { OpenNewChat } from "./OpenChat"
+import { OpenNewChat } from "./openchat"
+import { SidebarData } from "../Chat/sidebarchatData";
 
 const Sidebar = () => {
+
+    const [OpenChatTest, setOpenChatTest] = useState(true);
 
     // const [usersChat, setUsersChat] = useState([]);
     // const [OpenChatTest, setOpenChatTest] = useState(false);
@@ -50,13 +53,25 @@ const Sidebar = () => {
     
     return (
         <div>
-            {/* <OpenNewChat OpenChatTest={OpenChatTest} ExitChat={() => toggleChat("", "", 0)} /> */}
+            <OpenNewChat OpenChatTest={OpenChatTest} />
 
             <div className="Sidebarchat">
                 <div className="HeaderChat">
                     Your chats 
                 </div>
                 <div className="ListItems">
+                    {SidebarData.map((val, key) => {
+                        return (
+                            <li
+                            key={key}
+                            className={val.cName}
+                            >
+                                <button className = "ButtonCheckChat">
+                                    <span>{val.Bedrijf}</span>
+                                </button>
+                            </li>
+                        );
+                    })}
                     {/* {listItems}  */}
                 </div>
             </div>

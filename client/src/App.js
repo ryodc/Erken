@@ -14,14 +14,14 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
-import Feed from "./Components/Feed/feed";
-import Vacature from "./Components/Vacature/vacature";
-import Chat from "./Components/Chat/chat";
-import Profile from "./Components/Profile/profile";
-import Login from "./Components/Login/login";
-import Register from "./Components/Register/register";
-import Landingpage from "./Components/Default/landingpage";
-import AddVacature from "./Components/Feed/addVacature"
+import Feed from "./components/Feed/feed";
+import Vacature from "./components/Vacature/vacature";
+import Chat from "./components/Chat/chat";
+import Profile from "./components/Profile/profile";
+import Login from "./components/Login/login";
+import Register from "./components/Register/register";
+import Landingpage from "./components/Default/landingpage";
+import AddVacature from "./components/Feed/addVacature"
 
 function App() {
   

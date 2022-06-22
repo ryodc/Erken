@@ -12,10 +12,7 @@ export default function EditProfile() {
   const [Naam, setNaam] = useState("");
   const [Email, setEmail] = useState("");
   const [Telefoonnummer, setTelefoonnummer] = useState("");
-  const [Emailverzorger, setEmailverzorger] = useState("");
-  const [Telefoonnummerverzorger, setTelefoonnummerverzorger] = useState("");
   const [Straat, setStraat] = useState("");
-  const [Huisnummer, setHuisnummer] = useState("");
   const [Woonplaats, setWoonplaats] = useState("");
   const [Postcode, setPostcode] = useState("");
 
@@ -23,10 +20,7 @@ export default function EditProfile() {
     setNaam(localStorage.getItem('Naam'));
     setEmail(localStorage.getItem('Email'));
     setTelefoonnummer(localStorage.getItem('Telefoonnummer'));
-    setEmailverzorger(localStorage.getItem('Emailverzorger'));
-    setTelefoonnummerverzorger(localStorage.getItem('Telefoonnummerverzorger'));
     setStraat(localStorage.getItem('Straat'));
-    setHuisnummer(localStorage.getItem('Huisnummer'));
     setWoonplaats(localStorage.getItem('Woonplaats'));
     setPostcode(localStorage.getItem('Postcode'));
   }
@@ -74,30 +68,10 @@ export default function EditProfile() {
                 ></input>
                 <input
                   className="EditdataBoxes"
-                  title="Email verzorger"
-                  placeholder={Emailverzorger}
-                  onChange={(e) => localStorage.setItem('Emailverzorger', e.target.value)}
-                ></input>
-                <input
-                  className="EditdataBoxes"
-                  title="Telefoonnummer verzorger"
-                  id="Telefoonnummerverzorger"
-                  placeholder={Telefoonnummerverzorger}
-                  onChange={(e) => localStorage.setItem('Telefoonnummerverzorger', e.target.value)}
-                ></input>
-                <input
-                  className="EditdataBoxes"
                   title="Straat"
                   id="Straat"
                   placeholder={Straat}
                   onChange={(e) => localStorage.setItem('Straat', e.target.value)}
-                ></input>
-                <input
-                  className="EditdataBoxes"
-                  title="Huisnummer"
-                  id="Huisnummer"
-                  placeholder={Huisnummer}
-                  onChange={(e) => localStorage.setItem('Huisnummer', e.target.value)}
                 ></input>
                 <input
                   className="EditdataBoxes"
