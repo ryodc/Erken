@@ -118,10 +118,42 @@ body {
   border-radius: 10%;
 }
 
-.login-btn {
-  background-color: #DF482E;
+.login {
+  background-color: #df482e;
   color: white;
-  border: solid #273677 1px;
+  text-decoration: none;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.begin {
+  background-color: #df482e;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.login-btn {
+  background-color: #df482e;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.temp {
+  border: none;
+  background-color: transparent;
+  color: #273677;
+  text-decoration: underline;
+  margin-bottom: 5%;
+}
+.test {
+  color: #273677;
+  border-radius: 5px;
+  padding: 0.3rem;
+  border: none;
 }
 
 @media screen and (min-width: 300px) and (max-width: 500px) {

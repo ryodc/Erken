@@ -22,7 +22,9 @@ const Landingpage = () => {
       </h1>
       {/* <button className="login">Login</button> */}
       <button className="login-btn">
-        <Link className="login" to="/login">Login</Link>
+        <Link className="login" to="/login">
+          Login
+        </Link>
       </button>
       <div className="first-header">Zoekt u naar een baan?</div>
       <div className="text">
@@ -39,7 +41,11 @@ const Landingpage = () => {
         {/* <button className="begin" onClick={navbar}>
           Begin Hier!
         </button> */}
-        <Link className="begin" to="/register">Begin Hier!</Link>
+        <button className="login-btn">
+          <Link className="begin" to="/register">
+            Begin Hier!
+          </Link>
+        </button>
       </form>
     </div>
   );

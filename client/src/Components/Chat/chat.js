@@ -11,10 +11,9 @@ const Chat = () => {
   //   localStorage.setItem("Message", message);
   // };
 
-
   return (
     <div>
-      <Sidebar/>
+      <Sidebar />
       <SidebarChat />
       {/* <ButtonChat /> */}
     </div>

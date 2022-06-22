@@ -2,14 +2,12 @@ const router = require("express").Router();
 const pool = require("../db");
 const authorization = require("../middleware/authorization");
 
-
-
 router.get("/", authorization, async (req, res) => {
   try {
     const user = await pool.query(
-      "SELECT user_name FROM users WHERE user_id = $1",
-      [req.user] 
-    ); 
+      "SELECT user_id FROM users WHERE user_id = $1",
+      [req.user]
+    );
     res.json(user.rows[0]);
   } catch (err) {
     console.error(err.message);
@@ -18,56 +16,59 @@ router.get("/", authorization, async (req, res) => {
 });
 
 // GET all likedjobs
-router.put("/getlikedjobs" ,async (req, res) => {
+router.put("/getlikedjobs", async (req, res) => {
   try {
     const likedjobs = await pool.query(
-      "SELECT likedjob_id, likedjobs.job_id, job_title, job_description, job_salary, job_city, job_employment, likedjobs.user_id from likedjobs INNER JOIN joboffers on likedjobs.job_id = joboffers.job_id WHERE likedjobs.user_id = $1",[
-      req.user
-    ]);
+      "SELECT likedjob_id, likedjobs.job_id, job_title, job_description, job_salary, job_city, job_employment, likedjobs.user_id from likedjobs INNER JOIN joboffers on likedjobs.job_id = joboffers.job_id WHERE likedjobs.user_id = $1",
+      [req.user]
+    );
 
-    res.json(likedjobs.rows[0]);
+    res.json(likedjobs.rows);
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Server error");
   }
-})
-
+});
 
 // POST likedjobs
 router.post("/likejoboffer", authorization, async (req, res) => {
   try {
     const { id } = req.body;
 
-    const likedjob = await pool.query("SELECT * FROM likedjobs where job_id = $1", [id]);
-    if ( likedjob.rows.length !== 0 ) {
+    const likedjob = await pool.query(
+      "SELECT * FROM likedjobs where job_id = $1",
+      [id]
+    );
+    if (likedjob.rows.length !== 0) {
       return res.status(401).send("Liked job already exists");
     }
 
-
-    const newLikedJob = await pool.query("INSERT INTO likedjobs (job_id, uers_id) VALUES ($1, $2)", 
-    [ id, req.user ]);
+    const newLikedJob = await pool.query(
+      "INSERT INTO likedjobs (job_id, user_id) VALUES ($1, $2)",
+      [id, req.user]
+    );
 
     res.json(newLikedJob.rows[0]);
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Server error");
   }
-})
+});
 
 // DELETE likedjob
 router.delete("/:id", authorization, async (req, res) => {
   try {
     const { id } = req.params;
-    const deletelikedjob = await pool.query("DELETE FROM likedjobs WHERE job_id = $1 AND user_id = $2",
-    [id, req.user]);
+    const deletelikedjob = await pool.query(
+      "DELETE FROM likedjobs WHERE job_id = $1 AND user_id = $2",
+      [id, req.user]
+    );
 
     res.json("Joboffer is deleted");
   } catch (error) {
     console.error(error.message);
-    res.status(500).send("Server error");  
+    res.status(500).send("Server error");
   }
-})
+});
 
-
-
-module.exports = router
+module.exports = router;
