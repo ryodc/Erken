@@ -111,12 +111,9 @@ async function likePost(id){
       <Sidebar/>
       <div className="feed-header">
         <div className="feed-header-searchdiv">
-          {/* <SearchIcon></SearchIcon> */}
           <select
             value={value}
             onChange={handleChange}
-            //type="search"
-            //placeholder="Zoeken"
             className="feed-searchbar"
           >
             {FeedData[0].map((option) => (
@@ -166,9 +163,6 @@ async function likePost(id){
                   </button>
                 </span>
               </div>
-              {/* <div className="feed-vacature-workplace">
-                <h4>{joboffers.job_description}</h4>
-              </div> */}
               <div className="feed-vacature-div-icons">
                 <div className="feed-vacature-icons">
                   <EuroIcon></EuroIcon>{joboffers.job_salary}

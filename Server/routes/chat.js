@@ -2,7 +2,7 @@ const router = require("express").Router();
 const pool = require("../db");
 const authorization = require("../middleware/authorization");
 
-// Get all users to chat with
+
 router.get("/users", authorization, async (req, res) => {
   try {
     
@@ -14,7 +14,7 @@ router.get("/users", authorization, async (req, res) => {
     res.status(500).send("Server error");    
   }
 })
-// MAKE CHAT
+
 router.post("/addchat", authorization, async ( req, res ) => {
   try {
     const { id } = req.body;
@@ -28,7 +28,7 @@ router.post("/addchat", authorization, async ( req, res ) => {
     res.status(500).send("Server error");
   }
 })
-// DELETE CHAT
+
 router.delete("/deletechat", authorization, async (req, res ) => {
   try {
     const { id } = req.body;
@@ -44,7 +44,6 @@ router.delete("/deletechat", authorization, async (req, res ) => {
   }
 })
 
-// SHOW MESSAGES FROM CHAT
 router.get("/messages", authorization, async(req, res) => {
   try {
     const { chatid } = req.body;
@@ -60,8 +59,6 @@ router.get("/messages", authorization, async(req, res) => {
   }
 })
 
-
-// ADD MESSAGE
 router.post("/addmessage", authorization, async (req, res) => {
   try {
     const { messagetext, receiver, chat_id} = req.body;
@@ -78,7 +75,6 @@ router.post("/addmessage", authorization, async (req, res) => {
   }
 })
 
-// DELETE MESSAGE
 router.delete("/deletemessage", authorization, async (req, res) => {
   try {
     const { messageid } = req.body;

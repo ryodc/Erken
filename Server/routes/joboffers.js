@@ -44,10 +44,6 @@ router.put("/userid", authorization, async (req, res) => {
 
 router.put("/", authorization, async (req, res) => {
   try {
-    // const joboffers = await pool.query(
-    //   "SELECT * FROM joboffers WHERE user_id = $1",
-    //   [req.user] 
-    // ); 
     const joboffers = await pool.query(
       "SELECT * FROM joboffers",
     ); 
@@ -58,7 +54,6 @@ router.put("/", authorization, async (req, res) => {
   }
 });
 
-// POST JOBOFFER
 router.post("/addjoboffer", authorization ,async (req, res) => {
   try {
     const { jobtitle, jobdescription, jobsalary, jobcity, jobemployment } = req.body;
@@ -86,21 +81,6 @@ router.put("/:id", async (req, res) => {
     res.status(500).send("Server error");   
   }
 })
-
-// router.put("/:id", authorization, async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     const { jobtitle, jobdescription, jobsalary, jobcity, jobemployment } = req.body;
-
-//     const updateJobOffer = await pool.query("UPDATE joboffers SET job_title = $1, job_description = $2, job_salary = $3, job_city = $4, job_employment = $5 WHERE job_id = $6 AND user_id = $7", 
-//     [jobtitle, jobdescription, jobsalary, jobcity, jobemployment, id, req.user]);
-
-//     res.json("Joboffer was updated");
-//   } catch (error) {
-//     console.error(error.message);
-//     res.status(500).send("Server error");    
-//   }
-// })
 
 router.delete("/:id", authorization,async (req, res) => {
   try {

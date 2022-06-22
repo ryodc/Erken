@@ -2,7 +2,6 @@ const router = require("express").Router();
 const pool = require("../db");
 const authorization = require("../middleware/authorization");
 
-// GET PROFILE met WHERE STATEMENT
 router.put("/", authorization ,async (req, res) => {
   try {
     const profile = await pool.query("SELECT * FROM users WHERE user_id = $1", [
@@ -16,8 +15,6 @@ router.put("/", authorization ,async (req, res) => {
   }
 })
 
-
-// UPDATE PROFILE met SET statement
 router.put("/update", authorization, async (req, res) => {
   try {
     const { username, firstname, lastname, phonenumber, city, street, postalcode } = req.body;
@@ -31,6 +28,5 @@ router.put("/update", authorization, async (req, res) => {
     res.status(500).send("Server error");    
   }
 })
-// 63112a1e-1f2e-40c8-abab-cfb0eb24a08d
 
 module.exports = router;

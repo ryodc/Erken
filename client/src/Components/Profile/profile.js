@@ -7,23 +7,6 @@ import Sidebar from "../Default/sidebar";
 
 function Profile({ setAuth }) {
   const [Search, setSearch] = useState("Zoeken");
-  
-  // const [profileinfo, setProfileinfo] = useState([]);
-
-  // async function getProfileinfo() {
-  //   const res = await fetch("http://localhost:5000/profile/", {
-  //     method: "GET",
-  //     headers: { token: localStorage.token }      
-  //   });
-
-  //   const profileArray = await res.json();
-  //   console.log(profileArray);
-  //   setProfileinfo(profileArray);
-  // }
-
-  // useEffect(() => {
-  //   getProfileinfo();
-  // })
 
   return (
     <div>

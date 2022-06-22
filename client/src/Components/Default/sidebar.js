@@ -44,7 +44,6 @@ function Sidebar({ setAuth }) {
               );
             })}
           </ul>
-          {/* <button className="Button2"></button> */}
         </div>
       </div>
     </BrowserRouter>

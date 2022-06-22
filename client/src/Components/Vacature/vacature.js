@@ -70,7 +70,6 @@ const Vacature = ({ setAuth }) => {
                 <div className="vacature-vacature-function">
                   <h2>{likedjob.job_title}</h2>
                   <span class="delete-vacature-icon">
-                    {/* onClick={() => deletepost(joboffers.job_id)} */}
                     <button className="del-vacature-button" onClick={() => deletelikedjob(likedjob.job_id)}>
                       <DeleteIcon />
                     </button>

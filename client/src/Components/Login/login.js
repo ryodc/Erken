@@ -71,7 +71,6 @@ const Login = ({ setAuth }) => {
               className="Input"    
               placeholder="Password"   
             />
-          {/* <button classname="Button">Submit</button> */}
           <input className="Button" type="submit"/>
           </form>
           <Link to="/register">Register</Link>

@@ -5,7 +5,6 @@ const jwtGenerator = require("../utils/jwtGenerator");
 const validInfo = require("../middleware/validInfo");
 const authorization = require("../middleware/authorization");
 
-// REGISTER
 router.post("/register", validInfo ,async (req, res) => {
   try {
     
@@ -40,7 +39,6 @@ router.post("/register", validInfo ,async (req, res) => {
   }
 })
 
-// LOGIN
 router.post("/login", validInfo ,async (req, res) => {
   try {
     

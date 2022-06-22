@@ -45,18 +45,9 @@ function Popup(props) {
         <button className="close-btn" onClick={() => props.setTrigger(false)}>
           <CloseIcon />
         </button>
-        {/* <div className="popup-subheader">
-          <h2>{jobinfo.job_description}</h2>
-        </div> */}
         <div className="popup-body">
           <p>
             {jobinfo.job_description}
-            <br></br>
-            <br></br>
-            Voor deze functie moet je een aanpakker zijn. Je vindt het leuk om
-            in teamverband te werken en klanten tevreden te houden. Tenslotte
-            komt jouw beschikbaarheid overeen met de gevraagde werktijden in
-            bovenstaand rooster.
           </p>
         </div>
         <div className="popup-div-icons">

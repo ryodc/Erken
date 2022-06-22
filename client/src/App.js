@@ -1,17 +1,3 @@
-// import "./App.css";
-// import React from "react";
-
-// import Navigation from "./Components/Navbar/navbar";
-
-// import { toast } from "react-toastify";
-
-
-// const App = () => {
-//   return <Navigation />;
-// };
-
-// export default App;
-
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 

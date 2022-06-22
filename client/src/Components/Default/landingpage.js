@@ -15,12 +15,10 @@ const Landingpage = () => {
 
   return (
     <div className="container">
-      {/* <img className="logo" src={Logo} alt="Logo"></img> */}
       <h1 class="logo">
         <font color="DF482E">Er</font>
         <font color="273677">ken</font>
       </h1>
-      {/* <button className="login">Login</button> */}
       <button className="login-btn">
         <Link className="login" to="/login">Login</Link>
       </button>
@@ -36,9 +34,6 @@ const Landingpage = () => {
         <img className="image3" src={Image3} alt="image3"></img>
       </div>
       <form onsubmit={navbar}>
-        {/* <button className="begin" onClick={navbar}>
-          Begin Hier!
-        </button> */}
         <Link className="begin" to="/register">Begin Hier!</Link>
       </form>
     </div>

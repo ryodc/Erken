@@ -6,12 +6,16 @@ CREATE TABLE users(
   user_id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
   user_name VARCHAR(255) NOT NULL,
   user_email VARCHAR(255) NOT NULL,
-  user_password VARCHAR(255) NOT NULL
+  user_password VARCHAR(255) NOT NULL,
+  is_company bool NOT NULL,
+  user_firstname varchar(255) NOT NULL,
+  user_lastname varchar(255) NOT NULL,
+  user_phonenumber varchar(255) NOT NULL,
+  user_city varchar(255) NOT NULL,
+  user_street varchar(255) NOT NULL,
+  user_postalcode varchar(255) NOT NULL
 );
 
-INSERT INTO users (user_name, user_email, user_password) VALUES ('Test', 'test@gmail.com', 'test123');
-
-/* job_employment == fulltime/parttime */
 CREATE TABLE joboffers(
   job_id SERIAL PRIMARY KEY,
   user_id uuid NOT NULL,
@@ -54,23 +58,5 @@ CREATE TABLE message (
 
 
 
-CREATE TABLE users(
-  user_id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-  user_name VARCHAR(255) NOT NULL,
-  user_email VARCHAR(255) NOT NULL,
-  user_password VARCHAR(255) NOT NULL,
-  is_company bool NOT NULL,
-  user_firstname varchar(255) NOT NULL,
-  user_lastname varchar(255) NOT NULL,
-  user_phonenumber varchar(255) NOT NULL,
-  user_city varchar(255) NOT NULL,
-  user_street varchar(255) NOT NULL,
-  user_postalcode varchar(255) NOT NULL
-);
 
-  -- verzorger_firstname varchar(255),
-  -- verzorger_lastname varchar(255),
-  -- verzorger_email varchar(255),
-  -- verzorger_password varchar(255),
-  -- verzorger_phonenumber varchar(255)
 

@@ -2,8 +2,6 @@ const router = require("express").Router();
 const pool = require("../db");
 const authorization = require("../middleware/authorization");
 
-
-
 router.get("/", authorization, async (req, res) => {
   try {
     const user = await pool.query(
@@ -17,15 +15,12 @@ router.get("/", authorization, async (req, res) => {
   }
 });
 
-// GET all likedjobs
 router.get("/getlikedjobs", authorization, async (req, res) => {
   try {
     const likedjobs = await pool.query(
       "SELECT likedjob_id, likedjobs.job_id, job_title, job_description, job_salary, job_city, job_employment, job_created_at ,likedjobs.user_id from likedjobs INNER JOIN joboffers on likedjobs.job_id = joboffers.job_id WHERE likedjobs.user_id = $1",[
       req.user
     ]);
-
-    //const likedjobs = await pool.query("select * from likedjobs where user_id = $1", [req.user]);
 
     res.json(likedjobs.rows);
   } catch (error) {
@@ -34,8 +29,6 @@ router.get("/getlikedjobs", authorization, async (req, res) => {
   }
 })
 
-
-// POST likedjobs
 router.post("/:id", authorization, async (req, res) => {
   try {
     const { id } = req.params;
@@ -55,7 +48,6 @@ router.post("/:id", authorization, async (req, res) => {
   }
 })
 
-// DELETE likedjob
 router.delete("/:id", authorization, async (req, res) => {
   try {
     const { id } = req.params;
