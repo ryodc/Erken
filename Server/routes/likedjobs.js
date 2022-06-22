@@ -36,22 +36,21 @@ router.get("/getlikedjobs", authorization, async (req, res) => {
 
 
 // POST likedjobs
-router.post("/likejoboffer", authorization, async (req, res) => {
+router.post("/:id", authorization, async (req, res) => {
   try {
-    const { id } = req.body;
+    const { id } = req.params;
+    const exist = await pool.query("SELECT * FROM likedjobs WHERE job_id = $1 and user_id = $2", 
+    [ id , req.user]);
 
-    const likedjob = await pool.query("SELECT * FROM likedjobs where job_id = $1", [id]);
-    if ( likedjob.rows.length !== 0 ) {
+    if (exist.rows.length !== 0) {
       return res.status(401).send("Liked job already exists");
     }
 
+    const newLiked = await pool.query("INSERT INTO likedjobs ( job_id, user_id ) VALUES ($1, $2)", [ id , req.user]);
 
-    const newLikedJob = await pool.query("INSERT INTO likedjobs (job_id, user_id) VALUES ($1, $2)", 
-    [ id, req.user ]);
-
-    res.json(newLikedJob.rows[0]);
-  } catch (error) {
-    console.error(error.message);
+    res.json(newLiked.rows[0]);
+  } catch (err) {
+    console.error(err.message);
     res.status(500).send("Server error");
   }
 })

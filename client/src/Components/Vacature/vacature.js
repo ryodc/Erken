@@ -12,10 +12,15 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import LockIcon from "@mui/icons-material/Lock";
 */
 import Sidebar from "../Default/sidebar";
+import Popup from "../Default/Popup";
 
 const Vacature = ({ setAuth }) => {
 
   const [likedjobs, setLikedJobs] = useState([]);
+
+  const [buttonPopup, setButtonPopup] = useState(false);
+
+  const [jobid, setJobid] = useState("");
 
 
   async function likedJobs() {
@@ -66,7 +71,7 @@ const Vacature = ({ setAuth }) => {
                   <h2>{likedjob.job_title}</h2>
                   <span class="delete-vacature-icon">
                     {/* onClick={() => deletepost(joboffers.job_id)} */}
-                    <button className="delete-vacature-button" onClick={() => deletelikedjob(likedjob.job_id)}>
+                    <button className="del-vacature-button" onClick={() => deletelikedjob(likedjob.job_id)}>
                       <DeleteIcon />
                     </button>
                   </span>
@@ -85,16 +90,16 @@ const Vacature = ({ setAuth }) => {
                     <CalendarMonthIcon></CalendarMonthIcon>{likedjob.job_created_at.substr(0, 10)}
                   </div>
                 </div>
-                <div className="feed-vacature-info">
+                <div onClick={() => {setButtonPopup(true); setJobid(likedjob.job_id); }} className="feed-vacature-info">
                   <h4>Klik voor meer informatie</h4>
                 </div>
               </div>
             )
           })}
-          
+        </div>
         </div>
       </div>
-    </div>
+      <Popup id={jobid} trigger={buttonPopup} setTrigger={setButtonPopup}></Popup>
     </div>
   );
 };

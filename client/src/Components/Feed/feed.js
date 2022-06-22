@@ -24,7 +24,7 @@ const Feed = ({ setAuth }) => {
     setState(!state);
   };
 
-  const [value, setValue] = React.useState("Drenthe");
+  const [value, setValue] = React.useState("Over");
   const [value2, setValue2] = React.useState("Alle");
   const [value3, setValue3] = React.useState("Alle");
 
@@ -43,35 +43,6 @@ const Feed = ({ setAuth }) => {
   const [buttonPopup, setButtonPopup] = useState(false);
 
   const [addPopup, setAddPopup] = useState(false);
-
-  const [iscompany, setIscompany] = useState(false);
-
-  const [isowner, setIsowner] = useState("");
-// Get iscompany
-
-
-  async function getcompanyinfo() {
-    const res = await fetch("http://localhost:5000/joboffer/iscompany", {
-      method: "PUT",
-      headers: { token: localStorage.token }
-    });
-    
-    const info = await res.json();
-    setIscompany(info);
-  }
-
-  async function getuserinfo() {
-    const res = await fetch("http://localhost:5000/joboffer/userid", {
-      method: "PUT",
-      headers: { token: localStorage.token }
-    });
-    
-    const info = await res.json();
-    setIsowner(info);
-  }
-
-  getcompanyinfo();
-
 
   const [jobid, setJobid] = useState("");
 // LOGOUT BUTTON
@@ -116,17 +87,21 @@ const Feed = ({ setAuth }) => {
 // function liked jobs
 // request staat in server/routes/likedjobs
 // Star button likedjob toevoegd
+
+
+
 async function likePost(id){
   try {
-    const body = { id };
-    const res = await fetch("http://localhost:5000/likedjobs/likedjoboffer/", {
+    const res = await fetch(`http://localhost:5000/likedjobs/${id}`, {
       method: "POST",
-      body : JSON.stringify(body)
+      headers : {
+        token: localStorage.token
+      }
     });
 
     const response = await res.json();
-  } catch (error) {
-    console.error(error.message);
+  } catch (err) {
+    console.error(err.message);
   }
 }
 
