@@ -110,6 +110,7 @@
   flex-direction: row;
   align-items: center;
   z-index: 0;
+  margin-bottom: 1rem;
 }
 
 .delete-vacature-button {
